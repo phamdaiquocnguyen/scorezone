@@ -52,6 +52,8 @@ The goal was to find a balance between **rich football content** and **fast info
 
 ## 3. J.LEAGUE
 
+![LaLiga](../../assets/screenshots/jleague.png)
+
 ### What was studied
 
 The analysis focused on:
@@ -85,6 +87,8 @@ ScoreZone therefore aims to provide multiple types of football information while
 ---
 
 ## 4. UEFA Champions League
+
+![LaLiga](../../assets/screenshots/uefa.jpg)
 
 ### What was studied
 
@@ -120,6 +124,8 @@ ScoreZone keeps the sports visual language while using clearer grouping and shor
 ---
 
 ## 5. LaLiga
+
+![LaLiga](../../assets/screenshots/laliga.png)
 
 ### What was studied
 
