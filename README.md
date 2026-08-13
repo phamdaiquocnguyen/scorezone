@@ -88,6 +88,8 @@ The original design process was based on an online survey with **79 respondents*
 
 The research also informed the use of a blue visual direction, Hero Banner layout, clear typography, and restrained animation.
 
+For details, see [User Survey](docs/research/survey.md).
+
 ---
 
 ## 🎨 Design
