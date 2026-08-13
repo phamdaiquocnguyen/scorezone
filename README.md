@@ -2,8 +2,10 @@
 
 > A multi-competition football information platform — from research-driven UI/UX design to front-end implementation.
 
-[![Figma Design](https://img.shields.io/badge/Figma-Design-purple)]([YOUR_FIGMA_LINK](https://www.figma.com/design/kBgMkOeeR3Jgjip1Z3V6QJ/IE106-Nhom12?node-id=0-1&t=yrXtAbZcLh0pV7CO-1))
-[![Prototype](https://img.shields.io/badge/Figma-Prototype-blue)](YOUR_PROTOTYPE_LINK)
+[![Figma Design](https://img.shields.io/badge/Figma-Design-purple)](https://www.figma.com/design/kBgMkOeeR3Jgjip1Z3V6QJ/IE106-Nhom12?node-id=0-1&t=yrXtAbZcLh0pV7CO-1)
+
+[![Figma Prototype](https://img.shields.io/badge/Figma-Prototype-blue)](https://www.figma.com/proto/kBgMkOeeR3Jgjip1Z3V6QJ/IE106-Nhom12?node-id=2262-3324&p=f&t=F1KqQUkYaTC85cvd-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2262%3A3324)
+
 [![Status](https://img.shields.io/badge/Status-In%20Development-orange)](#development-status)
 
 ScoreZone started as an **IE106 – User Interface Design** academic project at UIT and is now being continued as a personal front-end project.
