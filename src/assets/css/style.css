@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8FBFF;
+}
+
+/* ================= HEADER BỐ CỤC CHUNG ================= */
+#header {
+    height: 72px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid #E5E7EB; /* Đường kẻ mỏng ở dưới */
+}
+
+/* ================= TRÁI: LOGO ================= */
+.header-left {
+    flex: 1; /* Chiếm 1 phần không gian để cân bằng 3 cột */
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #003B95;
+    font-size: 24px;
+    font-weight: 900;
+    text-decoration: none;
+    font-style: italic;
+    letter-spacing: -0.5px;
+}
+
+.logo-img {
+    height: 48px; /* Tùy chỉnh độ cao logo cho phù hợp với thiết kế */
+    object-fit: contain;
+}
+
+/* ================= GIỮA: NAVIGATION ================= */
+#nav {
+    flex: 2; /* Chiếm nhiều không gian hơn */
+    display: flex;
+    justify-content: center;
+}
+
+#nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa các nút */
+}
+
+#nav li a {
+    color: #2F4C87; /* Màu xanh đậm của chữ */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 999px; /* Hình viên thuốc */
+    transition: all 0.2s ease;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+/* Trạng thái mặc định khi hover */
+#nav li:not(.active) a:hover {
+    background-color: #F0F4FA;
+    color: #003B95;
+}
+
+/* Trạng thái Đang Chọn (Trang chủ) */
+#nav li.active a {
+    background-color: #0046C0; /* Xanh nền đậm */
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 70, 192, 0.2); /* Đổ bóng xanh nhẹ */
+}
+
+/* ================= PHẢI: TÌM KIẾM & USER ================= */
+.header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px; /* Khoảng cách giữa ô tìm kiếm, icon cài đặt và avatar */
+}
+
+/* Ô tìm kiếm */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    height: 40px;
+    width: 240px;
+    padding: 0 40px 0 16px;
+    border: 1px solid #E2E8F0;
+    border-radius: 999px; /* Viền cong tròn */
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+    color: #1E293B;
+    transition: border-color 0.2s;
+}
+
+.search-box input::placeholder {
+    color: #94A3B8;
+}
+
+.search-box input:focus {
+    border-color: #0046C0;
+}
+
+.search-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #64748B;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    color: #0046C0;
+}
+
+/* Icon Cài đặt */
+.icon-btn {
+    color: #1E293B; /* Xám đậm đen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: #F1F5F9;
+    color: #0046C0;
+}
+
+/* Avatar User */
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    background-color: transparent; /* Xóa nền xanh vì icon đã có hình */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Cắt gọn hình vào hình tròn */
+    transition: opacity 0.2s;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-avatar:hover {
+    opacity: 0.85;
+}
