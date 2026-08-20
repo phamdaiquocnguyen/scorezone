@@ -1,0 +1,209 @@
+/* Mặc định trên desktop: Ẩn nút Hamburger */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ẩn sidebar trên desktop vì đã có thanh điều hướng ngang */
+.mobile-sidebar, .sidebar-overlay {
+    display: none;
+}
+
+/* ================= RESPONSIVE (Màn hình nhỏ hơn 992px) ================= */
+@media (max-width: 992px) {
+    #header {
+        padding: 0 20px;
+    }
+
+    .search-box input {
+        width: 180px;
+    }
+}
+
+/* ================= RESPONSIVE (Màn hình nhỏ hơn 768px - MOBILE) ================= */
+@media (max-width: 768px) {
+    
+    #header {
+        padding: 0 16px;
+        position: relative;
+        z-index: 1001; /* Đảm bảo Header luôn đè lên Sidebar */
+        background-color: #FFFFFF;
+        justify-content: space-between;
+    }
+
+    .header-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* Đưa logo ra chính giữa Header */
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+    }
+
+    /* Ẩn chữ Navigation ngang */
+    #nav {
+        display: none;
+    }
+
+    /* Ẩn Cài đặt và Tài khoản ở Header */
+    .icon-btn, .user-avatar {
+        display: none !important;
+    }
+
+    /* Ẩn input của search bar, chỉ giữ icon kính lúp */
+    .search-box input {
+        display: none;
+    }
+    
+    .search-btn {
+        position: static;
+        background: none;
+        padding: 8px;
+    }
+
+    /* Hiện nút Hamburger Menu */
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .logo-img {
+        height: 32px;
+    }
+
+    .header-right {
+        flex: 1;
+        justify-content: flex-end;
+        gap: 0;
+    }
+
+    /* ================= MOBILE SIDEBAR STYLES ================= */
+    .mobile-sidebar, .sidebar-overlay {
+        display: block; /* Hiện lại trên mobile */
+    }
+
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px; /* Ẩn sidebar ở bên trái */
+        width: 280px;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.96); /* Hơi trong suốt một tí */
+        backdrop-filter: blur(8px); /* Hiệu ứng kính mờ */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        transition: left 0.3s ease;
+        z-index: 1000; /* Nằm dưới Header (1001) */
+        padding-top: 80px; /* Chừa không gian cho Header */
+    }
+
+    .mobile-sidebar.open {
+        left: 0; /* Hiện sidebar trượt ra từ trái */
+    }
+
+    .mobile-sidebar ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .mobile-sidebar li {
+        width: 100%;
+    }
+
+    .mobile-sidebar li a {
+        display: block;
+        padding: 14px 24px;
+        color: #2F4C87;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: none; /* Theo thiết kế thường để bình thường thay vì uppercase */
+    }
+
+    /* Dòng phân cách giữa các mục */
+    .mobile-sidebar li.divider {
+        height: 1px;
+        background-color: #E2E8F0;
+        margin: 8px 24px;
+    }
+
+    /* Nút đang Active dạng Viên thuốc (Pill) */
+    .mobile-sidebar li.active a {
+        background-color: #ECF5FF; /* Nền xanh nhạt giống ảnh mockup, hoặc màu đậm */
+        color: #0046C0;
+        border-radius: 999px; /* Pill shape */
+        margin: 0 16px;
+        padding: 12px 20px;
+    }
+
+    /* Lớp phủ màn hình khi hiện sidebar */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .sidebar-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* ================= TRANG CHỦ RESPONSIVE ================= */
+    .home-layout {
+        flex-direction: column;
+        padding: 16px 16px 64px 16px;
+        gap: 16px;
+    }
+
+    .home-sidebar {
+        width: 100%;
+    }
+
+    .hero-banner {
+        height: 360px;
+    }
+
+    .hero-content {
+        padding: 24px;
+        gap: 16px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .match-center {
+        padding: 32px 16px;
+        border-radius: 16px;
+        gap: 24px;
+    }
+
+    .mc-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .mc-header h2 {
+        font-size: 24px;
+    }
+}
