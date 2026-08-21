@@ -185,15 +185,15 @@
 
         <!-- 3. Main Standings Grid Layout (12 Columns) -->
         <div class="standings-grid-layout">
-            <!-- Left Column: Standings Table Card (8 Columns) -->
+            <!-- Left Column: Standings Table Card (8 Columns) (Figma Node 1144:2964) -->
             <div class="standings-main-col">
-                <!-- VIEW 1: PREMIER LEAGUE TABLE (Figma Node 65:6 & 1144:3016) -->
+                <!-- VIEW 1: PREMIER LEAGUE TABLE -->
                 <div class="standings-card" id="tablePremierView">
                     <div class="standings-table-responsive">
                         <table class="standings-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 32px;">#</th>
+                                    <th class="col-rank-head">#</th>
                                     <th class="col-team">ĐỘI BÓNG</th>
                                     <th>ST</th>
                                     <th>T</th>
@@ -203,22 +203,20 @@
                                     <th>BB</th>
                                     <th>HS</th>
                                     <th>Đ</th>
-                                    <th style="width: 100px;">PHONG ĐỘ</th>
-                                    <th style="width: 60px;">TIẾP THEO</th>
+                                    <th style="width: 144px;">PHONG ĐỘ</th>
+                                    <th style="width: 96px;">TIẾP THEO</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- 1. Arsenal (Node 1144:3016) -->
+                                <!-- 1. Arsenal -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-top"></div>
+                                        <div class="indicator-bar bar-direct"></div>
                                         <span>1</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="team-logo">
                                             <span class="team-name">Arsenal</span>
                                         </div>
                                     </td>
@@ -249,14 +247,12 @@
                                 <!-- 2. Man City -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <div class="indicator-bar bar-direct"></div>
                                         <span>2</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="team-logo">
                                             <span class="team-name">Man City</span>
                                         </div>
                                     </td>
@@ -284,17 +280,15 @@
                                     </td>
                                 </tr>
 
-                                <!-- 3. Liverpool -->
-                                <tr>
+                                <!-- 3. Liverpool (Zone Divider Below) -->
+                                <tr class="zone-divider">
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <div class="indicator-bar bar-direct"></div>
                                         <span>3</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool" class="team-logo">
                                             <span class="team-name">Liverpool</span>
                                         </div>
                                     </td>
@@ -325,14 +319,12 @@
                                 <!-- 4. Aston Villa -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-bottom"></div>
+                                        <div class="indicator-bar bar-playoff"></div>
                                         <span>4</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png" alt="Aston Villa" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png" alt="Aston Villa" class="team-logo">
                                             <span class="team-name">Aston Villa</span>
                                         </div>
                                     </td>
@@ -360,17 +352,15 @@
                                     </td>
                                 </tr>
 
-                                <!-- 5. Brighton -->
-                                <tr>
+                                <!-- 5. Brighton (Zone Divider Below) -->
+                                <tr class="zone-divider">
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c2 indicator-single"></div>
+                                        <div class="indicator-bar bar-playoff"></div>
                                         <span>5</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/3b7ce87e23a023abffc92c777b264b89be18eef9.png" alt="Brighton" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/3b7ce87e23a023abffc92c777b264b89be18eef9.png" alt="Brighton" class="team-logo">
                                             <span class="team-name">Brighton</span>
                                         </div>
                                     </td>
@@ -401,14 +391,12 @@
                                 <!-- 6. Chelsea -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-relegation indicator-single"></div>
+                                        <div class="indicator-bar bar-eliminated"></div>
                                         <span>6</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" alt="Chelsea" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" alt="Chelsea" class="team-logo">
                                             <span class="team-name">Chelsea</span>
                                         </div>
                                     </td>
@@ -439,43 +427,43 @@
                         </table>
                     </div>
 
-                    <!-- Footer Legend for Premier League -->
+                    <!-- Footer Legend (Figma Node 1144:3252) -->
                     <div class="standings-legend">
-                        <div class="legend-indicators">
-                            <div class="legend-item">
-                                <span class="legend-dot c1"></span>
-                                <span>SUẤT DỰ C1</span>
+                        <div class="legend-zone-row">
+                            <div class="legend-zone-item">
+                                <span class="legend-dot dot-direct"></span>
+                                <span class="legend-zone-label">VÀO THẲNG</span>
                             </div>
-                            <div class="legend-item">
-                                <span class="legend-dot c2"></span>
-                                <span>SUẤT DỰ C2</span>
+                            <div class="legend-zone-item">
+                                <span class="legend-dot dot-playoff"></span>
+                                <span class="legend-zone-label">PLAY-OFF</span>
                             </div>
-                            <div class="legend-item">
-                                <span class="legend-dot relegation"></span>
-                                <span>XUỐNG HẠNG</span>
+                            <div class="legend-zone-item">
+                                <span class="legend-dot dot-eliminated"></span>
+                                <span class="legend-zone-label">BỊ LOẠI</span>
                             </div>
                         </div>
 
-                        <div class="legend-glossary">
-                            <span><strong>ST:</strong> SỐ TRẬN</span>
-                            <span><strong>T:</strong> THẮNG</span>
-                            <span><strong>H:</strong> HÒA</span>
-                            <span><strong>B:</strong> BẠI</span>
-                            <span><strong>BT:</strong> BÀN THẮNG</span>
-                            <span><strong>BB:</strong> BÀN THUA</span>
-                            <span><strong>HS:</strong> HIỆU SỐ</span>
-                            <span><strong>Đ:</strong> ĐIỂM</span>
+                        <div class="legend-abbr-row">
+                            <div class="legend-abbr-item"><span class="abbr-key">ST:</span> <span class="abbr-desc">SỐ TRẬN</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">T:</span> <span class="abbr-desc">THẮNG</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">H:</span> <span class="abbr-desc">HÒA</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">B:</span> <span class="abbr-desc">BẠI</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">BT:</span> <span class="abbr-desc">BÀN THẮNG</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">BB:</span> <span class="abbr-desc">BÀN THUA</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">HS:</span> <span class="abbr-desc">HIỆU SỐ</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">Đ:</span> <span class="abbr-desc">ĐIỂM</span></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- VIEW 2: UEFA CHAMPIONS LEAGUE TABLE (Figma Node 1144:2922 & 1144:3016) -->
+                <!-- VIEW 2: UEFA CHAMPIONS LEAGUE TABLE (Figma Node 1144:2964) -->
                 <div class="standings-card" id="tableUefaView" style="display: none;">
                     <div class="standings-table-responsive">
                         <table class="standings-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 32px;">#</th>
+                                    <th class="col-rank-head">#</th>
                                     <th class="col-team">ĐỘI BÓNG</th>
                                     <th>ST</th>
                                     <th>T</th>
@@ -485,22 +473,20 @@
                                     <th>BB</th>
                                     <th>HS</th>
                                     <th>Đ</th>
-                                    <th style="width: 100px;">PHONG ĐỘ</th>
-                                    <th style="width: 60px;">TIẾP THEO</th>
+                                    <th style="width: 144px;">PHONG ĐỘ</th>
+                                    <th style="width: 96px;">TIẾP THEO</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- 1. Arsenal (Node 1144:3016) -->
+                                <!-- 1. Arsenal -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-top"></div>
+                                        <div class="indicator-bar bar-direct"></div>
                                         <span>1</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="team-logo">
                                             <span class="team-name">Arsenal</span>
                                         </div>
                                     </td>
@@ -531,14 +517,12 @@
                                 <!-- 2. Man City -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <div class="indicator-bar bar-direct"></div>
                                         <span>2</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="team-logo">
                                             <span class="team-name">Man City</span>
                                         </div>
                                     </td>
@@ -566,17 +550,15 @@
                                     </td>
                                 </tr>
 
-                                <!-- 3. Liverpool -->
-                                <tr>
+                                <!-- 3. Liverpool (Zone Divider Below) -->
+                                <tr class="zone-divider">
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <div class="indicator-bar bar-direct"></div>
                                         <span>3</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool" class="team-logo">
                                             <span class="team-name">Liverpool</span>
                                         </div>
                                     </td>
@@ -607,14 +589,12 @@
                                 <!-- 4. Aston Villa -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <div class="indicator-bar bar-playoff"></div>
                                         <span>4</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png" alt="Aston Villa" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png" alt="Aston Villa" class="team-logo">
                                             <span class="team-name">Aston Villa</span>
                                         </div>
                                     </td>
@@ -642,17 +622,15 @@
                                     </td>
                                 </tr>
 
-                                <!-- 5. Brighton -->
-                                <tr>
+                                <!-- 5. Brighton (Zone Divider Below) -->
+                                <tr class="zone-divider">
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-c1 indicator-bottom"></div>
+                                        <div class="indicator-bar bar-playoff"></div>
                                         <span>5</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/3b7ce87e23a023abffc92c777b264b89be18eef9.png" alt="Brighton" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/3b7ce87e23a023abffc92c777b264b89be18eef9.png" alt="Brighton" class="team-logo">
                                             <span class="team-name">Brighton</span>
                                         </div>
                                     </td>
@@ -683,14 +661,12 @@
                                 <!-- 6. Chelsea -->
                                 <tr>
                                     <td class="col-rank">
-                                        <div class="indicator-bar indicator-relegation indicator-single"></div>
+                                        <div class="indicator-bar bar-eliminated"></div>
                                         <span>6</span>
                                     </td>
                                     <td>
                                         <div class="team-cell">
-                                            <div class="team-logo-bg">
-                                                <img src="./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" alt="Chelsea" class="team-logo">
-                                            </div>
+                                            <img src="./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" alt="Chelsea" class="team-logo">
                                             <span class="team-name">Chelsea</span>
                                         </div>
                                     </td>
@@ -721,32 +697,32 @@
                         </table>
                     </div>
 
-                    <!-- Footer Legend for UEFA Champions League -->
+                    <!-- Footer Legend (Figma Node 1144:3252) -->
                     <div class="standings-legend">
-                        <div class="legend-indicators">
-                            <div class="legend-item">
-                                <span class="legend-dot c1"></span>
-                                <span>VÀO THẲNG</span>
+                        <div class="legend-zone-row">
+                            <div class="legend-zone-item">
+                                <span class="legend-dot dot-direct"></span>
+                                <span class="legend-zone-label">VÀO THẲNG</span>
                             </div>
-                            <div class="legend-item">
-                                <span class="legend-dot c2"></span>
-                                <span>PLAY-OFF</span>
+                            <div class="legend-zone-item">
+                                <span class="legend-dot dot-playoff"></span>
+                                <span class="legend-zone-label">PLAY-OFF</span>
                             </div>
-                            <div class="legend-item">
-                                <span class="legend-dot relegation"></span>
-                                <span>BỊ LOẠI</span>
+                            <div class="legend-zone-item">
+                                <span class="legend-dot dot-eliminated"></span>
+                                <span class="legend-zone-label">BỊ LOẠI</span>
                             </div>
                         </div>
 
-                        <div class="legend-glossary">
-                            <span><strong>ST:</strong> SỐ TRẬN</span>
-                            <span><strong>T:</strong> THẮNG</span>
-                            <span><strong>H:</strong> HÒA</span>
-                            <span><strong>B:</strong> BẠI</span>
-                            <span><strong>BT:</strong> BÀN THẮNG</span>
-                            <span><strong>BB:</strong> BÀN THUA</span>
-                            <span><strong>HS:</strong> HIỆU SỐ</span>
-                            <span><strong>Đ:</strong> ĐIỂM</span>
+                        <div class="legend-abbr-row">
+                            <div class="legend-abbr-item"><span class="abbr-key">ST:</span> <span class="abbr-desc">SỐ TRẬN</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">T:</span> <span class="abbr-desc">THẮNG</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">H:</span> <span class="abbr-desc">HÒA</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">B:</span> <span class="abbr-desc">BẠI</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">BT:</span> <span class="abbr-desc">BÀN THẮNG</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">BB:</span> <span class="abbr-desc">BÀN THUA</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">HS:</span> <span class="abbr-desc">HIỆU SỐ</span></div>
+                            <div class="legend-abbr-item"><span class="abbr-key">Đ:</span> <span class="abbr-desc">ĐIỂM</span></div>
                         </div>
                     </div>
                 </div>

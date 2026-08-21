@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScoreZone - UEFA Champions League</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 <body>
 
     <!-- ================= HEADER ================= -->
     <header id="header">
-        <!-- Trái: Logo & Mobile Hamburger -->
+        <!-- Trái: Logo -->
         <div class="header-left">
-            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Mở menu">
-                <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-                <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-
             <a href="index.html" class="logo">
                 <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
             </a>
@@ -33,11 +20,11 @@
         <!-- Giữa: Navigation -->
         <nav id="nav">
             <ul>
-                <li class="active"><a href="index.html">Trang chủ</a></li>
-                <li><a href="#">Giải đấu</a></li>
-                <li><a href="#">Tin tức</a></li>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li class="active"><a href="./uefa.html">Giải đấu</a></li>
+                <li><a href="./news.html">Tin tức</a></li>
                 <li><a href="#">Lịch & Kết quả</a></li>
-                <li><a href="#">Bảng xếp hạng</a></li>
+                <li><a href="./standings.html">Bảng xếp hạng</a></li>
             </ul>
         </nav>
 
@@ -132,7 +119,7 @@
             </div>
 
             <a href="#" class="user-avatar" aria-label="Tài khoản">
-                <img src="./assets/css/icons/user-icon.svg" alt="User">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
             </a>
         </div>
     </header>
@@ -1002,22 +989,7 @@
         </div>
     </div>
 
-    <!-- ================= MOBILE SIDEBAR MENU ================= -->
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <ul>
-            <li class="active"><a href="#">Trang chủ</a></li>
-            <li><a href="#">Giải đấu</a></li>
-            <li><a href="#">Tin tức</a></li>
-            <li><a href="#">Lịch & Kết quả</a></li>
-            <li><a href="#">Bảng xếp hạng</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Cài đặt</a></li>
-            <li><a href="#">Tài khoản</a></li>
-        </ul>
-    </div>
     
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
     <!-- ================= MODAL 2: CÀI ĐẶT COOKIE ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
@@ -1114,28 +1086,7 @@
     </div>
 
     <script>
-        // Hamburger Menu Toggle
-        const hamburgerBtn = document.getElementById('hamburgerMenu');
-        const iconMenu = document.querySelector('.icon-menu');
-        const iconClose = document.querySelector('.icon-close');
-        const mobileSidebar = document.getElementById('mobileSidebar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleMenu() {
-            const isOpen = mobileSidebar.classList.toggle('open');
-            sidebarOverlay.classList.toggle('show');
-            
-            if (isOpen) {
-                iconMenu.style.display = 'none';
-                iconClose.style.display = 'block';
-            } else {
-                iconMenu.style.display = 'block';
-                iconClose.style.display = 'none';
-            }
-        }
-
-        if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleMenu);
-        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
+        
 
         // Back to top
         const backToTopBtn = document.getElementById('backToTop');

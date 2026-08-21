@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức Bóng Đá - ScoreZone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="news-page-body">
+
+    <!-- ================= HEADER ================= -->
+    <header id="header">
+        <!-- Trái: Logo -->
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Giữa: Navigation -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li class="active"><a href="./news.html">Tin tức</a></li>
+                <li><a href="#">Lịch & Kết quả</a></li>
+                <li><a href="./standings.html">Bảng xếp hạng</a></li>
+            </ul>
+        </nav>
+
+        <!-- Phải: Tìm kiếm & User -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <button class="search-btn" aria-label="Tìm kiếm">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search">
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="user-avatar" aria-label="Tài khoản">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN NEWS CONTENT ================= -->
+    <main class="news-page-container">
+        <!-- 1. Breadcrumb & Page Heading -->
+        <section class="news-header-section">
+            <nav class="news-breadcrumb" aria-label="Breadcrumb">
+                <a href="./index.html">TRANG CHỦ</a>
+                <div class="news-breadcrumb-separator">
+                    <img src="./assets/img/figma/707ce7f85e4efa9eaa326347f435ee74b4663e69.svg" alt=">">
+                </div>
+                <span class="news-breadcrumb-current">TIN TỨC</span>
+            </nav>
+
+            <h1 class="news-page-title">TIN TỨC</h1>
+            <p class="news-page-subtitle">Tin tức bóng đá mới nhất, tường thuật trận đấu và video highlight từ mọi đấu trường.</p>
+        </section>
+
+        <!-- 2. Filters & Search Toolbar -->
+        <section class="news-toolbar" aria-label="Bộ lọc tin tức">
+            <div class="news-filters-group">
+                <button type="button" class="news-filter-chip active" data-filter="all">Tất cả</button>
+                <button type="button" class="news-filter-chip" data-filter="video">Video nổi bật</button>
+
+                <!-- News Filter Popover Wrapper (Figma Node 2305:3855) -->
+                <div class="news-filter-popover-wrapper" id="newsFilterWrapper">
+                    <button type="button" class="btn-news-filter" id="btnToggleFilter" aria-haspopup="dialog" aria-expanded="false">
+                        <img src="./assets/img/figma/9400c8b1a3fe959dbf6723fa60692b58c7deb3a5.svg" alt="Filter">
+                        <span>Lọc</span>
+                        <span class="filter-active-dot" id="filterActiveDot"></span>
+                    </button>
+
+                    <!-- Filter Popup Overlay (Figma Node 2305:3855) -->
+                    <div class="news-filter-popup-overlay" id="filterPopupOverlay" role="dialog" aria-label="Lọc tin tức">
+                        <div class="filter-popup-pointer"></div>
+
+                        <!-- Header -->
+                        <div class="filter-popup-header">
+                            <h2 class="filter-popup-title">Lọc tin tức</h2>
+                            <button type="button" class="filter-popup-close" id="btnCloseFilterPopup" aria-label="Đóng">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#737686" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Content Body -->
+                        <div class="filter-popup-body">
+                            <!-- Section: Giải đấu -->
+                            <div class="filter-section">
+                                <div class="filter-section-title">
+                                    <img src="./assets/img/figma/6738130e999d0a0945ffd7774905cc538df6d0ae.png" alt="Trophy" class="filter-sec-icon">
+                                    <span>Giải đấu</span>
+                                </div>
+                                <div class="filter-options-group" data-filter-group="league">
+                                    <label class="filter-option-item selected" data-value="all">
+                                        <input type="radio" name="filterLeague" value="all" checked>
+                                        <span class="custom-radio"></span>
+                                        <span class="filter-option-text">Tất cả giải đấu</span>
+                                    </label>
+                                    <label class="filter-option-item" data-value="ucl">
+                                        <input type="radio" name="filterLeague" value="ucl">
+                                        <span class="custom-radio"></span>
+                                        <span class="filter-option-text">UEFA Champions League</span>
+                                    </label>
+                                    <label class="filter-option-item" data-value="premier">
+                                        <input type="radio" name="filterLeague" value="premier">
+                                        <span class="custom-radio"></span>
+                                        <span class="filter-option-text">Premier League</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Section: Thời gian đăng -->
+                            <div class="filter-section">
+                                <div class="filter-section-title">
+                                    <img src="./assets/img/figma/4502cb5fac28d4e18c597d28295bdc1f67f70a20.png" alt="Clock" class="filter-sec-icon">
+                                    <span>Thời gian đăng</span>
+                                </div>
+                                <div class="filter-options-group" data-filter-group="time">
+                                    <label class="filter-option-item selected" data-value="all">
+                                        <input type="radio" name="filterTime" value="all" checked>
+                                        <span class="custom-radio"></span>
+                                        <span class="filter-option-text">Mọi thời điểm</span>
+                                    </label>
+                                    <label class="filter-option-item" data-value="today">
+                                        <input type="radio" name="filterTime" value="today">
+                                        <span class="custom-radio"></span>
+                                        <span class="filter-option-text">Hôm nay</span>
+                                    </label>
+                                    <label class="filter-option-item" data-value="week">
+                                        <input type="radio" name="filterTime" value="week">
+                                        <span class="custom-radio"></span>
+                                        <span class="filter-option-text">7 ngày qua</span>
+                                    </label>
+                                    <label class="filter-option-item" data-value="month">
+                                        <input type="radio" name="filterTime" value="month">
+                                        <span class="custom-radio"></span>
+                                        <span class="filter-option-text">Tháng trước</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Actions -->
+                        <div class="filter-popup-footer">
+                            <button type="button" class="btn-filter-reset" id="btnResetFilter">Xóa tất cả</button>
+                            <button type="button" class="btn-filter-apply" id="btnApplyFilter">Áp dụng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-search-sort-group">
+                <div class="news-search-box">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search" class="search-icon">
+                    <input type="text" placeholder="Tìm tin tức..." id="newsSearchInput">
+                </div>
+
+                <!-- Sort Wrapper & Dropdown (Figma Node 2364:5550) -->
+                <div class="news-sort-wrapper" id="newsSortWrapper">
+                    <button type="button" class="news-sort-btn" id="newsSortBtn" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="currentSortLabel">Mới nhất</span>
+                        <img src="./assets/img/figma/106a26d098f024af4ed6939947faafb40bb1d931.svg" alt="Dropdown" class="news-sort-chevron">
+                    </button>
+                    
+                    <!-- Dropdown sx (Figma Node 2364:5550) -->
+                    <div class="news-sort-dropdown" id="newsSortDropdown" role="listbox" aria-label="Sắp xếp tin tức">
+                        <button type="button" class="news-sort-option active" data-sort="newest" role="option" aria-selected="true">
+                            <span>Mới nhất</span>
+                            <img src="./assets/img/figma/f9ec848e79d02873bfc723548909766f86deeaa8.svg" alt="Selected" class="sort-check-icon">
+                        </button>
+                        <button type="button" class="news-sort-option" data-sort="oldest" role="option" aria-selected="false">
+                            <span>Cũ nhất</span>
+                            <img src="./assets/img/figma/f9ec848e79d02873bfc723548909766f86deeaa8.svg" alt="Selected" class="sort-check-icon">
+                        </button>
+                        <button type="button" class="news-sort-option" data-sort="popular" role="option" aria-selected="false">
+                            <span>Phổ biến nhất</span>
+                            <img src="./assets/img/figma/f9ec848e79d02873bfc723548909766f86deeaa8.svg" alt="Selected" class="sort-check-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. News Main Grid Layout - VIEW 1: TẤT CẢ (Node 14:2039) -->
+        <div class="news-grid-layout news-view-section active" id="viewAllNews">
+            <!-- Cột trái (8 columns): Bài viết tiêu điểm & Danh sách bài báo -->
+            <div class="news-main-column">
+                <!-- Large Featured Article (Tiêu điểm lớn) -->
+                <article class="news-featured-card" id="featuredArticle" data-league="ucl" data-time="today" data-timestamp="1713600000" data-views="18500">
+                    <div class="nfc-image-wrap">
+                        <img src="./assets/img/figma/28b2a3554551d9f87631bd726620e4342f01a996.png" alt="UEFA Youth League trophy">
+                    </div>
+                    <div class="nfc-content">
+                        <div class="nfc-meta">
+                            <span class="nfc-tag">UEFA CHAMPIONS LEAGUE</span>
+                            <span class="nfc-dot"></span>
+                            <span class="nfc-time">15 PHÚT TRƯỚC</span>
+                        </div>
+                        <h2 class="nfc-title">Real Madrid chạm trán Club Brugge ở chung kết Youth League</h2>
+                        <p class="nfc-desc">Club Brugge đấu với Real Madrid vào năm 2026 Giải trẻ UEFA trận chung kết tại Stade de la Tuilière, Lausanne, vào thứ Hai ngày 20 tháng 4.</p>
+                    </div>
+                </article>
+
+                <!-- Vertical Article Cards (Danh sách bài viết) -->
+                <div class="news-articles-list" id="newsArticlesList">
+                    <!-- Article 1: AC Milan -->
+                    <article class="news-article-card" data-league="seriea" data-category="highlights" data-type="video" data-time="today" data-timestamp="1713580000" data-views="8200">
+                        <div class="nac-thumb-wrap">
+                            <img src="./assets/img/figma/d981fc48a78841fa2ed38f7ad83b19ded31fa88a.png" alt="AC Milan vs Inter Milan">
+                        </div>
+                        <div class="nac-content">
+                            <span class="nac-tag">HIGHLIGHTS</span>
+                            <h3 class="nac-title">AC Milan 1-0 Inter Milan | Highlights Serie A</h3>
+                            <p class="nac-desc">Một đêm nghẹt thở tại San Siro khi bàn thắng duy nhất ở hiệp hai đã định đoạt số phận trận Derby thành Milan.</p>
+                            <span class="nac-time">5 GIỜ TRƯỚC</span>
+                        </div>
+                    </article>
+
+                    <!-- Article 2: Premier League -->
+                    <article class="news-article-card" data-league="premier" data-category="premier" data-type="editorial" data-time="today" data-timestamp="1713590000" data-views="15600">
+                        <div class="nac-thumb-wrap">
+                            <img src="./assets/img/figma/793e28b24137f55555dd4b4e96fc667cd2e05abb.png" alt="Premier League Highlights">
+                        </div>
+                        <div class="nac-content">
+                            <span class="nac-tag">PREMIER LEAGUE</span>
+                            <h3 class="nac-title">Ryan Kavuma-McQueen giành giải Cầu thủ xuất sắc nhất tháng 3 tại PL2</h3>
+                            <p class="nac-desc">Tài năng trẻ xuất sắc tiếp tục tỏa sáng rực rỡ với chuỗi phong độ ấn tượng trong màu áo U21 tại giải Ngoại Hạng Anh.</p>
+                            <span class="nac-time">3 GIỜ TRƯỚC</span>
+                        </div>
+                    </article>
+
+                    <!-- Article 3: LALIGA Experience -->
+                    <article class="news-article-card" data-league="laliga" data-category="laliga" data-type="editorial" data-time="today" data-timestamp="1713570000" data-views="4300">
+                        <div class="nac-thumb-wrap">
+                            <img src="./assets/img/figma/b4a618fd1f1179a5e083a574ede041595c2656e7.png" alt="LALIGA EXPERIENCE">
+                        </div>
+                        <div class="nac-content">
+                            <span class="nac-tag">TRẢI NGHIỆM LALIGA</span>
+                            <h3 class="nac-title">LALIGA EXPERIENCE thắp sáng Mallorca bằng một đêm đầy kịch tính trước Real Madrid</h3>
+                            <p class="nac-desc">Đội bóng xứ đảo Mallorca đã tạo nên một cơn địa chấn thực sự khi cầm chân dàn sao của Real Madrid.</p>
+                            <span class="nac-time">5 GIỜ TRƯỚC</span>
+                        </div>
+                    </article>
+
+                    <!-- Article 4: Bán kết Champions League -->
+                    <article class="news-article-card" data-league="ucl" data-category="ucl" data-type="editorial" data-time="week" data-timestamp="1713400000" data-views="12100">
+                        <div class="nac-thumb-wrap">
+                            <img src="./assets/img/figma/f7503c207028841cbaa9a12d2885ac78052b1b74.png" alt="Bán kết Champions League">
+                        </div>
+                        <div class="nac-content">
+                            <span class="nac-tag">TRẬN ĐẤU</span>
+                            <h3 class="nac-title">Bán kết Champions League: Thành tích đối đầu với tất cả các đối thủ trong tương lai</h3>
+                            <p class="nac-desc">Phân tích chuyên sâu về sức mạnh của các ứng cử viên vô địch và cái nhìn toàn cảnh về lịch sử đối đầu.</p>
+                            <span class="nac-time">HÔM QUA</span>
+                        </div>
+                    </article>
+
+                    <!-- Article 5: Chelsea Premier League -->
+                    <article class="news-article-card" data-league="premier" data-category="premier" data-type="editorial" data-time="week" data-timestamp="1713100000" data-views="9400">
+                        <div class="nac-thumb-wrap">
+                            <img src="./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" alt="Chelsea Premier League">
+                        </div>
+                        <div class="nac-content">
+                            <span class="nac-tag">PREMIER LEAGUE</span>
+                            <h3 class="nac-title">Chelsea hồi sinh mạnh mẽ với chuỗi trận bất bại tại Premier League</h3>
+                            <p class="nac-desc">Lối chơi tấn công thanh thoát và sự vững chắc nơi hàng thủ giúp The Blues tiến gần hơn tới nhóm dự cúp châu Âu.</p>
+                            <span class="nac-time">5 NGÀY TRƯỚC</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Cột phải (4 columns): Sidebar (Tin Nóng & Video Nổi Bật) -->
+            <aside class="news-sidebar-column">
+                <!-- 1. TIN NÓNG (Breaking News Card) -->
+                <div class="breaking-news-card">
+                    <div class="bnc-header">
+                        <div class="bnc-title-wrap">
+                            <h3 class="bnc-title">TIN NÓNG</h3>
+                        </div>
+                        <div class="bnc-pulse-dot" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="bnc-list">
+                        <!-- Item 1 -->
+                        <a href="#" class="bnc-item">
+                            <span class="bnc-category">GIẢI THƯỞNG</span>
+                            <p class="bnc-headline">Ryan Kavuma-McQueen giành giải Cầu thủ xuất sắc nhất tháng 3 tại PL2</p>
+                        </a>
+
+                        <!-- Item 2 -->
+                        <a href="#" class="bnc-item">
+                            <span class="bnc-category">XÁC NHẬN</span>
+                            <p class="bnc-headline">Đánh giá từ VAR thay đổi cách nhận định lỗi chạm tay trong vòng cấm kể từ mùa giải tới</p>
+                        </a>
+
+                        <!-- Item 3 -->
+                        <a href="#" class="bnc-item">
+                            <span class="bnc-category">TÌNH HÌNH CHẤN THƯƠNG</span>
+                            <p class="bnc-headline">Tiền đạo trụ cột phải ngồi ngoài trong vòng sáu tuần do gặp vấn đề về cơ gân kheo</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. VIDEO NỔI BẬT (Video Highlight Block) -->
+                <div class="sidebar-video-block">
+                    <div class="svb-header">
+                        <h4>VIDEO NỔI BẬT</h4>
+                    </div>
+
+                    <div class="svb-card" id="sidebarVideoCard">
+                        <img src="./assets/img/figma/742ff47fd01e490ba7692a432e3c90ff9550fd53.png" alt="Video Thumbnail" class="svb-thumb">
+                        <div class="svb-play-circle">
+                            <img src="./assets/img/figma/db8cbdcd12a46099d58387f4e49d245206818d2d.svg" alt="Play">
+                        </div>
+                        <div class="svb-caption">
+                            <p>Champions League: Liverpool 0-2 Paris</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 4. News Main Grid Layout - VIEW 2: VIDEO NỔI BẬT (Node 1549:3742) -->
+        <div class="news-grid-layout news-view-section" id="viewVideoHighlights">
+            <!-- Cột trái (8 columns): Featured Video Hero & 2x2 Video Cards Grid -->
+            <div class="news-main-column">
+                <!-- Large Featured Video Hero Card -->
+                <article class="video-featured-hero" id="videoFeaturedHero" 
+                         data-league="ucl"
+                         data-time="today"
+                         data-timestamp="1713600000"
+                         data-views="28500"
+                         data-video="./assets/video/goal-vinicius-33.mp4" 
+                         data-poster="./assets/img/figma/15ffaf00103d5b8401314f4e24e0c774bbf7ebea.png"
+                         data-title="Điểm tin nổi bật Champions League: Liverpool 0-2 Paris"
+                         data-desc="Xem lại những diễn biến kịch tính nhất từ vòng đấu đầy bất ngờ với cơn mưa bàn thắng và những pha cứu thua xuất thần.">
+                    <img src="./assets/img/figma/15ffaf00103d5b8401314f4e24e0c774bbf7ebea.png" alt="Champions League Liverpool vs Paris" class="vfh-bg-img">
+                    <div class="vfh-gradient-overlay"></div>
+                    
+                    <div class="vfh-duration-badge">
+                        <img src="./assets/img/figma/f899003dc6b569bb8df0dadb8438fe2d0424dc65.svg" alt="Duration">
+                        <span>00:25</span>
+                    </div>
+
+                    <div class="vfh-play-overlay">
+                        <div class="vfh-play-circle">
+                            <img src="./assets/img/figma/afb03f1440a0f1dadfc474b8389482043b319053.svg" alt="Play">
+                        </div>
+                    </div>
+
+                    <div class="vfh-content">
+                        <div class="vfh-meta-row">
+                            <span class="vfh-tag">UEFA CHAMPIONS LEAGUE</span>
+                            <span class="vfh-time">2 GIỜ TRƯỚC</span>
+                        </div>
+                        <h2 class="vfh-title">Điểm tin nổi bật Champions League: Liverpool 0-2 Paris</h2>
+                        <p class="vfh-desc">Xem lại những diễn biến kịch tính nhất từ vòng đấu đầy bất ngờ với cơn mưa bàn thắng và những pha cứu thua xuất thần.</p>
+                    </div>
+                </article>
+
+                <!-- 2x2 Video Cards Grid (Highlight Items) -->
+                <div class="video-cards-grid" id="videoCardsGrid">
+                    <!-- Video Card 1: PSG vs Nantes -->
+                    <div class="video-card-item" data-league="ligue 1" data-time="today" data-timestamp="1713580000" data-views="11200"
+                         data-video="./assets/video/goal-vinicius-33.mp4" 
+                         data-poster="./assets/img/figma/2fde78eb9533ac960f3544c6fb105fb10da61e16.png"
+                         data-title="Paris Saint-Germain - FC Nantes - (3 - 0)"
+                         data-desc="Những pha phối hợp mãn nhãn mang về chiến thắng đậm đà 3-0 cho đội bóng thủ đô Paris.">
+                        <div class="vci-thumb-wrap">
+                            <img src="./assets/img/figma/2fde78eb9533ac960f3544c6fb105fb10da61e16.png" alt="PSG vs FC Nantes" class="vci-thumb">
+                            <div class="vci-play-overlay">
+                                <div class="vci-play-circle">
+                                    <img src="./assets/img/figma/2fe27859ec99ddbb67fd4ba7e93362bd8c730a10.svg" alt="Play">
+                                </div>
+                            </div>
+                            <span class="vci-duration">04:20</span>
+                        </div>
+                        <div class="vci-content">
+                            <span class="vci-tag">HIGHLIGHTS</span>
+                            <h3 class="vci-title">Paris Saint-Germain - FC Nantes - (3 - 0)</h3>
+                            <div class="vci-meta">
+                                <span class="vci-league">Ligue 1</span>
+                                <span class="vci-dot">•</span>
+                                <span class="vci-time">Hôm nay</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2: Premier League Spurs vs Leeds -->
+                    <div class="video-card-item" data-league="premier" data-time="today" data-timestamp="1713590000" data-views="22400"
+                         data-video="./assets/video/goal-rodrygo-12.mp4" 
+                         data-poster="./assets/img/figma/c771242ff296011bea00749fb26cf2536c537e66.png"
+                         data-title="Spurs 1-1 Leeds United | Premier League Highlights"
+                         data-desc="Kịch tính đến những phút bù giờ cuối cùng trong màn so tài đỉnh cao tại giải Ngoại Hạng Anh.">
+                        <div class="vci-thumb-wrap">
+                            <img src="./assets/img/figma/c771242ff296011bea00749fb26cf2536c537e66.png" alt="Spurs vs Leeds United" class="vci-thumb">
+                            <div class="vci-play-overlay">
+                                <div class="vci-play-circle">
+                                    <img src="./assets/img/figma/2fe27859ec99ddbb67fd4ba7e93362bd8c730a10.svg" alt="Play">
+                                </div>
+                            </div>
+                            <span class="vci-duration">00:25</span>
+                        </div>
+                        <div class="vci-content">
+                            <span class="vci-tag">HIGHLIGHTS</span>
+                            <h3 class="vci-title">Spurs 1-1 Leeds United | Premier League Highlights</h3>
+                            <div class="vci-meta">
+                                <span class="vci-league">Premier League</span>
+                                <span class="vci-dot">•</span>
+                                <span class="vci-time">4 giờ trước</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3: AC Milan vs Inter Milan -->
+                    <div class="video-card-item" data-league="serie a" data-time="week" data-timestamp="1713300000" data-views="14500"
+                         data-video="./assets/video/goal-rodrygo-12.mp4" 
+                         data-poster="./assets/img/figma/d981fc48a78841fa2ed38f7ad83b19ded31fa88a.png"
+                         data-title="AC Milan 1-0 Inter Milan"
+                         data-desc="Trận Derby della Madonnina nảy lửa với bàn thắng duy nhất quyết định chiến thắng cho AC Milan.">
+                        <div class="vci-thumb-wrap">
+                            <img src="./assets/img/figma/d981fc48a78841fa2ed38f7ad83b19ded31fa88a.png" alt="AC Milan vs Inter Milan" class="vci-thumb">
+                            <div class="vci-play-overlay">
+                                <div class="vci-play-circle">
+                                    <img src="./assets/img/figma/2fe27859ec99ddbb67fd4ba7e93362bd8c730a10.svg" alt="Play">
+                                </div>
+                            </div>
+                            <span class="vci-duration">12:15</span>
+                        </div>
+                        <div class="vci-content">
+                            <span class="vci-tag">HIGHLIGHTS</span>
+                            <h3 class="vci-title">AC Milan 1-0 Inter Milan</h3>
+                            <div class="vci-meta">
+                                <span class="vci-league">Serie A</span>
+                                <span class="vci-dot">•</span>
+                                <span class="vci-time">3 ngày trước</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4: Real Madrid vs Espanyol -->
+                    <div class="video-card-item" data-league="laliga" data-time="week" data-timestamp="1713200000" data-views="19800"
+                         data-video="./assets/video/goal-vinicius-33.mp4" 
+                         data-poster="./assets/img/figma/e669ed9c7c5e50f52e11438d32e8cecf6e9c5582.png"
+                         data-title="Real Madrid 4-1 Espanyol | LaLiga 2024/25"
+                         data-desc="Màn ngược dòng tưng bừng với 4 bàn thắng đẳng cấp của các ngôi sao Real Madrid tại Bernabéu.">
+                        <div class="vci-thumb-wrap">
+                            <img src="./assets/img/figma/e669ed9c7c5e50f52e11438d32e8cecf6e9c5582.png" alt="Real Madrid 4-1 Espanyol" class="vci-thumb">
+                            <div class="vci-play-overlay">
+                                <div class="vci-play-circle">
+                                    <img src="./assets/img/figma/2fe27859ec99ddbb67fd4ba7e93362bd8c730a10.svg" alt="Play">
+                                </div>
+                            </div>
+                            <span class="vci-duration">08:30</span>
+                        </div>
+                        <div class="vci-content">
+                            <span class="vci-tag">HIGHLIGHTS</span>
+                            <h3 class="vci-title">Real Madrid 4-1 Espanyol | LaLiga 2024/25</h3>
+                            <div class="vci-meta">
+                                <span class="vci-league">LaLiga</span>
+                                <span class="vci-dot">•</span>
+                                <span class="vci-time">4 ngày trước</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 5: Juventus vs Napoli -->
+                    <div class="video-card-item" data-league="serie a" data-time="week" data-timestamp="1713100000" data-views="7600"
+                         data-video="./assets/video/goal-rodrygo-12.mp4" 
+                         data-poster="./assets/img/figma/0df6f4e4e3ad53d1f35fb80d77e83401adf8a8d5.png"
+                         data-title="Juventus 0-2 Napoli"
+                         data-desc="Napoli thể hiện bản lĩnh tuyệt đối với chiến thắng 2-0 thuyết phục ngay trên sân khách.">
+                        <div class="vci-thumb-wrap">
+                            <img src="./assets/img/figma/0df6f4e4e3ad53d1f35fb80d77e83401adf8a8d5.png" alt="Juventus 0-2 Napoli" class="vci-thumb">
+                            <div class="vci-play-overlay">
+                                <div class="vci-play-circle">
+                                    <img src="./assets/img/figma/2fe27859ec99ddbb67fd4ba7e93362bd8c730a10.svg" alt="Play">
+                                </div>
+                            </div>
+                            <span class="vci-duration">10:05</span>
+                        </div>
+                        <div class="vci-content">
+                            <span class="vci-tag">HIGHLIGHTS</span>
+                            <h3 class="vci-title">Juventus 0-2 Napoli</h3>
+                            <div class="vci-meta">
+                                <span class="vci-league">Serie A</span>
+                                <span class="vci-dot">•</span>
+                                <span class="vci-time">5 ngày trước</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột phải (4 columns): Sidebar (Top Video theo giải & Chủ đề đang xem) -->
+            <aside class="news-sidebar-column">
+                <!-- 1. Top Video Nổi Bật Theo Giải Đấu -->
+                <div class="sidebar-league-videos-card">
+                    <div class="slvc-header">
+                        <img src="./assets/img/figma/6738130e999d0a0945ffd7774905cc538df6d0ae.png" alt="Trophy" class="slvc-icon">
+                        <h3 class="slvc-title">TOP VIDEO NỔI BẬT THEO GIẢI ĐẤU</h3>
+                    </div>
+
+                    <div class="slvc-list">
+                        <!-- Premier League -->
+                        <div class="slvc-item" data-filter-league="premier league">
+                            <img src="./assets/img/figma/a6ec5f45c519b65d37162fc6afafd836e41572ce.png" alt="Premier League" class="slvc-logo">
+                            <span class="slvc-name">Premier League</span>
+                        </div>
+
+                        <!-- LaLiga -->
+                        <div class="slvc-item" data-filter-league="laliga">
+                            <img src="./assets/img/figma/f5987a6a3503aa53b417f36596c2362f2f386b9c.png" alt="LaLiga" class="slvc-logo">
+                            <span class="slvc-name">LaLiga</span>
+                        </div>
+
+                        <!-- UEFA Champions League -->
+                        <div class="slvc-item" data-filter-league="uefa champions league">
+                            <img src="./assets/img/figma/a94c432b73a986244001ddea807a665b296862d5.png" alt="UEFA Champions League" class="slvc-logo">
+                            <span class="slvc-name">UEFA Champions League</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Chủ Đề Đang Xem (Trending Topics) -->
+                <div class="sidebar-trending-topics-card">
+                    <div class="sttc-header">
+                        <img src="./assets/img/figma/dbe2ada3ce1d910232ae45a105ccdb6a7ad52fb3.png" alt="Trending" class="sttc-icon">
+                        <h3 class="sttc-title">CHỦ ĐỀ ĐANG XEM</h3>
+                    </div>
+
+                    <div class="sttc-chips">
+                        <a href="#" class="sttc-chip" data-topic="chuyển nhượng">#ChuyểnNhượng</a>
+                        <a href="#" class="sttc-chip" data-topic="world cup">#WorldCup</a>
+                        <a href="#" class="sttc-chip" data-topic="ronaldo">#Ronaldo</a>
+                        <a href="#" class="sttc-chip" data-topic="messi">#Messi</a>
+                        <a href="#" class="sttc-chip" data-topic="chiến thuật">#ChiếnThuật</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="./index.html" class="footer-logo">
+                    <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+                </a>
+                <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Điều khoản dịch vụ</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
+                <a href="#">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
+
+    <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
+                    </div>
+                    <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
+                        <span>LUÔN BẬT</span>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        
+
+        // 2. Settings Panel Popover
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && e.target !== settingsBtn) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // 3. Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+            });
+        }
+
+        // 4. Cookie Modal
+        const modalCookieSettings = document.getElementById('modalCookieSettings');
+        const openCookieSettings = document.getElementById('openCookieSettings');
+        const footerCookieSettings = document.getElementById('footerCookieSettings');
+        const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
+        const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
+        const btnCookieSave = document.getElementById('btnCookieSave');
+        const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
+
+        function openCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.add('show');
+            if (settingPanel) settingPanel.classList.remove('show');
+        }
+
+        function closeCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.remove('show');
+        }
+
+        if (openCookieSettings) openCookieSettings.addEventListener('click', openCookieModal);
+        if (footerCookieSettings) {
+            footerCookieSettings.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCookieModal();
+            });
+        }
+        if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
+        if (modalCookieSettings) {
+            modalCookieSettings.addEventListener('click', (e) => {
+                if (e.target === modalCookieSettings) closeCookieModal();
+            });
+        }
+
+        if (btnCookieNecessaryOnly) {
+            btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieAcceptAll) {
+            btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieSave) {
+            btnCookieSave.addEventListener('click', () => {
+                closeCookieModal();
+            });
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (modalCookieSettings && modalCookieSettings.classList.contains('show')) {
+                    closeCookieModal();
+                }
+            }
+        });
+
+        // 6. View Switching (Tất cả vs Video nổi bật)
+        const newsFilterChips = document.querySelectorAll('.news-filter-chip');
+        const viewAllNews = document.getElementById('viewAllNews');
+        const viewVideoHighlights = document.getElementById('viewVideoHighlights');
+        const newsSearchInput = document.getElementById('newsSearchInput');
+        const featuredArticle = document.getElementById('featuredArticle');
+        const newsArticlesList = document.getElementById('newsArticlesList');
+        const newsArticles = Array.from(document.querySelectorAll('.news-article-card'));
+        const videoFeaturedHero = document.getElementById('videoFeaturedHero');
+        const videoCardsGrid = document.getElementById('videoCardsGrid');
+        const videoCards = Array.from(document.querySelectorAll('.video-card-item'));
+        const leagueFilterItems = document.querySelectorAll('.slvc-item');
+        const topicChips = document.querySelectorAll('.sttc-chip');
+
+        let currentActiveView = 'all'; // 'all' or 'video'
+        let currentSort = 'newest'; // 'newest', 'oldest', 'popular'
+        let currentFilterLeague = 'all'; // 'all', 'ucl', 'premier'
+        let currentFilterTime = 'all'; // 'all', 'today', 'week', 'month'
+
+        function switchView(viewName) {
+            currentActiveView = viewName;
+            newsFilterChips.forEach(c => {
+                if (c.getAttribute('data-filter') === viewName) {
+                    c.classList.add('active');
+                } else {
+                    c.classList.remove('active');
+                }
+            });
+
+            if (viewName === 'video') {
+                if (viewAllNews) viewAllNews.classList.remove('active');
+                if (viewVideoHighlights) viewVideoHighlights.classList.add('active');
+                window.location.hash = 'video';
+            } else {
+                if (viewVideoHighlights) viewVideoHighlights.classList.remove('active');
+                if (viewAllNews) viewAllNews.classList.add('active');
+                if (window.location.hash === '#video') {
+                    history.replaceState(null, null, ' ');
+                }
+            }
+            applyAllFiltersAndSort();
+        }
+
+        newsFilterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const filter = chip.getAttribute('data-filter');
+                switchView(filter);
+            });
+        });
+
+        // Check URL hash on load (e.g., news.html#video)
+        if (window.location.hash === '#video') {
+            switchView('video');
+        }
+
+        // ========================================================
+        // 7. FILTER POPUP OVERLAY (Figma Node 2305:3855)
+        // ========================================================
+        const btnToggleFilter = document.getElementById('btnToggleFilter');
+        const filterPopupOverlay = document.getElementById('filterPopupOverlay');
+        const btnCloseFilterPopup = document.getElementById('btnCloseFilterPopup');
+        const btnResetFilter = document.getElementById('btnResetFilter');
+        const btnApplyFilter = document.getElementById('btnApplyFilter');
+        const newsFilterWrapper = document.getElementById('newsFilterWrapper');
+
+        function openFilterPopup() {
+            if (filterPopupOverlay) {
+                filterPopupOverlay.classList.add('show');
+                btnToggleFilter.setAttribute('aria-expanded', 'true');
+                btnToggleFilter.classList.add('active');
+            }
+            // Close sort dropdown if open
+            closeSortDropdown();
+        }
+
+        function closeFilterPopup() {
+            if (filterPopupOverlay) {
+                filterPopupOverlay.classList.remove('show');
+                btnToggleFilter.setAttribute('aria-expanded', 'false');
+                btnToggleFilter.classList.remove('active');
+            }
+        }
+
+        if (btnToggleFilter) {
+            btnToggleFilter.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (filterPopupOverlay && filterPopupOverlay.classList.contains('show')) {
+                    closeFilterPopup();
+                } else {
+                    openFilterPopup();
+                }
+            });
+        }
+
+        if (btnCloseFilterPopup) {
+            btnCloseFilterPopup.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeFilterPopup();
+            });
+        }
+
+        // Option items radio selection
+        const filterOptionItems = document.querySelectorAll('.filter-option-item');
+        filterOptionItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                const group = this.closest('.filter-options-group');
+                if (!group) return;
+
+                // Unselect siblings
+                group.querySelectorAll('.filter-option-item').forEach(sibling => {
+                    sibling.classList.remove('selected');
+                    const radio = sibling.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = false;
+                });
+
+                // Select current
+                this.classList.add('selected');
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio) radio.checked = true;
+            });
+        });
+
+        // Reset Filter ("Xóa tất cả")
+        if (btnResetFilter) {
+            btnResetFilter.addEventListener('click', () => {
+                // Reset all groups to first option
+                document.querySelectorAll('.filter-options-group').forEach(group => {
+                    const items = group.querySelectorAll('.filter-option-item');
+                    items.forEach((item, idx) => {
+                        const radio = item.querySelector('input[type="radio"]');
+                        if (idx === 0) {
+                            item.classList.add('selected');
+                            if (radio) radio.checked = true;
+                        } else {
+                            item.classList.remove('selected');
+                            if (radio) radio.checked = false;
+                        }
+                    });
+                });
+
+                currentFilterLeague = 'all';
+                currentFilterTime = 'all';
+                if (btnToggleFilter) btnToggleFilter.classList.remove('has-filter');
+                applyAllFiltersAndSort();
+                closeFilterPopup();
+            });
+        }
+
+        // Apply Filter ("Áp dụng")
+        if (btnApplyFilter) {
+            btnApplyFilter.addEventListener('click', () => {
+                const selectedLeagueItem = document.querySelector('.filter-options-group[data-filter-group="league"] .filter-option-item.selected');
+                const selectedTimeItem = document.querySelector('.filter-options-group[data-filter-group="time"] .filter-option-item.selected');
+
+                currentFilterLeague = selectedLeagueItem ? selectedLeagueItem.getAttribute('data-value') : 'all';
+                currentFilterTime = selectedTimeItem ? selectedTimeItem.getAttribute('data-value') : 'all';
+
+                const hasActiveFilter = currentFilterLeague !== 'all' || currentFilterTime !== 'all';
+                if (btnToggleFilter) {
+                    if (hasActiveFilter) {
+                        btnToggleFilter.classList.add('has-filter');
+                    } else {
+                        btnToggleFilter.classList.remove('has-filter');
+                    }
+                }
+
+                applyAllFiltersAndSort();
+                closeFilterPopup();
+            });
+        }
+
+        // ========================================================
+        // 8. SORT DROPDOWN (Figma Node 2364:5550)
+        // ========================================================
+        const newsSortBtn = document.getElementById('newsSortBtn');
+        const newsSortDropdown = document.getElementById('newsSortDropdown');
+        const currentSortLabel = document.getElementById('currentSortLabel');
+        const sortOptions = document.querySelectorAll('.news-sort-option');
+        const newsSortWrapper = document.getElementById('newsSortWrapper');
+
+        function openSortDropdown() {
+            if (newsSortDropdown) {
+                newsSortDropdown.classList.add('show');
+                newsSortBtn.setAttribute('aria-expanded', 'true');
+                newsSortBtn.classList.add('active');
+            }
+            // Close filter popup if open
+            closeFilterPopup();
+        }
+
+        function closeSortDropdown() {
+            if (newsSortDropdown) {
+                newsSortDropdown.classList.remove('show');
+                if (newsSortBtn) {
+                    newsSortBtn.setAttribute('aria-expanded', 'false');
+                    newsSortBtn.classList.remove('active');
+                }
+            }
+        }
+
+        if (newsSortBtn) {
+            newsSortBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (newsSortDropdown && newsSortDropdown.classList.contains('show')) {
+                    closeSortDropdown();
+                } else {
+                    openSortDropdown();
+                }
+            });
+        }
+
+        sortOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sortOptions.forEach(o => {
+                    o.classList.remove('active');
+                    o.setAttribute('aria-selected', 'false');
+                });
+                opt.classList.add('active');
+                opt.setAttribute('aria-selected', 'true');
+
+                const sortVal = opt.getAttribute('data-sort');
+                currentSort = sortVal;
+                const labelText = opt.querySelector('span')?.textContent || 'Mới nhất';
+                if (currentSortLabel) currentSortLabel.textContent = labelText;
+
+                closeSortDropdown();
+                applyAllFiltersAndSort();
+            });
+        });
+
+        // Global Outside Click to Close Overlays
+        document.addEventListener('click', (e) => {
+            if (newsFilterWrapper && !newsFilterWrapper.contains(e.target)) {
+                closeFilterPopup();
+            }
+            if (newsSortWrapper && !newsSortWrapper.contains(e.target)) {
+                closeSortDropdown();
+            }
+        });
+
+        // Global Escape Key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeFilterPopup();
+                closeSortDropdown();
+            }
+        });
+
+        // ========================================================
+        // 9. UNIFIED FILTER & SORT ENGINE
+        // ========================================================
+        function applyAllFiltersAndSort() {
+            const query = (newsSearchInput?.value || '').toLowerCase().trim();
+
+            function matchesFilters(card, defaultLeague) {
+                const cardLeague = (card.getAttribute('data-league') || defaultLeague || '').toLowerCase();
+                const cardTime = (card.getAttribute('data-time') || 'today').toLowerCase();
+                const title = (card.querySelector('h2, h3, .nfc-title, .nac-title, .vci-title, .vfh-title')?.textContent || '').toLowerCase();
+                const desc = (card.querySelector('p, .nfc-desc, .nac-desc, .vci-desc, .vfh-desc')?.textContent || '').toLowerCase();
+                const tag = (card.querySelector('.nfc-tag, .nac-tag, .vci-tag, .vfh-tag')?.textContent || '').toLowerCase();
+
+                // 1. Search Query match
+                const matchesQuery = !query || title.includes(query) || desc.includes(query) || tag.includes(query) || cardLeague.includes(query);
+
+                // 2. League Filter match
+                let matchesLeague = true;
+                if (currentFilterLeague !== 'all') {
+                    if (currentFilterLeague === 'ucl') {
+                        matchesLeague = cardLeague.includes('ucl') || cardLeague.includes('champions league') || tag.includes('champions');
+                    } else if (currentFilterLeague === 'premier') {
+                        matchesLeague = cardLeague.includes('premier') || tag.includes('premier');
+                    }
+                }
+
+                // 3. Time Filter match
+                let matchesTime = true;
+                if (currentFilterTime !== 'all') {
+                    matchesTime = cardTime === currentFilterTime;
+                }
+
+                return matchesQuery && matchesLeague && matchesTime;
+            }
+
+            // A. All News View
+            if (currentActiveView === 'all') {
+                // Featured Article
+                if (featuredArticle) {
+                    const showFeatured = matchesFilters(featuredArticle, 'ucl');
+                    featuredArticle.style.display = showFeatured ? 'flex' : 'none';
+                }
+
+                // Filter & Sort list articles
+                const sortedArticles = [...newsArticles].sort((a, b) => {
+                    const timeA = parseInt(a.getAttribute('data-timestamp') || '0', 10);
+                    const timeB = parseInt(b.getAttribute('data-timestamp') || '0', 10);
+                    const viewsA = parseInt(a.getAttribute('data-views') || '0', 10);
+                    const viewsB = parseInt(b.getAttribute('data-views') || '0', 10);
+
+                    if (currentSort === 'oldest') {
+                        return timeA - timeB;
+                    } else if (currentSort === 'popular') {
+                        return viewsB - viewsA;
+                    } else {
+                        // newest
+                        return timeB - timeA;
+                    }
+                });
+
+                // Re-append sorted cards
+                if (newsArticlesList) {
+                    sortedArticles.forEach(card => {
+                        const showCard = matchesFilters(card, card.getAttribute('data-league'));
+                        card.style.display = showCard ? 'flex' : 'none';
+                        newsArticlesList.appendChild(card);
+                    });
+                }
+            }
+
+            // B. Video Highlights View
+            if (currentActiveView === 'video') {
+                if (videoFeaturedHero) {
+                    const showHero = matchesFilters(videoFeaturedHero, 'ucl');
+                    videoFeaturedHero.style.display = showHero ? 'block' : 'none';
+                }
+
+                const sortedVideos = [...videoCards].sort((a, b) => {
+                    const timeA = parseInt(a.getAttribute('data-timestamp') || '0', 10);
+                    const timeB = parseInt(b.getAttribute('data-timestamp') || '0', 10);
+                    const viewsA = parseInt(a.getAttribute('data-views') || '0', 10);
+                    const viewsB = parseInt(b.getAttribute('data-views') || '0', 10);
+
+                    if (currentSort === 'oldest') {
+                        return timeA - timeB;
+                    } else if (currentSort === 'popular') {
+                        return viewsB - viewsA;
+                    } else {
+                        return timeB - timeA;
+                    }
+                });
+
+                if (videoCardsGrid) {
+                    sortedVideos.forEach(card => {
+                        const showCard = matchesFilters(card, card.getAttribute('data-league'));
+                        card.style.display = showCard ? 'flex' : 'none';
+                        videoCardsGrid.appendChild(card);
+                    });
+                }
+            }
+        }
+
+        // Search Input event
+        if (newsSearchInput) {
+            newsSearchInput.addEventListener('input', () => {
+                applyAllFiltersAndSort();
+            });
+        }
+
+        // 10. League Filter in Sidebar
+        let activeSidebarLeagueFilter = null;
+        leagueFilterItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const league = item.getAttribute('data-filter-league');
+                if (activeSidebarLeagueFilter === league) {
+                    activeSidebarLeagueFilter = null;
+                    item.style.backgroundColor = '';
+                    currentFilterLeague = 'all';
+                } else {
+                    activeSidebarLeagueFilter = league;
+                    leagueFilterItems.forEach(l => l.style.backgroundColor = '');
+                    item.style.backgroundColor = '#d5e3fd';
+                    if (league.includes('premier')) currentFilterLeague = 'premier';
+                    else if (league.includes('uefa') || league.includes('champions')) currentFilterLeague = 'ucl';
+                }
+                applyAllFiltersAndSort();
+            });
+        });
+
+        // 11. Topic Hashtags Click
+        topicChips.forEach(chip => {
+            chip.addEventListener('click', (e) => {
+                e.preventDefault();
+                const topic = chip.getAttribute('data-topic');
+                if (newsSearchInput) {
+                    newsSearchInput.value = topic;
+                    applyAllFiltersAndSort();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
