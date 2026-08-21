@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Xếp Hạng - ScoreZone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="standings-page-body">
+
+    <!-- ================= HEADER (DESKTOP) ================= -->
+    <header id="header">
+        <!-- Trái: Logo -->
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Giữa: Navigation -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="#">Lịch & Kết quả</a></li>
+                <li class="active"><a href="./standings.html">Bảng xếp hạng</a></li>
+            </ul>
+        </nav>
+
+        <!-- Phải: Tìm kiếm & User -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <button class="search-btn" aria-label="Tìm kiếm">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search">
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="user-avatar" aria-label="Tài khoản">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN STANDINGS CONTENT ================= -->
+    <main class="standings-page-container">
+        <!-- 1. Breadcrumb & Page Header -->
+        <div class="standings-breadcrumb" aria-label="Breadcrumb">
+            <a href="./index.html">TRANG CHỦ</a>
+            <div class="standings-breadcrumb-separator">
+                <img src="./assets/img/figma/707ce7f85e4efa9eaa326347f435ee74b4663e69.svg" alt=">">
+            </div>
+            <span class="standings-breadcrumb-current">BẢNG XẾP HẠNG</span>
+        </div>
+
+        <section class="standings-header-section">
+            <h1 class="standings-title">BẢNG XẾP HẠNG</h1>
+            <p class="standings-subtitle">Theo dõi thứ hạng, điểm số và phong độ các đội bóng tại những giải đấu hàng đầu châu Âu và thế giới.</p>
+        </section>
+
+        <!-- 2. League Chips & Season Selector Toolbar -->
+        <section class="standings-toolbar" aria-label="Bộ chọn giải đấu và mùa giải">
+            <div class="standings-league-chips">
+                <button type="button" class="standings-chip active" id="chipPremier" data-league="premier">Premier League</button>
+                <button type="button" class="standings-chip" id="chipUefa" data-league="uefa">UEFA Champions League</button>
+            </div>
+
+            <!-- Season Selector Dropdown (Figma Node 1398:2883) -->
+            <div class="season-selector-wrapper" id="seasonSelectorWrapper">
+                <button type="button" class="btn-season-select" id="btnSeasonSelect" aria-haspopup="listbox" aria-expanded="false">
+                    <span id="currentSeasonLabel">Mùa giải 2025/26</span>
+                    <svg class="season-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <!-- Dropdown mùa giải (Figma Node 1398:2883) -->
+                <div class="season-dropdown" id="seasonDropdown" role="listbox" aria-label="Chọn mùa giải">
+                    <button type="button" class="season-option active" data-season="2025/26" role="option" aria-selected="true">
+                        <span>2025/26</span>
+                        <img src="./assets/img/figma/f9ec848e79d02873bfc723548909766f86deeaa8.svg" alt="Selected" class="season-check-icon">
+                    </button>
+                    <button type="button" class="season-option" data-season="2024/25" role="option" aria-selected="false">
+                        <span>2024/25</span>
+                        <img src="./assets/img/figma/f9ec848e79d02873bfc723548909766f86deeaa8.svg" alt="Selected" class="season-check-icon">
+                    </button>
+                    <button type="button" class="season-option" data-season="2023/24" role="option" aria-selected="false">
+                        <span>2023/24</span>
+                        <img src="./assets/img/figma/f9ec848e79d02873bfc723548909766f86deeaa8.svg" alt="Selected" class="season-check-icon">
+                    </button>
+                    <button type="button" class="season-option" data-season="2022/23" role="option" aria-selected="false">
+                        <span>2022/23</span>
+                        <img src="./assets/img/figma/f9ec848e79d02873bfc723548909766f86deeaa8.svg" alt="Selected" class="season-check-icon">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Main Standings Grid Layout (12 Columns) -->
+        <div class="standings-grid-layout">
+            <!-- Left Column: Standings Table Card (8 Columns) -->
+            <div class="standings-main-col">
+                <!-- VIEW 1: PREMIER LEAGUE TABLE (Figma Node 65:6 & 1144:3016) -->
+                <div class="standings-card" id="tablePremierView">
+                    <div class="standings-table-responsive">
+                        <table class="standings-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 32px;">#</th>
+                                    <th class="col-team">ĐỘI BÓNG</th>
+                                    <th>ST</th>
+                                    <th>T</th>
+                                    <th>H</th>
+                                    <th>B</th>
+                                    <th>BT</th>
+                                    <th>BB</th>
+                                    <th>HS</th>
+                                    <th>Đ</th>
+                                    <th style="width: 100px;">PHONG ĐỘ</th>
+                                    <th style="width: 60px;">TIẾP THEO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 1. Arsenal (Node 1144:3016) -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-top"></div>
+                                        <span>1</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Arsenal</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">22</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">5</td>
+                                    <td class="col-stat">64</td>
+                                    <td class="col-stat">26</td>
+                                    <td class="col-gd">38</td>
+                                    <td class="points-cell">73</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/52efbdc706f78f7998c0e022e9f0c6440fcbc4a4.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 2. Man City -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <span>2</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Man City</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">33</td>
+                                    <td class="col-stat">21</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">5</td>
+                                    <td class="col-stat">66</td>
+                                    <td class="col-stat">29</td>
+                                    <td class="col-gd">37</td>
+                                    <td class="points-cell">70</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 3. Liverpool -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <span>3</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Liverpool</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">17</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">10</td>
+                                    <td class="col-stat">57</td>
+                                    <td class="col-stat">44</td>
+                                    <td class="col-gd">13</td>
+                                    <td class="points-cell">58</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 4. Aston Villa -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-bottom"></div>
+                                        <span>4</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png" alt="Aston Villa" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Aston Villa</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">17</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">10</td>
+                                    <td class="col-stat">47</td>
+                                    <td class="col-stat">42</td>
+                                    <td class="col-gd">5</td>
+                                    <td class="points-cell">58</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/e5ef26fdeacc0c73466dbfd402148dd160f8f519.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 5. Brighton -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c2 indicator-single"></div>
+                                        <span>5</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/3b7ce87e23a023abffc92c777b264b89be18eef9.png" alt="Brighton" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Brighton</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">13</td>
+                                    <td class="col-stat">11</td>
+                                    <td class="col-stat">10</td>
+                                    <td class="col-stat">48</td>
+                                    <td class="col-stat">39</td>
+                                    <td class="col-gd">9</td>
+                                    <td class="points-cell">50</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 6. Chelsea -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-relegation indicator-single"></div>
+                                        <span>6</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" alt="Chelsea" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Chelsea</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">14</td>
+                                    <td class="col-stat">6</td>
+                                    <td class="col-stat">14</td>
+                                    <td class="col-stat">52</td>
+                                    <td class="col-stat">48</td>
+                                    <td class="col-gd">4</td>
+                                    <td class="points-cell">48</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/af9b3abab83144007b696c8ad4be882090b42889.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Footer Legend for Premier League -->
+                    <div class="standings-legend">
+                        <div class="legend-indicators">
+                            <div class="legend-item">
+                                <span class="legend-dot c1"></span>
+                                <span>SUẤT DỰ C1</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot c2"></span>
+                                <span>SUẤT DỰ C2</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot relegation"></span>
+                                <span>XUỐNG HẠNG</span>
+                            </div>
+                        </div>
+
+                        <div class="legend-glossary">
+                            <span><strong>ST:</strong> SỐ TRẬN</span>
+                            <span><strong>T:</strong> THẮNG</span>
+                            <span><strong>H:</strong> HÒA</span>
+                            <span><strong>B:</strong> BẠI</span>
+                            <span><strong>BT:</strong> BÀN THẮNG</span>
+                            <span><strong>BB:</strong> BÀN THUA</span>
+                            <span><strong>HS:</strong> HIỆU SỐ</span>
+                            <span><strong>Đ:</strong> ĐIỂM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 2: UEFA CHAMPIONS LEAGUE TABLE (Figma Node 1144:2922 & 1144:3016) -->
+                <div class="standings-card" id="tableUefaView" style="display: none;">
+                    <div class="standings-table-responsive">
+                        <table class="standings-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 32px;">#</th>
+                                    <th class="col-team">ĐỘI BÓNG</th>
+                                    <th>ST</th>
+                                    <th>T</th>
+                                    <th>H</th>
+                                    <th>B</th>
+                                    <th>BT</th>
+                                    <th>BB</th>
+                                    <th>HS</th>
+                                    <th>Đ</th>
+                                    <th style="width: 100px;">PHONG ĐỘ</th>
+                                    <th style="width: 60px;">TIẾP THEO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 1. Arsenal (Node 1144:3016) -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-top"></div>
+                                        <span>1</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Arsenal</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">22</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">5</td>
+                                    <td class="col-stat">64</td>
+                                    <td class="col-stat">26</td>
+                                    <td class="col-gd">38</td>
+                                    <td class="points-cell">73</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/52efbdc706f78f7998c0e022e9f0c6440fcbc4a4.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 2. Man City -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <span>2</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Man City</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">33</td>
+                                    <td class="col-stat">21</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">5</td>
+                                    <td class="col-stat">66</td>
+                                    <td class="col-stat">29</td>
+                                    <td class="col-gd">37</td>
+                                    <td class="points-cell">70</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 3. Liverpool -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <span>3</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Liverpool</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">17</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">10</td>
+                                    <td class="col-stat">57</td>
+                                    <td class="col-stat">44</td>
+                                    <td class="col-gd">13</td>
+                                    <td class="points-cell">58</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 4. Aston Villa -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-mid"></div>
+                                        <span>4</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png" alt="Aston Villa" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Aston Villa</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">17</td>
+                                    <td class="col-stat">7</td>
+                                    <td class="col-stat">10</td>
+                                    <td class="col-stat">47</td>
+                                    <td class="col-stat">42</td>
+                                    <td class="col-gd">5</td>
+                                    <td class="points-cell">58</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/e5ef26fdeacc0c73466dbfd402148dd160f8f519.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 5. Brighton -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-c1 indicator-bottom"></div>
+                                        <span>5</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/3b7ce87e23a023abffc92c777b264b89be18eef9.png" alt="Brighton" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Brighton</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">13</td>
+                                    <td class="col-stat">11</td>
+                                    <td class="col-stat">10</td>
+                                    <td class="col-stat">48</td>
+                                    <td class="col-stat">39</td>
+                                    <td class="col-gd">9</td>
+                                    <td class="points-cell">50</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- 6. Chelsea -->
+                                <tr>
+                                    <td class="col-rank">
+                                        <div class="indicator-bar indicator-relegation indicator-single"></div>
+                                        <span>6</span>
+                                    </td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <div class="team-logo-bg">
+                                                <img src="./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" alt="Chelsea" class="team-logo">
+                                            </div>
+                                            <span class="team-name">Chelsea</span>
+                                        </div>
+                                    </td>
+                                    <td class="col-stat">34</td>
+                                    <td class="col-stat">14</td>
+                                    <td class="col-stat">6</td>
+                                    <td class="col-stat">14</td>
+                                    <td class="col-stat">52</td>
+                                    <td class="col-stat">48</td>
+                                    <td class="col-gd">4</td>
+                                    <td class="points-cell">48</td>
+                                    <td>
+                                        <div class="form-cell">
+                                            <span class="form-badge form-w" title="Thắng">T</span>
+                                            <span class="form-badge form-d" title="Hòa">H</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                            <span class="form-badge form-l" title="Bại">B</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="next-match-wrap">
+                                            <img src="./assets/img/figma/af9b3abab83144007b696c8ad4be882090b42889.png" alt="Opponent" class="next-match-logo">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Footer Legend for UEFA Champions League -->
+                    <div class="standings-legend">
+                        <div class="legend-indicators">
+                            <div class="legend-item">
+                                <span class="legend-dot c1"></span>
+                                <span>VÀO THẲNG</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot c2"></span>
+                                <span>PLAY-OFF</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot relegation"></span>
+                                <span>BỊ LOẠI</span>
+                            </div>
+                        </div>
+
+                        <div class="legend-glossary">
+                            <span><strong>ST:</strong> SỐ TRẬN</span>
+                            <span><strong>T:</strong> THẮNG</span>
+                            <span><strong>H:</strong> HÒA</span>
+                            <span><strong>B:</strong> BẠI</span>
+                            <span><strong>BT:</strong> BÀN THẮNG</span>
+                            <span><strong>BB:</strong> BÀN THUA</span>
+                            <span><strong>HS:</strong> HIỆU SỐ</span>
+                            <span><strong>Đ:</strong> ĐIỂM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar Cards (4 Columns) -->
+            <aside class="standings-sidebar-col">
+                <!-- 1. VUA PHÁ LƯỚI (Top Scorers Card) -->
+                <div class="standings-sidebar-card">
+                    <div class="ssc-header">
+                        <h2 class="ssc-title">VUA PHÁ LƯỚI</h2>
+                        <img src="./assets/img/figma/e563fbc7b16ee051b6b3057fd587d99d0e0ba39b.svg" alt="Ball" class="ssc-icon">
+                    </div>
+
+                    <!-- Scorers for Premier League -->
+                    <div class="top-scorers-list" id="scorersPremierView">
+                        <!-- Player 1: Erling Haaland -->
+                        <div class="top-scorer-item">
+                            <div class="scorer-info-wrap">
+                                <img src="./assets/img/figma/86589736d38db1dad085660d6a30abecea3bd7af.png" alt="Erling Haaland" class="scorer-avatar">
+                                <div>
+                                    <h3 class="scorer-name">Erling Haaland</h3>
+                                    <p class="scorer-club">MAN CITY</p>
+                                </div>
+                            </div>
+                            <span class="scorer-goals">27</span>
+                        </div>
+
+                        <!-- Player 2: Mohamed Salah -->
+                        <div class="top-scorer-item">
+                            <div class="scorer-info-wrap">
+                                <img src="./assets/img/figma/d5ed63565d9b7764bcb4c6804f8a16bdfe9d92e3.png" alt="Mohamed Salah" class="scorer-avatar">
+                                <div>
+                                    <h3 class="scorer-name">Mohamed Salah</h3>
+                                    <p class="scorer-club">LIVERPOOL</p>
+                                </div>
+                            </div>
+                            <span class="scorer-goals">20</span>
+                        </div>
+                    </div>
+
+                    <!-- Scorers for UEFA Champions League -->
+                    <div class="top-scorers-list" id="scorersUefaView" style="display: none;">
+                        <!-- Player 1: Kylian Mbappé Lottin -->
+                        <div class="top-scorer-item">
+                            <div class="scorer-info-wrap">
+                                <img src="./assets/img/figma/7427aff241a59c8edfb36283fb3f4e4cced71807.png" alt="Kylian Mbappé Lottin" class="scorer-avatar">
+                                <div>
+                                    <h3 class="scorer-name">Kylian Mbappé Lottin</h3>
+                                    <p class="scorer-club">REAL MADRID</p>
+                                </div>
+                            </div>
+                            <span class="scorer-goals">27</span>
+                        </div>
+
+                        <!-- Player 2: Harry Kane -->
+                        <div class="top-scorer-item">
+                            <div class="scorer-info-wrap">
+                                <img src="./assets/img/figma/3fed8288e87b3d45de2f6830ca38a6ed0cacc011.png" alt="Harry Kane" class="scorer-avatar">
+                                <div>
+                                    <h3 class="scorer-name">Harry Kane</h3>
+                                    <p class="scorer-club">BAYERN MUNICH</p>
+                                </div>
+                            </div>
+                            <span class="scorer-goals">21</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. THÔNG TIN GIẢI ĐẤU (League Info Card) -->
+                <div class="standings-sidebar-card">
+                    <div class="ssc-header">
+                        <h2 class="ssc-title">THÔNG TIN GIẢI ĐẤU</h2>
+                        <img src="./assets/img/figma/7f2217348d9dcd27861c99e6abd24f0178bf1469.svg" alt="Info" class="ssc-icon">
+                    </div>
+
+                    <!-- Info for Premier League -->
+                    <div class="league-info-list" id="infoPremierView">
+                        <div class="league-info-row">
+                            <span class="lir-label">Tổng số đội</span>
+                            <span class="lir-val">20 đội</span>
+                        </div>
+                        <div class="league-info-row">
+                            <span class="lir-label">Suất C1</span>
+                            <span class="lir-val">Top 3</span>
+                        </div>
+                        <div class="league-info-row">
+                            <span class="lir-label">Vòng đấu hiện tại</span>
+                            <span class="lir-val">28 / 38</span>
+                        </div>
+                    </div>
+
+                    <!-- Info for UEFA Champions League -->
+                    <div class="league-info-list" id="infoUefaView" style="display: none;">
+                        <div class="league-info-row">
+                            <span class="lir-label">Tổng số đội</span>
+                            <span class="lir-val">20 đội</span>
+                        </div>
+                        <div class="league-info-row">
+                            <span class="lir-label">Suất C1</span>
+                            <span class="lir-val">Top 3</span>
+                        </div>
+                        <div class="league-info-row">
+                            <span class="lir-label">Vòng đấu hiện tại</span>
+                            <span class="lir-val">28 / 38</span>
+                        </div>
+                    </div>
+
+                    <p class="league-info-note">Cập nhật tự động sau mỗi trận đấu. Các chỉ số phụ bao gồm hiệu số bàn thắng và đối đầu trực tiếp.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#" class="footer-logo">
+                    <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+                </a>
+                <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Điều khoản dịch vụ</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
+                <a href="#">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
+
+    <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
+                    </div>
+                    <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
+                        <span>LUÔN BẬT</span>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // 1. Settings Panel Popover
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && e.target !== settingsBtn) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // 2. Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+        }
+
+        // 3. Cookie Modal
+        const modalCookieSettings = document.getElementById('modalCookieSettings');
+        const openCookieSettingsBtn = document.getElementById('openCookieSettings');
+        const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
+        const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
+        const btnCookieSave = document.getElementById('btnCookieSave');
+        const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
+
+        function openCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.add('show');
+            if (settingPanel) settingPanel.classList.remove('show');
+        }
+
+        function closeCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.remove('show');
+        }
+
+        if (openCookieSettingsBtn) {
+            openCookieSettingsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCookieModal();
+            });
+        }
+        if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
+        if (modalCookieSettings) {
+            modalCookieSettings.addEventListener('click', (e) => {
+                if (e.target === modalCookieSettings) closeCookieModal();
+            });
+        }
+
+        if (btnCookieNecessaryOnly) {
+            btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieAcceptAll) {
+            btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieSave) {
+            btnCookieSave.addEventListener('click', () => {
+                closeCookieModal();
+            });
+        }
+
+        // 4. League Tab Switching (Premier League vs UEFA Champions League)
+        const chipPremier = document.getElementById('chipPremier');
+        const chipUefa = document.getElementById('chipUefa');
+        const tablePremierView = document.getElementById('tablePremierView');
+        const tableUefaView = document.getElementById('tableUefaView');
+        const scorersPremierView = document.getElementById('scorersPremierView');
+        const scorersUefaView = document.getElementById('scorersUefaView');
+        const infoPremierView = document.getElementById('infoPremierView');
+        const infoUefaView = document.getElementById('infoUefaView');
+
+        function switchLeague(league) {
+            if (league === 'uefa') {
+                chipPremier.classList.remove('active');
+                chipUefa.classList.add('active');
+
+                tablePremierView.style.display = 'none';
+                tableUefaView.style.display = 'block';
+
+                scorersPremierView.style.display = 'none';
+                scorersUefaView.style.display = 'flex';
+
+                infoPremierView.style.display = 'none';
+                infoUefaView.style.display = 'flex';
+
+                window.location.hash = 'uefa';
+            } else {
+                chipUefa.classList.remove('active');
+                chipPremier.classList.add('active');
+
+                tableUefaView.style.display = 'none';
+                tablePremierView.style.display = 'block';
+
+                scorersUefaView.style.display = 'none';
+                scorersPremierView.style.display = 'flex';
+
+                infoUefaView.style.display = 'none';
+                infoPremierView.style.display = 'flex';
+
+                if (window.location.hash === '#uefa') {
+                    history.replaceState(null, null, ' ');
+                }
+            }
+        }
+
+        if (chipPremier) chipPremier.addEventListener('click', () => switchLeague('premier'));
+        if (chipUefa) chipUefa.addEventListener('click', () => switchLeague('uefa'));
+
+        if (window.location.hash === '#uefa') {
+            switchLeague('uefa');
+        }
+
+        // 5. Season Selector Dropdown (Figma Node 1398:2883)
+        const btnSeasonSelect = document.getElementById('btnSeasonSelect');
+        const seasonDropdown = document.getElementById('seasonDropdown');
+        const currentSeasonLabel = document.getElementById('currentSeasonLabel');
+        const seasonOptions = document.querySelectorAll('.season-option');
+        const seasonSelectorWrapper = document.getElementById('seasonSelectorWrapper');
+
+        function openSeasonDropdown() {
+            if (seasonDropdown) {
+                seasonDropdown.classList.add('show');
+                btnSeasonSelect.setAttribute('aria-expanded', 'true');
+                btnSeasonSelect.classList.add('active');
+            }
+        }
+
+        function closeSeasonDropdown() {
+            if (seasonDropdown) {
+                seasonDropdown.classList.remove('show');
+                if (btnSeasonSelect) {
+                    btnSeasonSelect.setAttribute('aria-expanded', 'false');
+                    btnSeasonSelect.classList.remove('active');
+                }
+            }
+        }
+
+        if (btnSeasonSelect) {
+            btnSeasonSelect.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (seasonDropdown && seasonDropdown.classList.contains('show')) {
+                    closeSeasonDropdown();
+                } else {
+                    openSeasonDropdown();
+                }
+            });
+        }
+
+        seasonOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                seasonOptions.forEach(o => {
+                    o.classList.remove('active');
+                    o.setAttribute('aria-selected', 'false');
+                });
+                opt.classList.add('active');
+                opt.setAttribute('aria-selected', 'true');
+
+                const seasonVal = opt.getAttribute('data-season');
+                if (currentSeasonLabel) currentSeasonLabel.textContent = 'Mùa giải ' + seasonVal;
+
+                closeSeasonDropdown();
+            });
+        });
+
+        // Global Outside Click & Escape Key
+        document.addEventListener('click', (e) => {
+            if (seasonSelectorWrapper && !seasonSelectorWrapper.contains(e.target)) {
+                closeSeasonDropdown();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSeasonDropdown();
+                if (modalCookieSettings && modalCookieSettings.classList.contains('show')) {
+                    closeCookieModal();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
