@@ -50,9 +50,86 @@
                 </button>
             </div>
 
-            <a href="#" class="icon-btn" aria-label="Cài đặt">
-                <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
-            </a>
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <a href="#" class="user-avatar" aria-label="Tài khoản">
                 <img src="./assets/css/icons/user-icon.svg" alt="User">
@@ -64,7 +141,7 @@
     <main class="container home-container">
 
         <!-- 1. HERO BANNER -->
-        <section class="hero-banner">
+        <section class="hero-banner reveal-section">
             <img src="./assets/img/figma/f7da4cf5214d8a32b41ed5cba8160d0dc3688fb9.png" alt="Hero Background" class="hero-bg">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -80,20 +157,20 @@
         </section>
 
         <!-- 2. LEAGUE SELECTOR -->
-        <section class="league-selector">
+        <section class="league-selector reveal-section">
             <a href="index.html" class="league-pill active">Tất cả giải đấu</a>
             <a href="premier.html" class="league-pill">Premier League</a>
-            <a href="#" class="league-pill">UEFA Champions League</a>
+            <a href="uefa.html" class="league-pill">UEFA Champions League</a>
         </section>
 
         <!-- 3. MATCH CENTER -->
-        <section class="match-center">
+        <section class="match-center reveal-section">
             <div class="mc-header">
                 <div class="mc-header-left">
                     <h2>TRUNG TÂM TRẬN ĐẤU</h2>
                     <div class="mc-tabs">
-                        <button class="mc-tab active">Hôm nay</button>
-                        <button class="mc-tab">Kết quả</button>
+                        <button class="mc-tab active" data-tab="today" type="button">Hôm nay</button>
+                        <button class="mc-tab" data-tab="results" type="button">Kết quả</button>
                     </div>
                 </div>
                 <a href="#" class="mc-view-all">
@@ -102,11 +179,11 @@
                 </a>
             </div>
 
-            <div class="mc-grid">
+            <!-- Tab 1: Hôm nay -->
+            <div class="mc-grid-today active" id="mcTodayGrid">
                 <!-- Cột trái: Trận trực tiếp nổi bật -->
                 <div class="featured-match">
                     <div class="fm-top">
-                        <span class="fm-league">UEFA CHAMPIONS LEAGUE</span>
                         <div class="fm-live-badge">
                             <span class="live-dot"></span>
                             <span>TRỰC TIẾP 72'</span>
@@ -172,7 +249,6 @@
                     <!-- Trận 1: Man City vs Arsenal -->
                     <div class="sub-match-card">
                         <div class="sm-card-header">
-                            <span class="sm-league">PREMIER LEAGUE</span>
                             <span class="sm-time">20:00</span>
                         </div>
                         <div class="sm-teams">
@@ -196,7 +272,6 @@
                     <!-- Trận 2: Barcelona vs Valencia (Đã kết thúc) -->
                     <div class="sub-match-card">
                         <div class="sm-card-header">
-                            <span class="sm-league">LA LIGA</span>
                             <span class="sm-time">FINAL</span>
                         </div>
                         <div class="sm-teams">
@@ -228,7 +303,6 @@
                     <!-- Trận 3: Juventus vs Inter Milan -->
                     <div class="sub-match-card">
                         <div class="sm-card-header">
-                            <span class="sm-league">SERIE A</span>
                             <span class="sm-time">22:00</span>
                         </div>
                         <div class="sm-teams">
@@ -252,7 +326,6 @@
                     <!-- Trận 4: Liverpool vs PSG (Đã kết thúc) -->
                     <div class="sub-match-card">
                         <div class="sm-card-header">
-                            <span class="sm-league">UEFA</span>
                             <span class="sm-time">FINAL</span>
                         </div>
                         <div class="sm-teams">
@@ -282,10 +355,261 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Tab 2: Kết quả (4x2 Grid) -->
+            <div class="mc-grid-results" id="mcResultsGrid">
+                <!-- Card 1: Liverpool vs Arsenal -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool">
+                                <span>Liverpool</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal">
+                                <span>Arsenal</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Barcelona vs Luton Town -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png" alt="Barcelona">
+                                <span>Barcelona</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/e5ef26fdeacc0c73466dbfd402148dd160f8f519.png" alt="Luton Town">
+                                <span>Luton Town</span>
+                            </div>
+                            <span class="sm-score final">0</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Man City vs Arsenal -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City">
+                                <span>Man City</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal">
+                                <span>Arsenal</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Barcelona vs Valencia -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png" alt="Barcelona">
+                                <span>Barcelona</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/a4dd12b2ecaf8280cad16f6535a4d6f82f979e7a.png" alt="Valencia">
+                                <span>Valencia</span>
+                            </div>
+                            <span class="sm-score final">0</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5: Juventus vs Barcelona -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png" alt="Juventus">
+                                <span>Juventus</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png" alt="Barcelona">
+                                <span>Barcelona</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6: Inter Milan vs Paris FC -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png" alt="Inter Milan">
+                                <span>Inter Milan</span>
+                            </div>
+                            <span class="sm-score final">1</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/52efbdc706f78f7998c0e022e9f0c6440fcbc4a4.png" alt="Paris FC">
+                                <span>Paris FC</span>
+                            </div>
+                            <span class="sm-score final">3</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 7: Juventus vs Inter Milan -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png" alt="Juventus">
+                                <span>Juventus</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png" alt="Inter Milan">
+                                <span>Inter Milan</span>
+                            </div>
+                            <span class="sm-score final">4</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 8: Metz vs Paris FC -->
+                <div class="sub-match-card">
+                    <div class="sm-card-header">
+                        <span class="sm-time">FINAL</span>
+                    </div>
+                    <div class="sm-teams">
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/9d830d651a9d8d91305fed0835e5a0297909bf39.png" alt="Metz">
+                                <span>Metz</span>
+                            </div>
+                            <span class="sm-score final">1</span>
+                        </div>
+                        <div class="sm-team-row">
+                            <div class="sm-team-info">
+                                <img src="./assets/img/figma/52efbdc706f78f7998c0e022e9f0c6440fcbc4a4.png" alt="Paris FC">
+                                <span>Paris FC</span>
+                            </div>
+                            <span class="sm-score final">3</span>
+                        </div>
+                    </div>
+                    <div class="sm-card-footer">
+                        <a href="#" class="sm-highlight-link">
+                            <img src="./assets/img/figma/cd1c816c745d91615e7c4514f87ad21550ad363e.svg" alt="Play">
+                            <span class="hl-text">Highlights</span>
+                            <span class="hl-dot">•</span>
+                            <span class="hl-time">3:24</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- 4. VIDEO HIGHLIGHTS -->
-        <section class="video-highlights">
+        <section class="video-highlights reveal-section">
             <div class="vh-header">
                 <div class="vh-title-group">
                     <img src="./assets/img/figma/60b7f4492da57ce657976daac3be3c4c5131eb9d.png" alt="Play" class="vh-icon">
@@ -340,40 +664,47 @@
         </section>
 
         <!-- 5. MY TEAMS (Nằm ngang) -->
-        <section class="my-teams-section">
+        <section class="my-teams-section reveal-section">
             <div class="mts-header">
                 <h3>ĐỘI BÓNG YÊU THÍCH</h3>
+                <div class="my-teams-toast" id="myTeamsToast" role="status" aria-live="polite">
+                    <span class="toast-text" id="myTeamsToastText">Đã bỏ theo dõi Arsenal.</span>
+                    <button class="toast-undo-btn" id="btnUndoTeam" type="button">HOÀN TÁC</button>
+                    <button class="toast-close-btn" id="btnCloseToast" type="button" aria-label="Đóng">
+                        <img src="./assets/img/figma/d9230c8411e024b29188699fc01a5c6be7c80ec0.svg" alt="Close" style="width: 12px; height: 12px;">
+                    </button>
+                </div>
             </div>
-            <div class="mts-list">
+            <div class="mts-list" id="mtsList">
                 <!-- Đội 1: Real Madrid -->
-                <div class="mts-team-card">
+                <div class="mts-team-card" data-team="Real Madrid">
                     <img src="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png" alt="Real Madrid" class="team-logo">
                     <span>Real Madrid</span>
-                    <button class="btn-remove-team" aria-label="Xóa">
+                    <button class="btn-remove-team" aria-label="Xóa" type="button">
                         <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
                     </button>
                 </div>
 
                 <!-- Đội 2: Arsenal -->
-                <div class="mts-team-card">
+                <div class="mts-team-card" data-team="Arsenal">
                     <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="team-logo">
                     <span>Arsenal</span>
-                    <button class="btn-remove-team" aria-label="Xóa">
+                    <button class="btn-remove-team" aria-label="Xóa" type="button">
                         <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
                     </button>
                 </div>
 
                 <!-- Đội 3: Man City -->
-                <div class="mts-team-card">
+                <div class="mts-team-card" data-team="Man City">
                     <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="team-logo">
                     <span>Man City</span>
-                    <button class="btn-remove-team" aria-label="Xóa">
+                    <button class="btn-remove-team" aria-label="Xóa" type="button">
                         <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
                     </button>
                 </div>
 
                 <!-- Nút Thêm đội -->
-                <button class="mts-add-btn">
+                <button class="mts-add-btn" type="button">
                     <div class="add-icon-circle">
                         <img src="./assets/img/figma/218ec8ee3a83e788ab7f6a8b203b8cce5b4ab6a9.png" alt="+">
                     </div>
@@ -383,7 +714,7 @@
         </section>
 
         <!-- 6 & 7. CONTENT GRID (TIN TỨC MỚI NHẤT + SIDEBAR BỔ TRỢ) -->
-        <div class="home-content-grid">
+        <div class="home-content-grid reveal-section">
             <!-- 8 CỘT TRÁI: TIN TỨC MỚI NHẤT -->
             <div class="latest-news-col">
                 <div class="section-title">
@@ -527,18 +858,22 @@
                         <h4>TRẬN CẦU TÂM ĐIỂM</h4>
                     </div>
                     <div class="upcoming-content">
-                        <div class="upcoming-logos">
-                            <div class="upcoming-logo-circle">
-                                <img src="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png" alt="Real Madrid">
+                        <div class="upcoming-match-teams">
+                            <div class="upcoming-team">
+                                <div class="upcoming-logo-circle">
+                                    <img src="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png" alt="Real Madrid">
+                                </div>
+                                <span class="upcoming-team-name">Real Madrid</span>
                             </div>
-                            <span class="upcoming-vs">VS</span>
-                            <div class="upcoming-logo-circle">
-                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City">
+                            <div class="upcoming-vs-wrap">
+                                <span class="upcoming-vs">VS</span>
                             </div>
-                        </div>
-                        <div class="upcoming-names">
-                            <span>Real Madrid</span>
-                            <span>Man City</span>
+                            <div class="upcoming-team">
+                                <div class="upcoming-logo-circle">
+                                    <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City">
+                                </div>
+                                <span class="upcoming-team-name">Man City</span>
+                            </div>
                         </div>
                         <div class="upcoming-time">
                             <span>Chủ nhật • 26/05 • 22:30</span>
@@ -562,7 +897,7 @@
             <div class="footer-right">
                 <a href="#">Chính sách bảo mật</a>
                 <a href="#">Điều khoản dịch vụ</a>
-                <a href="#">Cài đặt Cookie</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
                 <a href="#">Liên hệ</a>
             </div>
         </div>
@@ -588,6 +923,195 @@
     </div>
     
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ================= POPOVER: TÙY CHỈNH ĐỘI THEO DÕI (ANCHORED POPOVER) ================= -->
+    <div class="popover-follow-teams" id="modalFollowTeams" role="dialog" aria-modal="false" aria-labelledby="mftTitle">
+        <div class="mft-header">
+            <div class="mft-header-text">
+                <h2 id="mftTitle">Tùy chỉnh đội theo dõi</h2>
+                <p>Chọn đội bóng bạn quan tâm để cá nhân hóa nội dung trang chủ.</p>
+            </div>
+            <button type="button" class="mft-modal-close" id="btnCloseFollowTeamsModal" aria-label="Đóng">
+                <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+            </button>
+        </div>
+        <div class="mft-body">
+            <div class="mft-section">
+                <div class="mft-section-title" id="mftSelectedCount">ĐÃ CHỌN (3)</div>
+                <div class="mft-list" id="mftSelectedList">
+                    <!-- Real Madrid -->
+                    <div class="mft-item" data-team-id="real-madrid" data-team-name="Real Madrid" data-team-logo="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png" alt="Real Madrid">
+                            </div>
+                            <span class="mft-team-name">Real Madrid</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg" alt="Selected">
+                        </div>
+                    </div>
+                    <!-- Arsenal -->
+                    <div class="mft-item" data-team-id="arsenal" data-team-name="Arsenal" data-team-logo="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal">
+                            </div>
+                            <span class="mft-team-name">Arsenal</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg" alt="Selected">
+                        </div>
+                    </div>
+                    <!-- Manchester City -->
+                    <div class="mft-item" data-team-id="mancity" data-team-name="Manchester City" data-team-logo="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Manchester City">
+                            </div>
+                            <span class="mft-team-name">Manchester City</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg" alt="Selected">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mft-section">
+                <div class="mft-section-title">GỢI Ý THÊM</div>
+                <div class="mft-search-wrapper">
+                    <img src="./assets/img/figma/61e8c0c89a7940b6b7045e439ae8a0ce1f1f9488.svg" alt="Search">
+                    <input type="text" class="mft-search-input" id="mftSearchInput" placeholder="Nhập tên đội bóng...">
+                </div>
+                <div class="mft-list" id="mftSuggestedList">
+                    <!-- Liverpool -->
+                    <div class="mft-item" data-team-id="liverpool" data-team-name="Liverpool" data-team-logo="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool">
+                            </div>
+                            <span class="mft-team-name">Liverpool</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/d31be5304fbcf80a4ba09f5c3ed79819a4c1e407.svg" alt="Add">
+                        </div>
+                    </div>
+                    <!-- Barcelona -->
+                    <div class="mft-item" data-team-id="barcelona" data-team-name="Barcelona" data-team-logo="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png" alt="Barcelona">
+                            </div>
+                            <span class="mft-team-name">Barcelona</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/d31be5304fbcf80a4ba09f5c3ed79819a4c1e407.svg" alt="Add">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mft-footer">
+            <button type="button" class="mft-btn-cancel" id="btnCancelFollowTeams">Hủy</button>
+            <button type="button" class="mft-btn-save" id="btnSaveFollowTeams">Lưu thay đổi</button>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
+                    </div>
+                    <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
+                        <span>LUÔN BẬT</span>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 3: VIDEO HIGHLIGHTS TRẬN ĐẤU (Node 2353:5458 & 2360:5517) ================= -->
+    <div class="modal-backdrop" id="modalVideoHighlights" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+        <div class="modal-container modal-video-highlights">
+            <div class="video-modal-header">
+                <div class="video-header-title-wrap">
+                    <img src="./assets/img/figma/d1d54bca1e4000c608c2a42b7bf8871175cc5734.svg" alt="Play Video" class="video-header-icon">
+                    <h3 id="videoModalTitle">VIDEO TRẬN ĐẤU</h3>
+                </div>
+                <button type="button" class="video-modal-close" id="btnCloseVideoModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/5f12dc1e3d0a540f12bea3ac8c1858c545a04382.svg" alt="Close">
+                </button>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-player-wrapper" id="videoPlayerPlaceholder">
+                    <video id="videoModalPlayer" class="video-modal-video" controls playsinline preload="metadata" poster="./assets/img/figma/goal-vinicius-33.png">
+                        <source id="videoModalSource" src="./assets/video/goal-vinicius-33.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+                    </video>
+                    <div class="video-play-overlay" id="videoPlayOverlay">
+                        <button type="button" class="video-play-circle" aria-label="Phát video">
+                            <img src="./assets/img/figma/405754c2737068fa512ef35661a61ed3929ef0c2.svg" alt="Play">
+                        </button>
+                    </div>
+                </div>
+                <div class="video-info-footer">
+                    <div class="video-info-text">
+                        <h2 id="videoModalHeadline">Bàn thắng của Vinícius Júnior • 33'</h2>
+                        <p id="videoModalDescription">Real Madrid nâng tỷ số lên 2-1 sau pha phản công nhanh.</p>
+                    </div>
+                    <a href="#" class="btn-match-details" id="videoModalMatchLink">
+                        <span>Chi tiết trận đấu</span>
+                        <img src="./assets/img/figma/067e7c1dada75cfaac7f2dba6ca5577dd6455fdb.svg" alt="Arrow Right">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Hamburger Menu Toggle
@@ -629,7 +1153,465 @@
                 }
             });
         }
+
+        // My Teams: Remove & Undo Toast
+        let lastRemovedTeam = null;
+        let toastTimeout = null;
+        const myTeamsToast = document.getElementById('myTeamsToast');
+        const toastText = document.getElementById('myTeamsToastText');
+        const btnUndoTeam = document.getElementById('btnUndoTeam');
+        const btnCloseToast = document.getElementById('btnCloseToast');
+
+        function attachRemoveEvent(btn) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = btn.closest('.mts-team-card');
+                if (card) {
+                    const teamName = card.querySelector('span')?.innerText || 'đội bóng';
+                    lastRemovedTeam = {
+                        element: card,
+                        nextSibling: card.nextElementSibling,
+                        parent: card.parentElement
+                    };
+                    card.style.transition = 'opacity 0.25s, transform 0.25s';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        card.remove();
+                        if (myTeamsToast && toastText) {
+                            toastText.innerText = `Đã bỏ theo dõi ${teamName}.`;
+                            myTeamsToast.classList.add('show');
+                            if (toastTimeout) clearTimeout(toastTimeout);
+                            toastTimeout = setTimeout(() => {
+                                myTeamsToast.classList.remove('show');
+                            }, 5000);
+                        }
+                    }, 250);
+                }
+            });
+        }
+
+        document.querySelectorAll('.btn-remove-team').forEach(attachRemoveEvent);
+
+        if (btnUndoTeam) {
+            btnUndoTeam.addEventListener('click', () => {
+                if (lastRemovedTeam && lastRemovedTeam.element && lastRemovedTeam.parent) {
+                    const card = lastRemovedTeam.element;
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    if (lastRemovedTeam.nextSibling && lastRemovedTeam.nextSibling.parentElement === lastRemovedTeam.parent) {
+                        lastRemovedTeam.parent.insertBefore(card, lastRemovedTeam.nextSibling);
+                    } else {
+                        const addBtn = lastRemovedTeam.parent.querySelector('.mts-add-btn');
+                        lastRemovedTeam.parent.insertBefore(card, addBtn);
+                    }
+                    const removeBtn = card.querySelector('.btn-remove-team');
+                    if (removeBtn) attachRemoveEvent(removeBtn);
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                    if (myTeamsToast) myTeamsToast.classList.remove('show');
+                    lastRemovedTeam = null;
+                }
+            });
+        }
+
+        if (btnCloseToast) {
+            btnCloseToast.addEventListener('click', () => {
+                if (myTeamsToast) myTeamsToast.classList.remove('show');
+            });
+        }
+
+        // Match Center Tabs (Hôm nay / Kết quả)
+        document.querySelectorAll('.mc-tabs .mc-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.mc-tabs .mc-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const isToday = tab.dataset.tab === 'today';
+                const todayGrid = document.getElementById('mcTodayGrid');
+                const resultsGrid = document.getElementById('mcResultsGrid');
+                if (isToday) {
+                    if (todayGrid) todayGrid.classList.add('active');
+                    if (resultsGrid) resultsGrid.classList.remove('active');
+                } else {
+                    if (todayGrid) todayGrid.classList.remove('active');
+                    if (resultsGrid) resultsGrid.classList.add('active');
+                }
+            });
+        });
+
+        // Settings Panel Toggle
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // ================= POPOVER LOGIC (ANCHORED POPOVER) =================
+        // 1. Follow Teams Anchored Popover
+        const modalFollowTeams = document.getElementById('modalFollowTeams');
+        const btnOpenFollowTeams = document.querySelector('.mts-add-btn');
+        const btnCancelFollowTeams = document.getElementById('btnCancelFollowTeams');
+        const btnCloseFollowTeamsModal = document.getElementById('btnCloseFollowTeamsModal');
+        const btnSaveFollowTeams = document.getElementById('btnSaveFollowTeams');
+        const mftSelectedList = document.getElementById('mftSelectedList');
+        const mftSuggestedList = document.getElementById('mftSuggestedList');
+        const mftSelectedCount = document.getElementById('mftSelectedCount');
+        const mftSearchInput = document.getElementById('mftSearchInput');
+
+        function updateSelectedCount() {
+            const count = mftSelectedList ? mftSelectedList.children.length : 0;
+            if (mftSelectedCount) mftSelectedCount.innerText = `ĐÃ CHỌN (${count})`;
+        }
+
+        function positionFollowTeamsPopover() {
+            if (!modalFollowTeams || !btnOpenFollowTeams) return;
+            const btnRect = btnOpenFollowTeams.getBoundingClientRect();
+            const popoverWidth = modalFollowTeams.offsetWidth || 360;
+            
+            // Anchored immediately below the trigger button
+            const top = btnRect.bottom + window.scrollY + 8;
+            
+            // Align with left of button, clamped within viewport
+            let left = btnRect.left + window.scrollX;
+            const maxLeft = window.innerWidth + window.scrollX - popoverWidth - 16;
+            const minLeft = window.scrollX + 16;
+
+            if (left > maxLeft) left = maxLeft;
+            if (left < minLeft) left = minLeft;
+
+            modalFollowTeams.style.top = `${top}px`;
+            modalFollowTeams.style.left = `${left}px`;
+        }
+
+        function openFollowTeamsPopover() {
+            if (!modalFollowTeams) return;
+            modalFollowTeams.classList.add('show');
+            if (btnOpenFollowTeams) btnOpenFollowTeams.classList.add('active');
+            positionFollowTeamsPopover();
+        }
+
+        function closeFollowTeamsPopover() {
+            if (!modalFollowTeams) return;
+            modalFollowTeams.classList.remove('show');
+            if (btnOpenFollowTeams) btnOpenFollowTeams.classList.remove('active');
+        }
+
+        function toggleFollowTeamsPopover() {
+            if (!modalFollowTeams) return;
+            if (modalFollowTeams.classList.contains('show')) {
+                closeFollowTeamsPopover();
+            } else {
+                openFollowTeamsPopover();
+            }
+        }
+
+        if (btnOpenFollowTeams) {
+            btnOpenFollowTeams.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleFollowTeamsPopover();
+            });
+        }
+
+        if (btnCancelFollowTeams) btnCancelFollowTeams.addEventListener('click', closeFollowTeamsPopover);
+        if (btnCloseFollowTeamsModal) btnCloseFollowTeamsModal.addEventListener('click', closeFollowTeamsPopover);
+
+        // Click outside to close popover
+        document.addEventListener('click', (e) => {
+            if (modalFollowTeams && modalFollowTeams.classList.contains('show')) {
+                if (!modalFollowTeams.contains(e.target) && (!btnOpenFollowTeams || !btnOpenFollowTeams.contains(e.target))) {
+                    closeFollowTeamsPopover();
+                }
+            }
+        });
+
+        // Reposition on scroll and resize
+        window.addEventListener('scroll', () => {
+            if (modalFollowTeams && modalFollowTeams.classList.contains('show')) {
+                positionFollowTeamsPopover();
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            if (modalFollowTeams && modalFollowTeams.classList.contains('show')) {
+                positionFollowTeamsPopover();
+            }
+        }, { passive: true });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (modalFollowTeams && modalFollowTeams.classList.contains('show')) {
+                    closeFollowTeamsPopover();
+                }
+                if (modalCookieSettings && modalCookieSettings.classList.contains('show')) {
+                    closeCookieModal();
+                }
+                if (modalVideoHighlights && modalVideoHighlights.classList.contains('show')) {
+                    closeVideoModal();
+                }
+            }
+        });
+
+        // Move items between Selected and Suggested
+        if (mftSelectedList && mftSuggestedList) {
+            mftSelectedList.addEventListener('click', (e) => {
+                const item = e.target.closest('.mft-item');
+                if (item) {
+                    const icon = item.querySelector('.mft-action-icon img');
+                    if (icon) icon.src = './assets/img/figma/d31be5304fbcf80a4ba09f5c3ed79819a4c1e407.svg';
+                    mftSuggestedList.appendChild(item);
+                    updateSelectedCount();
+                }
+            });
+
+            mftSuggestedList.addEventListener('click', (e) => {
+                const item = e.target.closest('.mft-item');
+                if (item) {
+                    const icon = item.querySelector('.mft-action-icon img');
+                    if (icon) icon.src = './assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg';
+                    mftSelectedList.appendChild(item);
+                    updateSelectedCount();
+                }
+            });
+        }
+
+        // Search filter in Follow Teams modal
+        if (mftSearchInput) {
+            mftSearchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                document.querySelectorAll('#mftSuggestedList .mft-item').forEach(item => {
+                    const name = item.getAttribute('data-team-name')?.toLowerCase() || '';
+                    if (name.includes(query)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Save Follow Teams changes
+        if (btnSaveFollowTeams) {
+            btnSaveFollowTeams.addEventListener('click', () => {
+                const mtsList = document.getElementById('mtsList');
+                if (mtsList && mftSelectedList) {
+                    const selectedItems = Array.from(mftSelectedList.querySelectorAll('.mft-item'));
+                    const addBtn = mtsList.querySelector('.mts-add-btn');
+                    mtsList.querySelectorAll('.mts-team-card').forEach(c => c.remove());
+                    selectedItems.forEach(item => {
+                        const teamName = item.getAttribute('data-team-name');
+                        const teamLogo = item.getAttribute('data-team-logo');
+                        const card = document.createElement('div');
+                        card.className = 'mts-team-card';
+                        card.setAttribute('data-team', teamName);
+                        card.innerHTML = `
+                            <img src="${teamLogo}" alt="${teamName}" class="team-logo">
+                            <span>${teamName}</span>
+                            <button class="btn-remove-team" aria-label="Xóa" type="button">
+                                <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
+                            </button>
+                        `;
+                        const removeBtn = card.querySelector('.btn-remove-team');
+                        if (removeBtn) attachRemoveEvent(removeBtn);
+                        mtsList.insertBefore(card, addBtn);
+                    });
+                }
+                closeFollowTeamsPopover();
+            });
+        }
+
+        // 2. Cookie Settings Modal
+        const modalCookieSettings = document.getElementById('modalCookieSettings');
+        const openCookieSettingsBtn = document.getElementById('openCookieSettings');
+        const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
+        const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
+        const btnCookieSave = document.getElementById('btnCookieSave');
+        const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
+
+        function openCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.add('show');
+        }
+
+        function closeCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.remove('show');
+        }
+
+        if (openCookieSettingsBtn) {
+            openCookieSettingsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCookieModal();
+            });
+        }
+
+        if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
+        if (modalCookieSettings) {
+            modalCookieSettings.addEventListener('click', (e) => {
+                if (e.target === modalCookieSettings) closeCookieModal();
+            });
+        }
+
+        if (btnCookieNecessaryOnly) {
+            btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieAcceptAll) {
+            btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieSave) {
+            btnCookieSave.addEventListener('click', () => {
+                closeCookieModal();
+            });
+        }
+
+        // 3. Video Highlights Modal (Node 2353:5458 & Node 2360:5517)
+        const modalVideoHighlights = document.getElementById('modalVideoHighlights');
+        const btnCloseVideoModal = document.getElementById('btnCloseVideoModal');
+        const videoModalPlayer = document.getElementById('videoModalPlayer');
+        const videoModalSource = document.getElementById('videoModalSource');
+        const videoPlayOverlay = document.getElementById('videoPlayOverlay');
+        const videoModalHeadline = document.getElementById('videoModalHeadline');
+        const videoModalDescription = document.getElementById('videoModalDescription');
+        const fmGoalPill = document.querySelector('.fm-goal-pill');
+
+        const videoHighlightsData = {
+            all: {
+                video: './assets/video/goal-vinicius-33.mp4',
+                poster: './assets/img/figma/goal-vinicius-33.png',
+                headline: "Bàn thắng của Vinícius Júnior • 33'",
+                desc: 'Real Madrid nâng tỷ số lên 2-1 sau pha phản công nhanh.'
+            },
+            premier: {
+                video: './assets/video/goal-rodrygo-12.mp4',
+                poster: './assets/img/figma/goal-rodrygo-12.png',
+                headline: "Bàn thắng của Rodrygo Silva • 12'",
+                desc: 'Chelsea nâng tỷ số lên 1-0 sau pha phản công nhanh.'
+            }
+        };
+
+        function openVideoModal(variant = 'all') {
+            const data = videoHighlightsData[variant] || videoHighlightsData.all;
+            if (videoModalPlayer) {
+                videoModalPlayer.poster = data.poster;
+                if (videoModalSource) videoModalSource.src = data.video;
+                videoModalPlayer.src = data.video;
+                videoModalPlayer.load();
+            }
+            if (videoPlayOverlay) videoPlayOverlay.classList.remove('hidden');
+            if (videoModalHeadline) videoModalHeadline.textContent = data.headline;
+            if (videoModalDescription) videoModalDescription.textContent = data.desc;
+            if (modalVideoHighlights) modalVideoHighlights.classList.add('show');
+        }
+
+        function closeVideoModal() {
+            if (videoModalPlayer) {
+                videoModalPlayer.pause();
+                videoModalPlayer.currentTime = 0;
+            }
+            if (videoPlayOverlay) videoPlayOverlay.classList.remove('hidden');
+            if (modalVideoHighlights) modalVideoHighlights.classList.remove('show');
+        }
+
+        if (videoPlayOverlay && videoModalPlayer) {
+            videoPlayOverlay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                videoPlayOverlay.classList.add('hidden');
+                videoModalPlayer.play().catch((err) => {
+                    console.warn('Playback prevented:', err);
+                });
+            });
+        }
+
+        if (videoModalPlayer) {
+            videoModalPlayer.addEventListener('play', () => {
+                if (videoPlayOverlay) videoPlayOverlay.classList.add('hidden');
+            });
+            videoModalPlayer.addEventListener('pause', () => {
+                if (videoModalPlayer.currentTime === 0 && videoPlayOverlay) {
+                    videoPlayOverlay.classList.remove('hidden');
+                }
+            });
+            videoModalPlayer.addEventListener('ended', () => {
+                if (videoPlayOverlay) videoPlayOverlay.classList.remove('hidden');
+            });
+        }
+
+        if (fmGoalPill) {
+            fmGoalPill.addEventListener('click', (e) => {
+                e.preventDefault();
+                const activeLeague = document.querySelector('.league-selector .league-pill.active')?.textContent.toLowerCase() || '';
+                if (activeLeague.includes('premier') || window.location.pathname.includes('premier')) {
+                    openVideoModal('premier');
+                } else {
+                    openVideoModal('all');
+                }
+            });
+        }
+
+        if (btnCloseVideoModal) btnCloseVideoModal.addEventListener('click', closeVideoModal);
+        if (modalVideoHighlights) {
+            modalVideoHighlights.addEventListener('click', (e) => {
+                if (e.target === modalVideoHighlights) closeVideoModal();
+            });
+        }
+
+        // Bind highlight cards / links
+        document.querySelectorAll('.sm-highlight-link, .video-card').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const activeLeague = document.querySelector('.league-selector .league-pill.active')?.textContent.toLowerCase() || '';
+                if (activeLeague.includes('premier') || window.location.pathname.includes('premier')) {
+                    openVideoModal('premier');
+                } else {
+                    openVideoModal('all');
+                }
+            });
+        });
+
+        // Scroll Reveal Observer
+        if ('IntersectionObserver' in window) {
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.08
+            });
+
+            document.querySelectorAll('.reveal-section').forEach(section => {
+                sectionObserver.observe(section);
+            });
+        } else {
+            document.querySelectorAll('.reveal-section').forEach(section => {
+                section.classList.add('is-revealed');
+            });
+        }
     </script>
-    <script src="./assets/js/main.js"></script>
 </body>
 </html>

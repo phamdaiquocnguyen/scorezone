@@ -304,6 +304,16 @@ document.addEventListener('DOMContentLoaded', () => {
         tab.addEventListener('click', () => {
             mcTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
+            const isToday = tab.dataset.tab === 'today';
+            const todayGrid = document.getElementById('mcTodayGrid');
+            const resultsGrid = document.getElementById('mcResultsGrid');
+            if (isToday) {
+                if (todayGrid) todayGrid.classList.add('active');
+                if (resultsGrid) resultsGrid.classList.remove('active');
+            } else {
+                if (todayGrid) todayGrid.classList.remove('active');
+                if (resultsGrid) resultsGrid.classList.add('active');
+            }
         });
     });
 });
