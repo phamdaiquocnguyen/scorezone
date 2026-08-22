@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Madrid chạm trán Club Brugge ở chung kết Youth League - ScoreZone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.2">
+</head>
+<body class="uefa-page-body">
+
+    <!-- ================= HEADER ================= -->
+    <header id="header">
+        <!-- Trái: Logo -->
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Giữa: Navigation -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li class="active"><a href="./news.html">Tin tức</a></li>
+                <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
+                <li><a href="./standings.html">Bảng xếp hạng</a></li>
+            </ul>
+        </nav>
+
+        <!-- Phải: Tìm kiếm & User -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <button class="search-btn" aria-label="Tìm kiếm">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search">
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="user-avatar" aria-label="Tài khoản">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN NEWS DETAIL CONTENT ================= -->
+    <main class="news-detail-container">
+
+        <!-- 1. Breadcrumb (Node 16:2330) -->
+        <nav class="uefa-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 24px;">
+            <a href="./index.html">TRANG CHỦ</a>
+            <span class="uefa-breadcrumb-sep">
+                <img src="./assets/img/figma/707ce7f85e4efa9eaa326347f435ee74b4663e69.svg" alt=">">
+            </span>
+            <a href="./news.html">TIN TỨC</a>
+            <span class="uefa-breadcrumb-sep">
+                <img src="./assets/img/figma/707ce7f85e4efa9eaa326347f435ee74b4663e69.svg" alt=">">
+            </span>
+            <span class="uefa-breadcrumb-current" style="color: #004ac6; font-weight: 800;">REAL MADRID VS CLUB BRUGGE</span>
+        </nav>
+
+        <!-- 2. Main Content Grid (8 cols left, 4 cols right) -->
+        <div class="news-detail-grid">
+
+            <!-- Left Column: Article Body -->
+            <article class="news-article-left-col">
+
+                <!-- Article Header -->
+                <header class="news-article-header">
+                    <h1 class="news-article-title">Real Madrid chạm trán Club Brugge ở chung kết Youth League</h1>
+                    <p class="news-article-lead">Real Madrid và Club Brugge bước vào trận chung kết UEFA Youth League tại Lausanne, nơi cả hai đội trẻ đều hướng đến cột mốc lịch sử của riêng mình.</p>
+                    
+                    <!-- Author & Social Actions -->
+                    <div class="news-author-bar">
+                        <div class="news-author-info">
+                            <div class="news-author-avatar">
+                                <img src="./assets/img/figma/b9aa4ea96710d6598fac80b426cb38010e6a6293.png" alt="Marcus Kane">
+                            </div>
+                            <div>
+                                <div class="news-author-name">Marcus Kane</div>
+                                <div class="news-author-meta">
+                                    <span>4 ngày trước</span>
+                                    <span class="news-author-meta-dot"></span>
+                                    <span>4 PHÚT ĐỌC</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-article-actions">
+                            <button class="news-action-btn" aria-label="Lưu bài viết" title="Lưu bài viết">
+                                <img src="./assets/img/figma/fc1daca98f19907ba103633f89f6d144c9d94816.png" alt="Bookmark">
+                            </button>
+                            <button class="news-action-btn" aria-label="Chia sẻ bài viết" title="Chia sẻ bài viết">
+                                <img src="./assets/img/figma/7075aed1342823796411b59383cb7d3fb1946168.png" alt="Share">
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- AI Summary Block (Node 1134:730) -->
+                <section class="news-ai-summary" aria-label="Tóm tắt thông minh bằng AI">
+                    <div class="nas-header">
+                        <div class="nas-title-wrap">
+                            <h2 class="nas-title">AI TÓM TẮT NHANH</h2>
+                            <span class="nas-badge">BETA</span>
+                        </div>
+                        <button class="nas-audio-btn" aria-label="Nghe tóm tắt audio" title="Nghe tóm tắt audio">
+                            <img src="./assets/img/figma/4906181aea79694a3826f88c3444ba6aba7b6637.png" alt="Audio">
+                        </button>
+                    </div>
+
+                    <div class="nas-list">
+                        <!-- Summary Item 1 -->
+                        <div class="nas-item">
+                            <div class="nas-icon">
+                                <img src="./assets/img/figma/8a879053dfe4930011c22fa992a2e9ca6cb2a8c2.png" alt="Phong độ">
+                            </div>
+                            <div class="nas-item-content">
+                                <h3 class="nas-item-title">Phong độ</h3>
+                                <p class="nas-item-text">Real Madrid U19 đang có chuỗi phong độ ấn tượng với hàng công bùng nổ. Club Brugge U19 thi đấu kỷ luật và phòng ngự chắc chắn.</p>
+                            </div>
+                        </div>
+
+                        <!-- Summary Item 2 -->
+                        <div class="nas-item">
+                            <div class="nas-icon">
+                                <img src="./assets/img/figma/103edfcbc8b4276a049fa31a638f56d566a93609.png" alt="Lực lượng">
+                            </div>
+                            <div class="nas-item-content">
+                                <h3 class="nas-item-title">Lực lượng</h3>
+                                <p class="nas-item-text">Real Madrid sở hữu đội hình đồng đều, nhiều tài năng trẻ nổi bật. Club Brugge có đầy đủ lực lượng, sẵn sàng cho trận chung kết lịch sử.</p>
+                            </div>
+                        </div>
+
+                        <!-- Summary Item 3 -->
+                        <div class="nas-item">
+                            <div class="nas-icon">
+                                <img src="./assets/img/figma/6576106c283590216858e1ccd6d5dbd18d6e4599.png" alt="Nhận định AI">
+                            </div>
+                            <div class="nas-item-content">
+                                <h3 class="nas-item-title">Nhận định AI</h3>
+                                <p class="nas-item-text">Trận đấu có thể được quyết định bởi khả năng chống phản công và khai thác khoảng trống phía sau hàng thủ.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hero Media Image (Node 16:2362) -->
+                <figure style="margin: 0;">
+                    <div class="news-hero-media">
+                        <img src="./assets/img/figma/0ce64e2490cdb5672cac088c3514c3d715d8a44e.png" alt="Chiếc cúp Lennart Johansson">
+                    </div>
+                    <figcaption class="news-media-caption">
+                        <img src="./assets/img/figma/d8e980f3ce770e2e06ab787b37d064061a5f973e.png" alt="Camera">
+                        <span>Chiếc cúp Lennart Johansson danh giá dành cho nhà vô địch UEFA Youth League. (Ảnh: Getty Images)</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Editorial Content (Node 16:2365) -->
+                <div class="news-editorial-body">
+                    <p>Club Brugge sẽ gặp Real Madrid trong trận chung kết UEFA Youth League 2026 tại Stade de la Tuilière, Lausanne. Đây là màn đối đầu giữa hai đội bóng trẻ có phong độ ổn định, khi cả hai cùng thắng 5 trong 6 trận ở giai đoạn league phase và chỉ cách nhau bởi hiệu số bàn thắng.</p>
+                    <p>Club Brugge bước vào trận chung kết với sự tự tin lớn. Đại diện Bỉ là đội đầu tiên của quốc gia này vào chung kết Youth League, đồng thời sở hữu hàng thủ rất chắc chắn trong suốt giải đấu. Chiến thắng trước Benfica ở bán kết cho thấy khả năng phục hồi tốt sau khởi đầu không thuận lợi.</p>
+                    <p>Trong khi đó, Real Madrid vượt qua Paris Saint-Germain sau loạt luân lưu căng thẳng. Bàn gỡ muộn của Liberto Navascués và màn trình diễn xuất sắc của thủ môn Javier Navarro giúp đội bóng Tây Ban Nha tiếp tục nuôi hy vọng lần thứ hai vô địch Youth League sau danh hiệu mùa 2019/20.</p>
+                    <p>Trận chung kết được dự đoán sẽ rất cân bằng. Club Brugge có khả năng tấn công vào khoảng trống phía sau hàng thủ, trong khi Real Madrid nhấn mạnh tinh thần đoàn kết và cơ hội ghi tên vào lịch sử học viện của câu lạc bộ.</p>
+                </div>
+
+                <!-- Blockquote Card (Node 1139:1038) -->
+                <blockquote class="news-blockquote-card">
+                    <img src="./assets/img/figma/75c09a5f1b10d257e6b35ebe22eff31f2996f8c5.svg" alt="Quote" class="news-blockquote-icon">
+                    <p class="news-blockquote-text">“Chúng tôi đang chơi để giành chiến thắng; đó là trọng tâm duy nhất của đội.”</p>
+                    <footer class="news-blockquote-author">– Liberto Navascués</footer>
+                </blockquote>
+
+                <!-- Stat Card: Sơ lược về trận chung kết (Node 16:2375) -->
+                <h3 class="news-stat-card-title">Sơ lược về trận chung kết UEFA Youth League</h3>
+                <div class="news-stat-card">
+                    <p class="nsc-line"><span class="nsc-label">Thời gian:</span> Thứ Hai, ngày 20 tháng 4, 18:45 CET</p>
+                    <p class="nsc-line"><span class="nsc-label">Nơi đấu:</span> Stade de la Tuilière, Lausanne</p>
+                    <p class="nsc-line"><span class="nsc-label">Giải đấu:</span> Chung kết UEFA Youth League</p>
+                    <p class="nsc-line"><span class="nsc-label">Cặp đấu:</span> Club Brugge vs Real Madrid</p>
+                    <p class="nsc-line"><span class="nsc-label">Theo dõi:</span> UEFA.tv và các kênh phát sóng chính thức</p>
+                </div>
+
+                <!-- Tags (Node 16:2390) -->
+                <div class="news-tags-group">
+                    <a href="./uefa.html" class="news-tag-pill">UEFA CHAMPIONS LEAGUE</a>
+                    <a href="./news.html" class="news-tag-pill">PHÂN TÍCH</a>
+                </div>
+
+                <!-- Comments Section (Node 16:2397) -->
+                <section class="news-comments-section">
+                    <div class="ncs-header">
+                        <h3 class="ncs-title">BÌNH LUẬN</h3>
+                        <span class="ncs-count">2</span>
+                    </div>
+
+                    <div class="ncs-list">
+                        <!-- Comment 1 -->
+                        <div class="ncs-item">
+                            <div class="ncs-avatar">
+                                <img src="./assets/img/figma/96659a254a85f0434f4058f53004f412e8e138fb.png" alt="Mixifood">
+                            </div>
+                            <div class="ncs-body">
+                                <div class="ncs-user-row">
+                                    <span class="ncs-username">Mixifood</span>
+                                    <span class="ncs-time">2 giờ trước</span>
+                                </div>
+                                <p class="ncs-text">La Fabrica lại chuẩn bị trình làng thêm một thế hệ vàng nữa rồi. Real Madrid ở chung kết giải trẻ luôn là một thế lực hoàn toàn khác!</p>
+                                <button class="ncs-reply-btn" type="button">Trả lời</button>
+
+                                <!-- Reply Thread -->
+                                <div class="ncs-thread">
+                                    <div class="ncs-avatar" style="width: 32px; height: 32px;">
+                                        <img src="./assets/img/figma/88eede69d7b754ca5ece78d2db8392bcb9e0de16.png" alt="Khoga">
+                                    </div>
+                                    <div class="ncs-body">
+                                        <div class="ncs-user-row">
+                                            <span class="ncs-username">Khoga</span>
+                                            <span class="ncs-time">1 giờ trước</span>
+                                        </div>
+                                        <p class="ncs-text">Brugge không phải dạng vừa đâu, họ lội ngược dòng ở bán kết cực hay. Đừng bất ngờ nếu 'ngựa ô' lên ngôi năm nay!</p>
+                                        <button class="ncs-reply-btn" type="button">TRẢ LỜI</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Comment Form -->
+                    <div class="ncs-add-box">
+                        <textarea class="ncs-textarea" placeholder="Nêu cảm nghĩ của bạn..."></textarea>
+                        <button class="ncs-submit-btn" type="button">ĐĂNG TẢI BÌNH LUẬN</button>
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- Right Column: Sidebar (Node 16:2438) -->
+            <aside class="news-sidebar-right-col">
+
+                <!-- 1. Quick Info Box (Node 1139:1047) -->
+                <div class="sidebar-quick-info">
+                    <div class="sqi-header">
+                        <h3 class="sqi-title">THÔNG TIN NHANH</h3>
+                        <img src="./assets/img/figma/f6cb912d74b6118c2fc6a01c4fd58b33fff42700.png" alt="Info" class="sqi-icon">
+                    </div>
+
+                    <div class="sqi-list">
+                        <div class="sqi-row">
+                            <div class="sqi-label-wrap">
+                                <img src="./assets/img/figma/d8c10e107b739a46d539aa9861d3192e814a4d02.png" alt="Đội bóng" class="sqi-row-icon">
+                                <span>Đội bóng</span>
+                            </div>
+                            <span class="sqi-val">Club Brugge vs Real Madrid</span>
+                        </div>
+
+                        <div class="sqi-row">
+                            <div class="sqi-label-wrap">
+                                <img src="./assets/img/figma/3a6e773509baac017f5d9a0a4740c3fd038ab966.png" alt="Giải đấu" class="sqi-row-icon">
+                                <span>Giải đấu</span>
+                            </div>
+                            <span class="sqi-val">UEFA Youth League</span>
+                        </div>
+
+                        <div class="sqi-row">
+                            <div class="sqi-label-wrap">
+                                <img src="./assets/img/figma/2faba964ab988edcdc5cacea7cfec75eb472868a.png" alt="Địa điểm" class="sqi-row-icon">
+                                <span>Địa điểm</span>
+                            </div>
+                            <span class="sqi-val">Stade de la Tuilière, Lausanne</span>
+                        </div>
+
+                        <div class="sqi-row">
+                            <div class="sqi-label-wrap">
+                                <img src="./assets/img/figma/e0fb5e2d04e8d6b441c4659c98ee44a2cb4fc3dc.png" alt="Bối cảnh" class="sqi-row-icon">
+                                <span>Bối cảnh</span>
+                            </div>
+                            <span class="sqi-val">Quản lý đội hình</span>
+                        </div>
+
+                        <div class="sqi-row">
+                            <div class="sqi-label-wrap">
+                                <img src="./assets/img/figma/50a4344b7d10c6462221ad8c52696baf08f34947.png" alt="Nguồn" class="sqi-row-icon">
+                                <span>Nguồn</span>
+                            </div>
+                            <span class="sqi-val">UEFA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Video Highlights (Node 16:2456) -->
+                <div class="sidebar-video-highlights">
+                    <h3 class="svh-sec-title">VIDEO HIGHLIGHTS</h3>
+
+                    <!-- Video 1 -->
+                    <a href="#" class="svh-item">
+                        <div class="svh-thumb-wrap">
+                            <img src="./assets/img/figma/742ff47fd01e490ba7692a432e3c90ff9550fd53.png" alt="Liverpool vs Paris">
+                            <span class="svh-duration">00:25</span>
+                            <div class="svh-play-overlay">
+                                <img src="./assets/img/figma/8a3a0288cfaa939bfe94d8877b2c747298b7ddf0.svg" alt="Play">
+                            </div>
+                        </div>
+                        <h4 class="svh-title">Champions League: Liverpool 0-2 Paris</h4>
+                    </a>
+
+                    <!-- Video 2 -->
+                    <a href="#" class="svh-item">
+                        <div class="svh-thumb-wrap">
+                            <img src="./assets/img/figma/ace2ab687ea4792b0219a9f40611abc4a8c185b1.png" alt="Bayern vs Real Madrid">
+                            <span class="svh-duration">05:12</span>
+                            <div class="svh-play-overlay">
+                                <img src="./assets/img/figma/8a3a0288cfaa939bfe94d8877b2c747298b7ddf0.svg" alt="Play">
+                            </div>
+                        </div>
+                        <h4 class="svh-title">Champions League: Bayern München 4-3 Real Madrid</h4>
+                    </a>
+                </div>
+
+            </aside>
+        </div>
+
+        <!-- 3. Section: Related Stories (Bottom Grid - Node 16:2490) -->
+        <section class="news-related-section">
+            <h2 class="nrs-title">TIN TỨC LIÊN QUAN</h2>
+
+            <div class="nrs-grid">
+                <!-- Related Card 1 -->
+                <a href="#" class="nrs-card">
+                    <div class="nrs-thumb-wrap">
+                        <img src="./assets/img/figma/d2d31679495330439d0b54244424b41fcb572578.png" alt="Pep Guardiola & Haaland">
+                    </div>
+                    <span class="nrs-cat">TRẬN ĐẤU</span>
+                    <h3 class="nrs-card-title">Pep cấp giấy phép cho Manchester City về thời gian nghỉ giải lao chất lượng</h3>
+                </a>
+
+                <!-- Related Card 2 -->
+                <a href="#" class="nrs-card">
+                    <div class="nrs-thumb-wrap">
+                        <img src="./assets/img/figma/b4a618fd1f1179a5e083a574ede041595c2656e7.png" alt="LALIGA EXPERIENCE">
+                    </div>
+                    <span class="nrs-cat">TRẢI NGHIỆM LALIGA</span>
+                    <h3 class="nrs-card-title">LALIGA EXPERIENCE thắp sáng Mallorca bằng một đêm đầy kịch tính trước Real Madrid</h3>
+                </a>
+
+                <!-- Related Card 3 -->
+                <a href="#" class="nrs-card">
+                    <div class="nrs-thumb-wrap">
+                        <img src="./assets/img/figma/d981fc48a78841fa2ed38f7ad83b19ded31fa88a.png" alt="AC Milan vs Inter Milan">
+                    </div>
+                    <span class="nrs-cat">HIGHLIGHTS</span>
+                    <h3 class="nrs-card-title">AC Milan 1-0 Inter Milan | Highlights Serie A</h3>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="./index.html" class="footer-logo">
+                    <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+                </a>
+                <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Điều khoản dịch vụ</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
+                <a href="#">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
+
+    <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                </button>
+            </div>
+
+            <div class="cookie-modal-body">
+                <!-- 1. Bắt buộc -->
+                <div class="cookie-row">
+                    <div class="cookie-row-left">
+                        <h4>Cookie bắt buộc</h4>
+                        <p>Cần thiết để website hoạt động ổn định và bảo mật.</p>
+                    </div>
+                    <div class="cookie-row-right">
+                        <span class="cookie-always-active">Luôn bật</span>
+                    </div>
+                </div>
+
+                <!-- 2. Phân tích -->
+                <div class="cookie-row">
+                    <div class="cookie-row-left">
+                        <h4>Cookie phân tích</h4>
+                        <p>Giúp chúng tôi hiểu cách bạn sử dụng website để cải thiện trải nghiệm.</p>
+                    </div>
+                    <div class="cookie-row-right">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="cookieAnalytics" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 3. Tiếp thị -->
+                <div class="cookie-row">
+                    <div class="cookie-row-left">
+                        <h4>Cookie tiếp thị</h4>
+                        <p>Dùng để hiển thị nội dung và quảng cáo phù hợp với sở thích của bạn.</p>
+                    </div>
+                    <div class="cookie-row-right">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="cookieMarketing">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-save" id="btnSaveCookieSettings">Lưu tùy chọn</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Back to top logic
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Settings dropdown toggle
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // Cookie modal logic
+        const openCookieBtn = document.getElementById('openCookieSettings');
+        const modalCookie = document.getElementById('modalCookieSettings');
+        const btnCloseCookie = document.getElementById('btnCloseCookieModal');
+        const btnSaveCookie = document.getElementById('btnSaveCookieSettings');
+
+        if (openCookieBtn && modalCookie) {
+            openCookieBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalCookie.classList.add('show');
+            });
+        }
+        if (btnCloseCookie && modalCookie) {
+            btnCloseCookie.addEventListener('click', () => {
+                modalCookie.classList.remove('show');
+            });
+        }
+        if (btnSaveCookie && modalCookie) {
+            btnSaveCookie.addEventListener('click', () => {
+                modalCookie.classList.remove('show');
+            });
+        }
+        if (modalCookie) {
+            modalCookie.addEventListener('click', (e) => {
+                if (e.target === modalCookie) {
+                    modalCookie.classList.remove('show');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

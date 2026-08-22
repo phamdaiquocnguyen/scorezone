@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giải Đấu - ScoreZone</title>
+    <title>Marcus Bettinelli - ScoreZone</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.1">
 </head>
-<body class="leagues-page-body">
+<body class="uefa-page-body">
 
     <!-- ================= HEADER (DESKTOP) ================= -->
     <header id="header">
@@ -26,7 +26,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="./index.html">Trang chủ</a></li>
-                <li class="active"><a href="./uefa.html">Giải đấu</a></li>
+                <li class="active"><a href="./premier.html">Giải đấu</a></li>
                 <li><a href="./news.html">Tin tức</a></li>
                 <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
                 <li><a href="./standings.html">Bảng xếp hạng</a></li>
@@ -53,7 +53,7 @@
                     <div class="sp-header">
                         <div class="sp-title-row">
                             <div class="sp-gear-icon">
-                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear">
+                                <img src="./assets/img/figma/09267441aa85448e8ccf83b687ec86f66e42c4d6.svg" alt="Gear">
                             </div>
                             <h3>Tùy chỉnh trải nghiệm</h3>
                         </div>
@@ -65,11 +65,11 @@
                             <div class="sp-section-title">NGÔN NGỮ</div>
                             <div class="sp-options-grid grid-2">
                                 <button class="sp-btn active" type="button">
-                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag" onerror="this.style.display='none'">
                                     <span>Tiếng Việt</span>
                                 </button>
                                 <button class="sp-btn disabled" type="button" disabled>
-                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag">
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag" onerror="this.style.display='none'">
                                     <span>English</span>
                                 </button>
                             </div>
@@ -80,11 +80,11 @@
                             <div class="sp-section-title">GIAO DIỆN</div>
                             <div class="sp-options-grid grid-2">
                                 <button class="sp-btn active" type="button">
-                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon" onerror="this.style.display='none'">
                                     <span>Sáng</span>
                                 </button>
                                 <button class="sp-btn disabled" type="button" disabled>
-                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon">
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon" onerror="this.style.display='none'">
                                     <span>Tối</span>
                                 </button>
                             </div>
@@ -130,163 +130,161 @@
     </header>
 
     <!-- ================= MAIN CONTENT ================= -->
-    <main class="leagues-page-container">
+    <main class="uefa-page-container">
 
         <!-- 1. Breadcrumb -->
-        <nav class="leagues-breadcrumb" aria-label="Breadcrumb">
+        <nav class="uefa-breadcrumb" aria-label="Breadcrumb">
             <a href="./index.html">TRANG CHỦ</a>
-            <span class="leagues-breadcrumb-separator">
+            <span class="uefa-breadcrumb-sep">
                 <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </span>
-            <span class="leagues-breadcrumb-current">GIẢI ĐẤU</span>
+            <a href="./leagues.html">GIẢI ĐẤU</a>
+            <span class="uefa-breadcrumb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <a href="./premier.html">PREMIER LEAGUE</a>
+            <span class="uefa-breadcrumb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <a href="./mancity.html">MANCHESTER CITY</a>
+            <span class="uefa-breadcrumb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="uefa-breadcrumb-current">MARCUS BETTINELLI</span>
         </nav>
 
-        <!-- 2. Header Section -->
-        <section class="leagues-header-section">
-            <h1 class="leagues-title">GIẢI ĐẤU</h1>
-            <p class="leagues-subtitle">Theo dõi các giải đấu hàng đầu thế giới, bảng xếp hạng mới nhất và tin tức nổi bật.</p>
-        </section>
-
-        <!-- 3. Featured Competition Hero (UEFA Champions League) -->
-        <section class="leagues-hero-card">
-            <img src="./assets/img/figma/bde909cf3002e555092d3f78f0cf0bb9ec756356.png" alt="UEFA Champions League Stadium" class="leagues-hero-bg">
-            <div class="leagues-hero-content">
-                <div class="leagues-hero-badge-row">
-                    <div class="leagues-hero-icon-box">
-                        <img src="./assets/img/figma/a94c432b73a986244001ddea807a665b296862d5.png" alt="UEFA Icon">
+        <!-- 2. Hero Section (Node 824:674) -->
+        <section class="player-hero-section" data-node-id="824:674">
+            <div class="player-hero-bg-wrap">
+                <img src="./assets/img/figma/0a3d696dc455b05564307d25edbec3dab3476a63.png" alt="Player Hero Background" class="player-hero-bg">
+            </div>
+            <div class="player-hero-content">
+                <div class="player-hero-left">
+                    <div class="player-hero-top-bar"></div>
+                    <div class="player-hero-name-group">
+                        <div class="player-hero-first-row">
+                            <span class="player-hero-firstname">Marcus</span>
+                            <span class="player-hero-number">13</span>
+                        </div>
+                        <h1 class="player-hero-lastname">Bettinelli</h1>
                     </div>
-                    <span class="leagues-hero-tag">GIẢI ĐẤU TIÊU ĐIỂM</span>
+
+                    <div class="player-hero-stats-row">
+                        <div class="phs-stat-item">
+                            <span class="phs-stat-label">Tuổi</span>
+                            <span class="phs-stat-val">33</span>
+                        </div>
+                        <div class="phs-stat-item">
+                            <span class="phs-stat-label">Vị trí</span>
+                            <span class="phs-stat-val">THỦ MÔN</span>
+                        </div>
+                        <div class="phs-stat-item">
+                            <span class="phs-stat-label">Quốc tịch</span>
+                            <div class="phs-stat-val phs-nat-val">
+                                <span>ANH</span>
+                                <div class="phs-flag-circle">
+                                    <img src="./assets/img/flags/england.svg" alt="England">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h2 class="leagues-hero-title">UEFA Champions League</h2>
-                <p class="leagues-hero-desc">Nơi những huyền thoại được sinh ra. Theo dõi cuộc đua đến ngôi vương châu Âu với những trận cầu đỉnh cao nhất hành tinh.</p>
-                <a href="./uefa.html" class="leagues-hero-btn">XEM GIẢI ĐẤU</a>
+
+                <div class="player-hero-cutout">
+                    <img src="./assets/img/figma/0f112122727cbcc56a4c39201cadbb87efc20ea0.png" alt="Marcus Bettinelli Cutout">
+                </div>
             </div>
         </section>
 
-        <!-- 4. Section: Tất cả giải đấu -->
-        <section class="leagues-grid-section">
-            <h2 class="leagues-section-title">TẤT CẢ GIẢI ĐẤU</h2>
-            <div class="leagues-cards-grid">
+        <!-- 3. Main Content (2 Columns) -->
+        <div class="uefa-content-grid">
 
-                <!-- Card 1: Premier League -->
-                <a href="./premier.html" class="league-box-card">
-                    <div class="lbc-top">
-                        <img src="./assets/img/figma/a6ec5f45c519b65d37162fc6afafd836e41572ce.png" alt="Premier League" class="lbc-logo">
-                        <span class="lbc-country-badge">ANH</span>
-                    </div>
-                    <h3 class="lbc-name">Premier League</h3>
-                    <p class="lbc-desc">Giải đấu hấp dẫn nhất hành tinh với tốc độ và cường độ cực cao.</p>
-                </a>
+            <!-- Left Column (8 cols): Tiểu sử & Thủ môn cùng đội -->
+            <div class="uefa-left-col">
 
-                <!-- Card 2: LaLiga -->
-                <a href="./standings.html" class="league-box-card">
-                    <div class="lbc-top">
-                        <img src="./assets/img/figma/f5987a6a3503aa53b417f36596c2362f2f386b9c.png" alt="LaLiga" class="lbc-logo">
-                        <span class="lbc-country-badge">TÂY BAN NHA</span>
-                    </div>
-                    <h3 class="lbc-name">LaLiga</h3>
-                    <p class="lbc-desc">Nơi hội tụ của kỹ thuật thượng thừa và những siêu kinh điển rực lửa.</p>
-                </a>
+                <!-- Box 1: TIỂU SỬ -->
+                <div class="player-bio-card">
+                    <h2 class="player-sec-title">TIỂU SỬ</h2>
+                    <p class="player-bio-text">Thủ môn giàu kinh nghiệm Marcus Bettinelli đã ký hợp đồng một năm vào tháng 6 năm 2025 để kịp gia nhập đội hình của Pep Guardiola tham dự FIFA Club World Cup. Thủ thành người Anh bắt đầu sự nghiệp tại Fulham FC sau khi trưởng thành từ học viện của CLB. Những quãng thời gian được cho mượn tại Dartford FC và Accrington Stanley FC ở giai đoạn đầu sự nghiệp đã giúp anh có cơ hội trở thành thủ môn số một của Fulham ở mùa giải 2014/15. Anh đã ra sân tổng cộng 120 trận cho đội bóng này trước khi tiếp tục được cho mượn tới Middlesbrough FC ở mùa 2020/21, nơi anh thi đấu 41 trận tại Championship. Sau đó, anh chuyển tới Chelsea FC vào mùa hè năm 2021 và có bốn mùa giải là một phần quan trọng trong đội hình tại Stamford Bridge. Hiện tại, anh gia nhập Manchester để cạnh tranh vị trí với Ederson và Stefan Ortega Moreno tại Manchester City FC, khi đội bóng tiếp tục hướng tới những danh hiệu mới.</p>
+                </div>
 
-                <!-- Card 3: Serie A -->
-                <a href="./standings.html" class="league-box-card">
-                    <div class="lbc-top">
-                        <img src="./assets/img/figma/8e0d11ec7ffee83245f6212fc370812c66835a99.png" alt="Serie A" class="lbc-logo">
-                        <span class="lbc-country-badge">Ý</span>
-                    </div>
-                    <h3 class="lbc-name">Serie A</h3>
-                    <p class="lbc-desc">Giải đấu của những chiến thuật bậc thầy và hàng phòng ngự trứ danh.</p>
-                </a>
+                <!-- Box 2: THỦ MÔN CÙNG ĐỘI -->
+                <div class="uefa-section-header">
+                    <h2 class="uefa-sec-title">THỦ MÔN CÙNG ĐỘI</h2>
+                </div>
 
-                <!-- Card 4: Bundesliga -->
-                <a href="./standings.html" class="league-box-card">
-                    <div class="lbc-top">
-                        <img src="./assets/img/figma/2049ea5f776a1489f21c6567059806e08d021008.png" alt="Bundesliga" class="lbc-logo">
-                        <span class="lbc-country-badge">ĐỨC</span>
+                <div class="player-teammates-grid">
+                    <!-- Teammate 1: Gianluigi Donnarumma -->
+                    <div class="player-card-navy">
+                        <div class="pcn-top-info">
+                            <span class="pcn-number">1</span>
+                            <div class="pcn-flag">
+                                <img src="./assets/img/figma/65df9690f50db12aa66304a347974334b72b1c54.svg" alt="Italy">
+                            </div>
+                        </div>
+                        <div class="pcn-img-wrap">
+                            <img src="./assets/img/players/goalkeeper/donnaruma-elec-bl.webp" alt="Gianluigi Donnarumma">
+                        </div>
+                        <div class="pcn-bottom-info">
+                            <div class="pcn-firstname">GIANLUIGI</div>
+                            <h3 class="pcn-lastname">DONNARUMMA</h3>
+                            <div class="pcn-bar"></div>
+                        </div>
                     </div>
-                    <h3 class="lbc-name">Bundesliga</h3>
-                    <p class="lbc-desc">Sức mạnh cơ bắp và những sân vận động luôn chật kín khán giả.</p>
-                </a>
 
-                <!-- Card 5: MLS -->
-                <a href="./standings.html" class="league-box-card">
-                    <div class="lbc-top">
-                        <img src="./assets/img/figma/b53b448c7afe34f0f3e6091a3db86a17bbefaee6.png" alt="MLS" class="lbc-logo">
-                        <span class="lbc-country-badge">MỸ</span>
+                    <!-- Teammate 2: Gerónimo Rulli -->
+                    <div class="player-card-navy">
+                        <div class="pcn-top-info">
+                            <span class="pcn-number">28</span>
+                            <div class="pcn-flag">
+                                <img src="./assets/img/flags/argentina.svg" alt="Argentina">
+                            </div>
+                        </div>
+                        <div class="pcn-img-wrap">
+                            <img src="./assets/img/players/goalkeeper/geronimo-rulli.webp" alt="Gerónimo Rulli">
+                        </div>
+                        <div class="pcn-bottom-info">
+                            <div class="pcn-firstname">GERÓNIMO</div>
+                            <h3 class="pcn-lastname">RULLI</h3>
+                            <div class="pcn-bar"></div>
+                        </div>
                     </div>
-                    <h3 class="lbc-name">MLS</h3>
-                    <p class="lbc-desc">Nơi thăng hoa của những ngôi sao hàng đầu thế giới tại xứ sở cờ hoa.</p>
-                </a>
-
-                <!-- Card 6: Ligue 1 -->
-                <a href="./standings.html" class="league-box-card">
-                    <div class="lbc-top">
-                        <img src="./assets/img/figma/3537b2e349973aa8f216957fe432979522818291.png" alt="Ligue 1" class="lbc-logo">
-                        <span class="lbc-country-badge">PHÁP</span>
-                    </div>
-                    <h3 class="lbc-name">Ligue 1</h3>
-                    <p class="lbc-desc">Nơi đào tạo những tài năng trẻ xuất chúng nhất thế giới bóng đá.</p>
-                </a>
+                </div>
 
             </div>
-        </section>
 
-        <!-- 5. Section: Tin tức liên quan -->
-        <section class="leagues-news-section">
-            <div class="lns-header">
-                <h2 class="lns-title">TIN TỨC LIÊN QUAN</h2>
-                <a href="./news.html" class="lns-view-all">
-                    <span>TẤT CẢ TIN TỨC</span>
-                    <img src="./assets/img/figma/0464c44be1d36191b7930223a3686ec87b5bee6f.svg" alt="Arrow">
-                </a>
+            <!-- Right Column (4 cols): Thông tin cá nhân -->
+            <div class="uefa-right-col">
+                <div class="player-personal-info-card">
+                    <h3 class="ppic-title">THÔNG TIN CÁ NHÂN</h3>
+                    <div class="ppic-row">
+                        <span class="ppic-label">NGÀY SINH</span>
+                        <span class="ppic-val">24/05/1992</span>
+                    </div>
+                    <div class="ppic-row">
+                        <span class="ppic-label">CHIỀU CAO</span>
+                        <span class="ppic-val">1.94m</span>
+                    </div>
+                    <div class="ppic-row">
+                        <span class="ppic-label">CÂN NẶNG</span>
+                        <span class="ppic-val">82kg</span>
+                    </div>
+                    <div class="ppic-row">
+                        <span class="ppic-label">CHÂN THUẬN</span>
+                        <span class="ppic-val">Phải</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="lns-news-grid">
-
-                <!-- News 1: Real Madrid -->
-                <a href="./news.html" class="lns-card">
-                    <div class="lns-img-wrap">
-                        <img src="./assets/img/figma/28b2a3554551d9f87631bd726620e4342f01a996.png" alt="Real Madrid">
-                    </div>
-                    <span class="lns-tag">UEFA CHAMPIONS LEAGUE</span>
-                    <h3 class="lns-headline">Real Madrid chạm trán Club Brugge ở chung kết</h3>
-                    <span class="lns-time">15 PHÚT TRƯỚC</span>
-                </a>
-
-                <!-- News 2: Barcelona -->
-                <a href="./news.html" class="lns-card">
-                    <div class="lns-img-wrap">
-                        <img src="./assets/img/figma/beea52123eba39190e24e83e244864c96ff643ea.png" alt="Barcelona">
-                    </div>
-                    <span class="lns-tag">LA LIGA</span>
-                    <h3 class="lns-headline">Barcelona đã đánh bại Real Madrid bất chấp cú hat-trick</h3>
-                    <span class="lns-time">1 GIỜ TRƯỚC</span>
-                </a>
-
-                <!-- News 3: Arsenal -->
-                <a href="./news.html" class="lns-card">
-                    <div class="lns-img-wrap">
-                        <img src="./assets/img/figma/627c506214ef07f0841357a5f19032e4a0bd8c22.png" alt="Arsenal">
-                    </div>
-                    <span class="lns-tag">PREMIER LEAGUE</span>
-                    <h3 class="lns-headline">Arsenal áp đảo Tottenham trong trận Derby Bắc London</h3>
-                    <span class="lns-time">3 GIỜ TRƯỚC</span>
-                </a>
-
-                <!-- News 4: Inter Milan -->
-                <a href="./news.html" class="lns-card">
-                    <div class="lns-img-wrap">
-                        <img src="./assets/img/figma/82b432d5d79d4dee25b0334eb4f43c0791a18e9c.png" alt="Inter Milan">
-                    </div>
-                    <span class="lns-tag">SERIE A</span>
-                    <h3 class="lns-headline">Inter Milan tiến gần hơn bao giờ hết tới chức vô địch Scudetto</h3>
-                    <span class="lns-time">5 GIỜ TRƯỚC</span>
-                </a>
-
-            </div>
-        </section>
+        </div>
 
     </main>
 
@@ -313,7 +311,7 @@
         <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
     </button>
 
-    <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
@@ -322,7 +320,7 @@
                     <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
                 </div>
                 <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
-                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close" onerror="this.innerText='×'">
                 </button>
             </div>
             <div class="cookie-modal-body">
@@ -333,7 +331,6 @@
                         <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
                     </div>
                     <div class="cookie-badge-always">
-                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
                         <span>LUÔN BẬT</span>
                     </div>
                 </div>
@@ -379,7 +376,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
+                if (window.scrollY > 300) {
                     backToTopBtn.classList.add('visible');
                 } else {
                     backToTopBtn.classList.remove('visible');

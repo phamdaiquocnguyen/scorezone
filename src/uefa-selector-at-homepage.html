@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScoreZone - Nền tảng thông tin bóng đá đa giải đấu</title>
+    <title>ScoreZone - UEFA Champions League</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <header id="header">
         <!-- Trái: Logo -->
         <div class="header-left">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
             </a>
         </div>
@@ -21,7 +21,7 @@
         <nav id="nav">
             <ul>
                 <li class="active"><a href="./index.html">Trang chủ</a></li>
-                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li><a href="./leagues.html">Giải đấu</a></li>
                 <li><a href="./news.html">Tin tức</a></li>
                 <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
                 <li><a href="./standings.html">Bảng xếp hạng</a></li>
@@ -145,9 +145,9 @@
 
         <!-- 2. LEAGUE SELECTOR -->
         <section class="league-selector reveal-section">
-            <a href="index.html" class="league-pill active">Tất cả giải đấu</a>
+            <a href="index.html" class="league-pill">Tất cả giải đấu</a>
             <a href="premier-selector-at-homepage.html" class="league-pill">Premier League</a>
-            <a href="uefa-selector-at-homepage.html" class="league-pill">UEFA Champions League</a>
+            <a href="uefa-selector-at-homepage.html" class="league-pill active">UEFA Champions League</a>
         </section>
 
         <!-- 3. MATCH CENTER -->
@@ -234,7 +234,7 @@
                 <!-- Cột phải: Lưới các trận đấu phụ (2x2) -->
                 <div class="secondary-matches-grid">
                     <!-- Trận 1: Man City vs Arsenal -->
-                    <div class="sub-match-card" data-league="premier">
+                    <div class="sub-match-card">
                         <div class="sm-card-header">
                             <span class="sm-time">20:00</span>
                         </div>
@@ -257,7 +257,7 @@
                     </div>
 
                     <!-- Trận 2: Barcelona vs Valencia (Đã kết thúc) -->
-                    <div class="sub-match-card" data-league="laliga">
+                    <div class="sub-match-card">
                         <div class="sm-card-header">
                             <span class="sm-time">FINAL</span>
                         </div>
@@ -288,7 +288,7 @@
                     </div>
 
                     <!-- Trận 3: Juventus vs Inter Milan -->
-                    <div class="sub-match-card" data-league="seriea">
+                    <div class="sub-match-card">
                         <div class="sm-card-header">
                             <span class="sm-time">22:00</span>
                         </div>
@@ -311,7 +311,7 @@
                     </div>
 
                     <!-- Trận 4: Liverpool vs PSG (Đã kết thúc) -->
-                    <div class="sub-match-card" data-league="uefa">
+                    <div class="sub-match-card">
                         <div class="sm-card-header">
                             <span class="sm-time">FINAL</span>
                         </div>
@@ -346,7 +346,7 @@
             <!-- Tab 2: Kết quả (4x2 Grid) -->
             <div class="mc-grid-results" id="mcResultsGrid">
                 <!-- Card 1: Liverpool vs Arsenal -->
-                <div class="sub-match-card" data-league="premier">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -377,7 +377,7 @@
                 </div>
 
                 <!-- Card 2: Barcelona vs Luton Town -->
-                <div class="sub-match-card" data-league="laliga">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -408,7 +408,7 @@
                 </div>
 
                 <!-- Card 3: Man City vs Arsenal -->
-                <div class="sub-match-card" data-league="premier">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -439,7 +439,7 @@
                 </div>
 
                 <!-- Card 4: Barcelona vs Valencia -->
-                <div class="sub-match-card" data-league="laliga">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -470,7 +470,7 @@
                 </div>
 
                 <!-- Card 5: Juventus vs Barcelona -->
-                <div class="sub-match-card" data-league="uefa">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -501,7 +501,7 @@
                 </div>
 
                 <!-- Card 6: Inter Milan vs Paris FC -->
-                <div class="sub-match-card" data-league="uefa">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -532,7 +532,7 @@
                 </div>
 
                 <!-- Card 7: Juventus vs Inter Milan -->
-                <div class="sub-match-card" data-league="seriea">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -563,7 +563,7 @@
                 </div>
 
                 <!-- Card 8: Metz vs Paris FC -->
-                <div class="sub-match-card" data-league="other">
+                <div class="sub-match-card">
                     <div class="sm-card-header">
                         <span class="sm-time">FINAL</span>
                     </div>
@@ -748,10 +748,10 @@
 
             <!-- 4 CỘT PHẢI: SIDEBAR BỔ TRỢ -->
             <aside class="home-sidebar-col">
-                <!-- Widget 1: Bảng xếp hạng Premier League -->
+                <!-- Widget 1: Bảng xếp hạng UEFA -->
                 <div class="sidebar-widget standings-widget">
                     <div class="widget-header">
-                        <h4>BẢNG XẾP HẠNG PREMIER LEAGUE</h4>
+                        <h4>BẢNG XẾP HẠNG UEFA</h4>
                         <a href="#" class="widget-link">CHI TIẾT</a>
                     </div>
                     <table class="standings-table">
@@ -805,21 +805,21 @@
                     </table>
                 </div>
 
-                <!-- Widget 2: Vua phá lưới Premier League -->
+                <!-- Widget 2: Vua phá lưới UEFA Champions League -->
                 <div class="sidebar-widget top-scorers-widget">
                     <div class="widget-header">
-                        <h4>VUA PHÁ LƯỚI PREMIER LEAGUE</h4>
+                        <h4>VUA PHÁ LƯỚI UEFA CHAMPIONS LEAGUE</h4>
                     </div>
                     <div class="scorers-list">
                         <!-- Cầu thủ 1 -->
                         <div class="scorer-item">
                             <span class="scorer-rank">1</span>
                             <div class="scorer-avatar">
-                                <img src="./assets/img/figma/86589736d38db1dad085660d6a30abecea3bd7af.png" alt="Erling Haaland">
+                                <img src="./assets/img/figma/7427aff241a59c8edfb36283fb3f4e4cced71807.png" alt="Kylian Mbappé Lottin">
                             </div>
                             <div class="scorer-info">
-                                <span class="scorer-name">Erling Haaland</span>
-                                <span class="scorer-team">MAN CITY</span>
+                                <span class="scorer-name">Kylian Mbappé Lottin</span>
+                                <span class="scorer-team">REAL MADRID</span>
                             </div>
                             <span class="scorer-goals">27</span>
                         </div>
@@ -828,13 +828,13 @@
                         <div class="scorer-item">
                             <span class="scorer-rank">2</span>
                             <div class="scorer-avatar">
-                                <img src="./assets/img/figma/d5ed63565d9b7764bcb4c6804f8a16bdfe9d92e3.png" alt="Mohamed Salah">
+                                <img src="./assets/img/figma/3fed8288e87b3d45de2f6830ca38a6ed0cacc011.png" alt="Harry Kane">
                             </div>
                             <div class="scorer-info">
-                                <span class="scorer-name">Mohamed Salah</span>
-                                <span class="scorer-team">LIVERPOOL</span>
+                                <span class="scorer-name">Harry Kane</span>
+                                <span class="scorer-team">BAYERN MUNICH</span>
                             </div>
-                            <span class="scorer-goals">20</span>
+                            <span class="scorer-goals">21</span>
                         </div>
                     </div>
                 </div>
@@ -894,7 +894,6 @@
     <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
         <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
     </button>
-
     
     <!-- ================= POPOVER: TÙY CHỈNH ĐỘI THEO DÕI (ANCHORED POPOVER) ================= -->
     <div class="popover-follow-teams" id="modalFollowTeams" role="dialog" aria-modal="false" aria-labelledby="mftTitle">
@@ -990,7 +989,8 @@
         </div>
     </div>
 
-    <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    
+    <!-- ================= MODAL 2: CÀI ĐẶT COOKIE ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
@@ -1539,8 +1539,6 @@
                 }
             });
         });
-
-
 
         // Scroll Reveal Observer
         if ('IntersectionObserver' in window) {

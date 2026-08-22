@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manchester City - ScoreZone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.1">
+</head>
+<body class="uefa-page-body">
+
+    <!-- ================= HEADER (DESKTOP) ================= -->
+    <header id="header">
+        <!-- Trái: Logo -->
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Giữa: Navigation -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li class="active"><a href="./premier.html">Giải đấu</a></li>
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
+                <li><a href="./standings.html">Bảng xếp hạng</a></li>
+            </ul>
+        </nav>
+
+        <!-- Phải: Tìm kiếm & User -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <button class="search-btn" aria-label="Tìm kiếm">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search">
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/09267441aa85448e8ccf83b687ec86f66e42c4d6.svg" alt="Gear">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag" onerror="this.style.display='none'">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag" onerror="this.style.display='none'">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon" onerror="this.style.display='none'">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon" onerror="this.style.display='none'">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="user-avatar" aria-label="Tài khoản">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="uefa-page-container">
+
+        <!-- 1. Breadcrumb -->
+        <nav class="uefa-breadcrumb" aria-label="Breadcrumb">
+            <a href="./index.html">TRANG CHỦ</a>
+            <span class="uefa-breadcrumb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <a href="./leagues.html">GIẢI ĐẤU</a>
+            <span class="uefa-breadcrumb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <a href="./premier.html">PREMIER LEAGUE</a>
+            <span class="uefa-breadcrumb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="uefa-breadcrumb-current">MANCHESTER CITY</span>
+        </nav>
+
+        <!-- 2. Hero Section (Node 95:1812) -->
+        <section class="mancity-hero-section" data-node-id="95:1812">
+            <div class="mancity-hero-bg-wrap">
+                <img src="./assets/img/figma/48ee1ecc9a2f5c1b7b0f96e36c877c0d2ad8e285.png" alt="Etihad Stadium Banner" class="mancity-hero-bg">
+                <div class="mancity-hero-gradient-overlay"></div>
+            </div>
+            <div class="mancity-hero-content">
+                <div class="mancity-hero-left">
+                    <div class="mancity-hero-logo-box">
+                        <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Manchester City Crest">
+                    </div>
+                    <div class="mancity-hero-text">
+                        <div class="mancity-hero-tags">
+                            <span class="mancity-league-tag">PREMIER LEAGUE</span>
+                            <span class="mancity-founded-tag">THÀNH LẬP 1894</span>
+                        </div>
+                        <h1 class="mancity-hero-title">MANCHESTER CITY</h1>
+                        <button class="mancity-follow-btn" type="button">
+                            <img src="./assets/img/figma/76f7f507d2e3a395b06260613b16208ec6ec82fb.png" alt="Alarm Bell">
+                            <span>Đã theo dõi</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mancity-rank-box">
+                    <div class="mancity-rank-label">THỨ HẠNG HIỆN TẠI</div>
+                    <div class="mancity-rank-val">2<span>nd</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Quick Info Cards Row (4 cards) -->
+        <section class="uefa-quick-cards" style="margin-top: 24px;">
+
+            <!-- Card 1: PHONG ĐỘ 5 TRẬN -->
+            <div class="uefa-quick-card">
+                <div class="uqc-left">
+                    <div class="uqc-title">PHONG ĐỘ 5 TRẬN</div>
+                    <div class="uefa-form-badges" style="margin-top: 8px;">
+                        <span class="uefa-form-badge win">T</span>
+                        <span class="uefa-form-badge loss">B</span>
+                        <span class="uefa-form-badge win">T</span>
+                        <span class="uefa-form-badge win">T</span>
+                        <span class="uefa-form-badge win">T</span>
+                    </div>
+                </div>
+                <div class="uqc-icon">
+                    <img src="./assets/img/figma/e3a17739539bd1ad6ce2601f0b443ed43a6d826c.svg" alt="Trending Up">
+                </div>
+            </div>
+
+            <!-- Card 2: TRẬN ĐẤU TỚI -->
+            <div class="uefa-quick-card">
+                <div class="uqc-left">
+                    <div class="uqc-title">TRẬN ĐẤU TỚI</div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                        <img src="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png" alt="Real Madrid" style="width: 24px; height: 24px; object-fit: contain;">
+                        <span style="font-size: 15px; font-weight: 700; color: #1d2b6b;">vs Real Madrid</span>
+                    </div>
+                    <div style="font-size: 11px; font-weight: 600; color: #3357a5; margin-top: 2px;">THỨ 4, 02:00</div>
+                </div>
+                <div class="uqc-icon">
+                    <img src="./assets/img/figma/30a035ec0f12875812c0c072b3fa87e4858ec01f.svg" alt="Calendar">
+                </div>
+            </div>
+
+            <!-- Card 3: CẦU THỦ GHI BÀN SỐ 1 -->
+            <div class="uefa-quick-card">
+                <div class="uqc-left">
+                    <div class="uqc-title">CẦU THỦ GHI BÀN SỐ 1</div>
+                    <div class="uqc-scorer-name">ERLING HAALAND</div>
+                    <div class="uqc-scorer-goals">27 Bàn thắng / 24 Trận</div>
+                </div>
+                <div class="uqc-player-avatar">
+                    <img src="./assets/img/figma/86589736d38db1dad085660d6a30abecea3bd7af.png" alt="Erling Haaland">
+                </div>
+            </div>
+
+            <!-- Card 4: TỔNG SỐ TRẬN THẮNG -->
+            <div class="uefa-quick-card">
+                <div class="uqc-left">
+                    <div class="uqc-title">TỔNG SỐ TRẬN THẮNG</div>
+                    <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 4px;">
+                        <span style="font-size: 28px; font-weight: 900; color: #004ac6;">21</span>
+                        <span style="font-size: 14px; font-weight: 700; color: #434655;">Trận</span>
+                    </div>
+                </div>
+                <div class="uqc-icon">
+                    <img src="./assets/img/figma/8a25db83ce140a8322622ac980e74ff45703158a.svg" alt="Trophy">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 4. Tab Navigation -->
+        <nav class="uefa-tab-nav" aria-label="Tabs câu lạc bộ">
+            <button class="uefa-tab-btn active" data-tab="overview" type="button">TỔNG QUAN</button>
+            <button class="uefa-tab-btn" data-tab="squad" type="button">ĐỘI HÌNH</button>
+        </nav>
+
+        <!-- 5. Tab Content: TỔNG QUAN (Node 95:1799) -->
+        <div class="uefa-tab-content active" id="tab-overview">
+            <div class="uefa-content-grid">
+
+                <!-- Left Column (8 cols): Tóm lược & Tin mới nhất -->
+                <div class="uefa-left-col">
+
+                    <!-- Box 1: TÓM LƯỢC CÂU LẠC BỘ -->
+                    <div class="club-summary-box">
+                        <h2 class="club-summary-title">TÓM LƯỢC CÂU LẠC BỘ</h2>
+                        <p class="club-summary-desc">Manchester City Football Club là một câu lạc bộ bóng đá chuyên nghiệp có trụ sở tại Manchester, Anh. Với biệt danh "The Citizens", đội bóng đã trải qua một thời kỳ hoàng kim vô tiền khoáng hậu dưới sự dẫn dắt của Pep Guardiola, thiết lập những tiêu chuẩn mới về bóng đá tấn công và kiểm soát tại Premier League.</p>
+                    </div>
+
+                    <!-- Box 2: TIN MỚI NHẤT -->
+                    <div class="uefa-section-header">
+                        <h2 class="uefa-sec-title">TIN MỚI NHẤT</h2>
+                    </div>
+
+                    <div class="club-news-grid">
+                        <!-- News 1 -->
+                        <a href="./news.html" class="club-news-card">
+                            <div class="cnc-img-wrap">
+                                <img src="./assets/img/figma/d2d31679495330439d0b54244424b41fcb572578.png" alt="Pep Guardiola & Haaland">
+                            </div>
+                            <div class="cnc-body">
+                                <span class="cnc-tag">HẬU TRƯỜNG</span>
+                                <h3 class="cnc-title">Pep cấp giấy phép cho Manchester City về thời gian nghỉ giải lao chất lượng</h3>
+                            </div>
+                        </a>
+
+                        <!-- News 2 -->
+                        <a href="./news.html" class="club-news-card">
+                            <div class="cnc-img-wrap">
+                                <img src="./assets/img/figma/6738130e999d0a0945ffd7774905cc538df6d0ae.png" alt="Arsenal Champions League match">
+                            </div>
+                            <div class="cnc-body">
+                                <span class="cnc-tag">ĐỘI HÌNH</span>
+                                <h3 class="cnc-title">Cập nhật tình hình chấn thương trước thềm đại chiến Champions League</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Right Column (4 cols): Club Info, Trophies, Standings -->
+                <div class="uefa-right-col">
+                    <div class="club-sidebar-stack">
+
+                        <!-- Card 1: THÔNG TIN ĐỘI BÓNG -->
+                        <div class="club-info-card">
+                            <h3 class="cic-header-title">THÔNG TIN ĐỘI BÓNG</h3>
+                            <div class="cic-row">
+                                <span class="cic-label">Huấn luyện viên</span>
+                                <span class="cic-val">ENZO MARESCA</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Sân vận động</span>
+                                <span class="cic-val">ETIHAD STADIUM</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Sức chứa</span>
+                                <span class="cic-val">53,400</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Màu áo chính</span>
+                                <span class="cic-val cic-color-badge"><span class="cic-dot"></span> SKY BLUE</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Website</span>
+                                <a href="https://mancity.com" target="_blank" class="cic-val highlight-link">mancity.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: DANH HIỆU GẦN NHẤT -->
+                        <div class="club-trophies-card">
+                            <h3 class="cic-header-title">DANH HIỆU GẦN NHẤT</h3>
+                            <div class="trophy-list">
+                                <div class="trophy-item">
+                                    <img src="./assets/img/figma/8a25db83ce140a8322622ac980e74ff45703158a.svg" alt="Trophy">
+                                    <span>Premier League 24/25</span>
+                                </div>
+                                <div class="trophy-item">
+                                    <img src="./assets/img/figma/8a25db83ce140a8322622ac980e74ff45703158a.svg" alt="Trophy">
+                                    <span>FA Cup 22/23</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: VỊ TRÍ BẢNG XẾP HẠNG -->
+                        <div class="club-rank-navy-card">
+                            <div class="crnc-title">VỊ TRÍ BẢNG XẾP HẠNG</div>
+                            <table class="crnc-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="crnc-pos">1</td>
+                                        <td>
+                                            <div class="crnc-team">
+                                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal">
+                                                <span>Arsenal</span>
+                                            </div>
+                                        </td>
+                                        <td class="crnc-pts">73</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="crnc-pos">2</td>
+                                        <td>
+                                            <div class="crnc-team">
+                                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City">
+                                                <span>Man City</span>
+                                            </div>
+                                        </td>
+                                        <td class="crnc-pts">70</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="crnc-pos">3</td>
+                                        <td>
+                                            <div class="crnc-team">
+                                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool">
+                                                <span>Liverpool</span>
+                                            </div>
+                                        </td>
+                                        <td class="crnc-pts">58</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 6. Tab Content: ĐỘI HÌNH (Node 1171:4221) -->
+        <div class="uefa-tab-content" id="tab-squad">
+            <div class="uefa-content-grid">
+
+                <!-- Left Column (8 cols): Squad Grid -->
+                <div class="uefa-left-col">
+                    
+                    <!-- Position Filters -->
+                    <div class="squad-filters">
+                        <button class="squad-filter-btn active" data-pos="all" type="button">TẤT CẢ</button>
+                        <button class="squad-filter-btn" data-pos="gk" type="button">THỦ MÔN</button>
+                        <button class="squad-filter-btn" data-pos="def" type="button">HẬU VỆ</button>
+                        <button class="squad-filter-btn" data-pos="mid" type="button">TIỀN VỆ</button>
+                        <button class="squad-filter-btn" data-pos="fwd" type="button">TIỀN ĐẠO</button>
+                        <button class="squad-filter-btn" data-pos="coach" type="button">HUẤN LUYỆN VIÊN</button>
+                    </div>
+
+                    <!-- Squad Section: Goalkeepers -->
+                    <div class="squad-section-wrap pos-group" id="group-gk">
+                        <h3 class="squad-pos-heading">THỦ MÔN (4)</h3>
+                        <div class="squad-players-grid">
+                            <!-- Player 1: Marcus Bettinelli -->
+                            <a href="./bettinelli.html" class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">13</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/italia.svg" alt="Italy">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/goalkeeper/marcus-bettinelli-elec-bl.webp" alt="Marcus Bettinelli">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">MARCUS</div>
+                                    <h3 class="pcn-lastname">BETTINELLI</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </a>
+
+                            <!-- Player 2: Pierce Charles -->
+                            <div class="player-card-navy">
+                                <span class="pcn-loan-badge">On loan</span>
+                                <div class="pcn-top-info">
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/onloan.png" alt="Pierce Charles">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">PIERCE</div>
+                                    <h3 class="pcn-lastname">CHARLES</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Player 3: Gianluigi Donnarumma -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">1</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/65df9690f50db12aa66304a347974334b72b1c54.svg" alt="Italy">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/goalkeeper/donnaruma-elec-bl.webp" alt="Gianluigi Donnarumma">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">GIANLUIGI</div>
+                                    <h3 class="pcn-lastname">DONNARUMMA</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Player 4: Gerónimo Rulli -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">28</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/argentina.svg" alt="Argentina">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/goalkeeper/geronimo-rulli.webp" alt="Gerónimo Rulli">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">GERÓNIMO</div>
+                                    <h3 class="pcn-lastname">RULLI</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Squad Section: Defenders -->
+                    <div class="squad-section-wrap pos-group" id="group-def">
+                        <h3 class="squad-pos-heading">HẬU VỆ (10)</h3>
+                        <div class="squad-players-grid">
+                            <!-- Def 1: Rayan Aït-Nouri -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">21</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/553095e8eb7af7e52d02304f678a5228fc045ea4.svg" alt="Algeria">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/rayan-ait-nouri-elec-bl.webp" alt="Rayan Aït-Nouri">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">RAYAN</div>
+                                    <h3 class="pcn-lastname">AÏT-NOURI</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 2: Max Alleyne -->
+                            <div class="player-card-navy">
+                                <span class="pcn-loan-badge">On loan</span>
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">68</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/onloan.png" alt="Max Alleyne">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">MAX</div>
+                                    <h3 class="pcn-lastname">ALLEYNE</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 3: Ruben Dias -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">3</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/17303089e4d47ae874b61f3975f8144b301b33c1.svg" alt="Portugal">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/ruben-dias-elec-bl.webp" alt="Ruben Dias">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">RUBEN</div>
+                                    <h3 class="pcn-lastname">DIAS</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 4: Marc Guéhi -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">6</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/marc-gue-hi-elec-bl.webp" alt="Marc Guéhi">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">MARC</div>
+                                    <h3 class="pcn-lastname">GUÉHI</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 5: Josko Gvardiol -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">24</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/677f086862c28f1585d3ea517ec31ae701cf9e7e.svg" alt="Croatia">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/josko-gvardiol-elec-bl.webp" alt="Josko Gvardiol">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">JOSKO</div>
+                                    <h3 class="pcn-lastname">GVARDIOL</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 6: Abdukodir Khusanov -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">45</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/c3f2d796c3726ac3e156fc789c1e1178a8e42e84.svg" alt="Uzbekistan">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/abdukodir-khusanov-elec-bl.webp" alt="Abdukodir Khusanov">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">ABDUKODIR</div>
+                                    <h3 class="pcn-lastname">KHUSANOV</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 7: Rico Lewis -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">82</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/rico-lewis-elec-bl.webp" alt="Rico Lewis">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">RICO</div>
+                                    <h3 class="pcn-lastname">LEWIS</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 8: Matheus Nunes -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">27</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/17303089e4d47ae874b61f3975f8144b301b33c1.svg" alt="Portugal">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/matheus-nunes-elec-bl.webp" alt="Matheus Nunes">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">MATHEUS</div>
+                                    <h3 class="pcn-lastname">NUNES</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 9: Vitor Reis -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">22</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/brazil.svg" alt="Brazil">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/vitor-reis-elec-blue.webp" alt="Vitor Reis">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">VITOR</div>
+                                    <h3 class="pcn-lastname">REIS</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Def 10: Joshua Wilson-Esbrand -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">97</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/defender/joshua-wilson-esbrand.webp" alt="Joshua Wilson-Esbrand">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">JOSHUA</div>
+                                    <h3 class="pcn-lastname">WILSON-ESBRAND</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Squad Section: Midfielders -->
+                    <div class="squad-section-wrap pos-group" id="group-mid">
+                        <h3 class="squad-pos-heading">TIỀN VỆ (14)</h3>
+                        <div class="squad-players-grid">
+                            <!-- Mid 1: Elliot Anderson -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">5</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/elliot-anderson.webp" alt="Elliot Anderson">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">ELLIOT</div>
+                                    <h3 class="pcn-lastname">ANDERSON</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 2: Rayan Cherki -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">10</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/fr.svg" alt="France">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/rayan-cherki-elec-bl.webp" alt="Rayan Cherki">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">RAYAN</div>
+                                    <h3 class="pcn-lastname">CHERKI</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 3: Jérémy Doku -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">11</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/belgium.svg" alt="Belgium">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/jeremy-doku-elec-bl.webp" alt="Jérémy Doku">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">JEREMY</div>
+                                    <h3 class="pcn-lastname">DOKU</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 4: Claudio Echeverri -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">30</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/argentina.svg" alt="Argentina">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/claudio-echeverri-elec-blue.webp" alt="Claudio Echeverri">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">CLAUDIO</div>
+                                    <h3 class="pcn-lastname">ECHEVERRI</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 5: Phil Foden -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">47</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/phil-foden-elec-bl.webp" alt="Phil Foden">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">PHIL</div>
+                                    <h3 class="pcn-lastname">FODEN</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 6: Jack Grealish -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">18</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/jack-grealish-elec-blue.webp" alt="Jack Grealish">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">JACK</div>
+                                    <h3 class="pcn-lastname">GREALISH</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 7: Mateo Kovacic -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">8</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/677f086862c28f1585d3ea517ec31ae701cf9e7e.svg" alt="Croatia">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/mateo-kovacic-elec-bl.webp" alt="Mateo Kovacic">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">MATEO</div>
+                                    <h3 class="pcn-lastname">KOVACIC</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 8: Jérémy Monga -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">40</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/onloan.png" alt="Jérémy Monga">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">JEREMY</div>
+                                    <h3 class="pcn-lastname">MONGA</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 9: Nico González -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">14</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/spain.svg" alt="Spain">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/nico-gonzalez-elec-bl.webp" alt="Nico González">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">NICO</div>
+                                    <h3 class="pcn-lastname">GONZÁLEZ</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 10: Sverre Nypan -->
+                            <div class="player-card-navy">
+                                <span class="pcn-loan-badge">On loan</span>
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">41</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/norway.svg" alt="Norway">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/onloan.png" alt="Sverre Nypan">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">SVERRE</div>
+                                    <h3 class="pcn-lastname">NYPAN</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 11: Nico O'Reilly -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">33</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/nico-oreilly-elec-bl.webp" alt="Nico O'Reilly">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">NICO</div>
+                                    <h3 class="pcn-lastname">O'REILLY</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 12: Kalvin Phillips -->
+                            <div class="player-card-navy">
+                                <span class="pcn-loan-badge">On loan</span>
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">44</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/b96e62d8eb7d7a32b4b08e8f1f0d41d4fbea52cb.svg" alt="England">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/onloan.png" alt="Kalvin Phillips">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">KALVIN</div>
+                                    <h3 class="pcn-lastname">PHILLIPS</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 13: Savinho -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">26</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/brazil.svg" alt="Brazil">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/savinho-elec-bl.webp" alt="Savinho">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">SAVIO</div>
+                                    <h3 class="pcn-lastname">SAVINHO</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mid 14: Antoine Semenyo -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">42</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/ghana.svg" alt="Ghana">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/Midfielders/semenyo-elec-bl.webp" alt="Antoine Semenyo">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">ANTOINE</div>
+                                    <h3 class="pcn-lastname">SEMENYO</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Squad Section: Forwards -->
+                    <div class="squad-section-wrap pos-group" id="group-fwd">
+                        <h3 class="squad-pos-heading">TIỀN ĐẠO (2)</h3>
+                        <div class="squad-players-grid">
+                            <!-- Fwd 1: Erling Haaland -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">9</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/norway.svg" alt="Norway">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/forward/erling-haaland-electric-bl.webp" alt="Erling Haaland">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">ERLING</div>
+                                    <h3 class="pcn-lastname">HAALAND</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Fwd 2: Omar Marmoush -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number">7</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/flags/egypt.svg" alt="Egypt">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/forward/omar-marmoush-elec-bl.webp" alt="Omar Marmoush">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">OMAR</div>
+                                    <h3 class="pcn-lastname">MARMOUSH</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Squad Section: Coaches -->
+                    <div class="squad-section-wrap pos-group" id="group-coach">
+                        <h3 class="squad-pos-heading">BAN HUẤN LUYỆN (1)</h3>
+                        <div class="squad-players-grid">
+                            <!-- Coach 1: Enzo Maresca -->
+                            <div class="player-card-navy">
+                                <div class="pcn-top-info">
+                                    <span class="pcn-number" style="font-size: 16px; font-weight: 800; background: #004ac6; padding: 4px 8px; border-radius: 6px;">HLV</span>
+                                    <div class="pcn-flag">
+                                        <img src="./assets/img/figma/65df9690f50db12aa66304a347974334b72b1c54.svg" alt="Italy">
+                                    </div>
+                                </div>
+                                <div class="pcn-img-wrap">
+                                    <img src="./assets/img/players/manager/em-cut-out.webp" alt="Enzo Maresca">
+                                </div>
+                                <div class="pcn-bottom-info">
+                                    <div class="pcn-firstname">ENZO</div>
+                                    <h3 class="pcn-lastname">MARESCA</h3>
+                                    <div class="pcn-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column (4 cols): Same Club Sidebar -->
+                <div class="uefa-right-col">
+                    <div class="club-sidebar-stack">
+                        <!-- THÔNG TIN ĐỘI BÓNG -->
+                        <div class="club-info-card">
+                            <h3 class="cic-header-title">THÔNG TIN ĐỘI BÓNG</h3>
+                            <div class="cic-row">
+                                <span class="cic-label">Huấn luyện viên</span>
+                                <span class="cic-val">ENZO MARESCA</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Sân vận động</span>
+                                <span class="cic-val">ETIHAD STADIUM</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Sức chứa</span>
+                                <span class="cic-val">53,400</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Màu áo chính</span>
+                                <span class="cic-val cic-color-badge"><span class="cic-dot"></span> SKY BLUE</span>
+                            </div>
+                            <div class="cic-row">
+                                <span class="cic-label">Website</span>
+                                <a href="https://mancity.com" target="_blank" class="cic-val highlight-link">mancity.com</a>
+                            </div>
+                        </div>
+
+                        <!-- DANH HIỆU GẦN NHẤT -->
+                        <div class="club-trophies-card">
+                            <h3 class="cic-header-title">DANH HIỆU GẦN NHẤT</h3>
+                            <div class="trophy-list">
+                                <div class="trophy-item">
+                                    <img src="./assets/img/figma/8a25db83ce140a8322622ac980e74ff45703158a.svg" alt="Trophy">
+                                    <span>Premier League 24/25</span>
+                                </div>
+                                <div class="trophy-item">
+                                    <img src="./assets/img/figma/8a25db83ce140a8322622ac980e74ff45703158a.svg" alt="Trophy">
+                                    <span>FA Cup 22/23</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VỊ TRÍ BẢNG XẾP HẠNG -->
+                        <div class="club-rank-navy-card">
+                            <div class="crnc-title">VỊ TRÍ BẢNG XẾP HẠNG</div>
+                            <table class="crnc-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="crnc-pos">1</td>
+                                        <td>
+                                            <div class="crnc-team">
+                                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal">
+                                                <span>Arsenal</span>
+                                            </div>
+                                        </td>
+                                        <td class="crnc-pts">73</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="crnc-pos">2</td>
+                                        <td>
+                                            <div class="crnc-team">
+                                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City">
+                                                <span>Man City</span>
+                                            </div>
+                                        </td>
+                                        <td class="crnc-pts">70</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="crnc-pos">3</td>
+                                        <td>
+                                            <div class="crnc-team">
+                                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool">
+                                                <span>Liverpool</span>
+                                            </div>
+                                        </td>
+                                        <td class="crnc-pts">58</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="./index.html" class="footer-logo">
+                    <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+                </a>
+                <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Điều khoản dịch vụ</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
+                <a href="#">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
+
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close" onerror="this.innerText='×'">
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
+                    </div>
+                    <div class="cookie-badge-always">
+                        <span>LUÔN BẬT</span>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Main Tab switching (Tổng quan / Đội hình)
+        const tabBtns = document.querySelectorAll('.uefa-tab-btn');
+        const tabContents = document.querySelectorAll('.uefa-tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.dataset.tab;
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                btn.classList.add('active');
+                const activeContent = document.getElementById(`tab-${targetTab}`);
+                if (activeContent) activeContent.classList.add('active');
+            });
+        });
+
+        // Squad Position Filter switching
+        const squadFilterBtns = document.querySelectorAll('.squad-filter-btn');
+        const posGroups = document.querySelectorAll('.pos-group');
+        const posHeadings = document.querySelectorAll('.squad-pos-heading');
+
+        squadFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const pos = btn.dataset.pos;
+                squadFilterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                posGroups.forEach(group => {
+                    if (pos === 'all') {
+                        group.style.display = 'block';
+                        group.style.marginTop = (group.id === 'group-gk') ? '0px' : '20px';
+                    } else if (group.id === `group-${pos}`) {
+                        group.style.display = 'block';
+                        group.style.marginTop = '0px';
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+
+                // Only show position headings when "TẤT CẢ" (all) filter is active
+                posHeadings.forEach(h => {
+                    h.style.display = (pos === 'all') ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Follow Button Toggle
+        const followBtn = document.querySelector('.mancity-follow-btn');
+        if (followBtn) {
+            followBtn.addEventListener('click', () => {
+                const span = followBtn.querySelector('span');
+                if (span.textContent.trim() === 'Đã theo dõi') {
+                    span.textContent = 'Theo dõi đội bóng';
+                    followBtn.style.opacity = '0.85';
+                } else {
+                    span.textContent = 'Đã theo dõi';
+                    followBtn.style.opacity = '1';
+                }
+            });
+        }
+
+        // Back to top
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+        }
+
+        // Settings Panel Popover
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // Cookie Settings Modal
+        const modalCookieSettings = document.getElementById('modalCookieSettings');
+        const openCookieSettingsBtn = document.getElementById('openCookieSettings');
+        const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
+        const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
+        const btnCookieSave = document.getElementById('btnCookieSave');
+        const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
+
+        function openCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.add('show');
+            if (settingPanel) settingPanel.classList.remove('show');
+        }
+
+        function closeCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.remove('show');
+        }
+
+        if (openCookieSettingsBtn) {
+            openCookieSettingsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCookieModal();
+            });
+        }
+
+        if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
+        if (modalCookieSettings) {
+            modalCookieSettings.addEventListener('click', (e) => {
+                if (e.target === modalCookieSettings) closeCookieModal();
+            });
+        }
+
+        if (btnCookieNecessaryOnly) {
+            btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieAcceptAll) {
+            btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
+                closeCookieModal();
+            });
+        }
+
+        if (btnCookieSave) {
+            btnCookieSave.addEventListener('click', () => {
+                closeCookieModal();
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (settingPanel) settingPanel.classList.remove('show');
+                if (modalCookieSettings && modalCookieSettings.classList.contains('show')) {
+                    closeCookieModal();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
