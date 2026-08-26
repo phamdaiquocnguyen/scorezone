@@ -118,7 +118,7 @@
                 </div>
             </div>
 
-            <a href="#" class="user-avatar" aria-label="Tài khoản">
+            <a href="./profile.html" class="user-avatar" aria-label="Tài khoản">
                 <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
             </a>
         </div>
@@ -602,7 +602,7 @@
                     <img src="./assets/img/figma/60b7f4492da57ce657976daac3be3c4c5131eb9d.png" alt="Play" class="vh-icon">
                     <h2>VIDEO NỔI BẬT</h2>
                 </div>
-                <a href="#" class="vh-view-all">
+                <a href="./news.html#video" class="vh-view-all" title="Xem tất cả video">
                     <span>XEM TẤT CẢ VIDEO</span>
                     <img src="./assets/img/figma/baac337b7fb42c1ae6d39feabb13c8bcfd8ae8ca.svg" alt="Arrow">
                 </a>
@@ -610,7 +610,7 @@
 
             <div class="video-grid">
                 <!-- Video Card 1 -->
-                <div class="video-card">
+                <a href="./video-detail-premier.html" class="video-card" title="Spurs 1-1 Leeds United">
                     <div class="video-thumb-wrapper">
                         <img src="./assets/img/figma/c771242ff296011bea00749fb26cf2536c537e66.png" alt="Spurs 1-1 Leeds United" class="video-thumb">
                         <div class="video-gradient"></div>
@@ -620,10 +620,10 @@
                         <span class="video-duration">00:25</span>
                     </div>
                     <h4>Spurs 1-1 Leeds United | Premier League Highlights</h4>
-                </div>
+                </a>
 
                 <!-- Video Card 2 -->
-                <div class="video-card">
+                <a href="./video-detail-premier.html" class="video-card" title="Burnley v Aston Villa">
                     <div class="video-thumb-wrapper">
                         <img src="./assets/img/figma/b6f1f56fd5885589576eb47a9c1265f8f0f52af2.png" alt="Burnley v Aston Villa" class="video-thumb">
                         <div class="video-gradient"></div>
@@ -633,10 +633,10 @@
                         <span class="video-duration">02:45</span>
                     </div>
                     <h4>Burnley v Aston Villa | Premier League Highlights</h4>
-                </div>
+                </a>
 
                 <!-- Video Card 3 -->
-                <div class="video-card">
+                <a href="./video-detail-premier.html" class="video-card" title="Highlights: West Ham United 0-1 Arsenal">
                     <div class="video-thumb-wrapper">
                         <img src="./assets/img/figma/8a8807d73bad8606a5ecb2ca606e9b7f93328237.png" alt="West Ham 0-1 Arsenal" class="video-thumb">
                         <div class="video-gradient"></div>
@@ -646,7 +646,7 @@
                         <span class="video-duration">12:15</span>
                     </div>
                     <h4>Highlights: West Ham United 0-1 Arsenal</h4>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -1498,7 +1498,7 @@
         }
 
         // Bind highlight cards / links
-        document.querySelectorAll('.sm-highlight-link, .video-card').forEach(item => {
+        document.querySelectorAll('.sm-highlight-link').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 const activeLeague = document.querySelector('.league-selector .league-pill.active')?.textContent.toLowerCase() || '';
@@ -1534,5 +1534,7 @@
             });
         }
     </script>
+    <!-- Auth State Management -->
+    <script src="./assets/js/auth.js"></script>
 </body>
 </html>

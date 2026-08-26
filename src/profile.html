@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ cá nhân - ScoreZone</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="profile-page-bg">
+
+    <!-- ================= HEADER ================= -->
+    <header id="header">
+        <!-- Trái: Logo -->
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Giữa: Navigation -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li><a href="./leagues.html">Giải đấu</a></li>
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
+                <li><a href="./standings.html">Bảng xếp hạng</a></li>
+            </ul>
+        </nav>
+
+        <!-- Phải: Tìm kiếm & User -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <button class="search-btn" aria-label="Tìm kiếm">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search">
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear" onerror="this.style.display='none'">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag" onerror="this.style.display='none'">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag" onerror="this.style.display='none'">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon" onerror="this.style.display='none'">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon" onerror="this.style.display='none'">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="./profile.html" class="user-avatar" aria-label="Tài khoản">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="profile-main-container">
+        <!-- 1. Hero Section (Figma Node 1286:4382) -->
+        <section class="profile-hero-card" aria-label="Thông tin cá nhân chính">
+            <div class="profile-hero-bg">
+                <img src="./assets/img/figma/82f99a8498f6a5f027b2ecbab6a499e8d86407d1.png" alt="" onerror="this.src='./assets/img/figma/82f98a8498f6a5f027b2ecbab6a499e8d86407d1.png'">
+            </div>
+            
+            <div class="profile-avatar-wrap">
+                <img src="./assets/img/figma/6aab18010c2c1ade0a8d424ec0384e9bfe774086.png" alt="Avatar" class="profile-avatar-img">
+                <button type="button" class="profile-camera-btn" aria-label="Đổi ảnh đại diện" onclick="window.location.href='./edit-profile.html'">
+                    <img src="./assets/img/figma/7eb714212678340a220a7bf7672e8faffb2836ef.svg" alt="Camera">
+                </button>
+            </div>
+
+            <div class="profile-hero-info">
+                <h1 class="profile-hero-name">Nguyễn Văn A</h1>
+                <p class="profile-hero-handle">@nguyenvana</p>
+                <p class="profile-hero-bio">Đam mê bóng đá, yêu thể thao.</p>
+                
+                <div class="profile-hero-meta">
+                    <div class="profile-meta-item">
+                        <img src="./assets/img/figma/020ffd3cbc92a0ce01d4e3c0127833316ff12e58.svg" alt="Calendar">
+                        <span>Tham gia từ 05/2024</span>
+                    </div>
+                    <div class="profile-meta-item">
+                        <img src="./assets/img/figma/a552f8be5bc126cf339f5aebdee799e1ea24a2c2.svg" alt="Location">
+                        <span>Hà Nội, Việt Nam</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="./edit-profile.html" class="btn-edit-profile">
+                <img src="./assets/img/figma/c5ad73255f947023fe3d12ea0e16a525fb8d8a55.png" alt="Edit">
+                <span>Chỉnh sửa hồ sơ</span>
+            </a>
+        </section>
+
+        <!-- 2. Quick Stats Grid (Figma Node 1286:4411) -->
+        <section class="profile-stats-grid" aria-label="Thống kê nhanh">
+            <!-- Stat 1: Bài viết đã lưu -->
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <img src="./assets/img/figma/fc1daca98f19907ba103633f89f6d144c9d94816.png" alt="Bookmark">
+                </div>
+                <div class="profile-stat-info">
+                    <span class="profile-stat-label">BÀI VIẾT ĐÃ LƯU</span>
+                    <span class="profile-stat-value" id="statSavedArticlesCount">12</span>
+                </div>
+            </div>
+
+            <!-- Stat 2: Đội yêu thích -->
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <img src="./assets/img/figma/d147a5a8953e35d5e792328e822e26357f4a257f.png" alt="Star">
+                </div>
+                <div class="profile-stat-info">
+                    <span class="profile-stat-label">ĐỘI YÊU THÍCH</span>
+                    <span class="profile-stat-value" id="statFavTeamsCount">3</span>
+                </div>
+            </div>
+
+            <!-- Stat 3: Trận đấu đã xem -->
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <img src="./assets/img/figma/b7e0a7ecba0fdbcf55b5c989f7e13d814eb70e63.png" alt="Matches">
+                </div>
+                <div class="profile-stat-info">
+                    <span class="profile-stat-label">TRẬN ĐẤU ĐÃ XEM</span>
+                    <span class="profile-stat-value" id="statMatchesCount">5</span>
+                </div>
+            </div>
+
+            <!-- Stat 4: Bình luận -->
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <img src="./assets/img/figma/a3187b87daf24e8684daa7750ceb3a647098a443.png" alt="Comment">
+                </div>
+                <div class="profile-stat-info">
+                    <span class="profile-stat-label">BÌNH LUẬN</span>
+                    <span class="profile-stat-value">18</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Two Column Layout (Figma Node 1286:4453) -->
+        <div class="profile-content-grid">
+            <!-- LEFT COLUMN (Node 1286:4454) -->
+            <div class="profile-left-col">
+                <!-- Card 1: Đội bóng yêu thích (Node 2208:3526) -->
+                <section class="profile-section-card" aria-labelledby="favTeamsHeading" id="sectionFavTeams">
+                    <div class="profile-card-header">
+                        <h2 class="profile-card-title" id="favTeamsHeading">ĐỘI BÓNG YÊU THÍCH</h2>
+                        <!-- Inline Undo Alert Toast (Node 2208:3526 Variant 2) -->
+                        <div class="profile-inline-toast" id="toastFavTeamUndo">
+                            <span class="profile-toast-msg" id="msgFavTeamUndo">Đã bỏ theo dõi Arsenal.</span>
+                            <button type="button" class="profile-toast-undo" id="btnFavTeamUndo">HOÀN TÁC</button>
+                            <button type="button" class="profile-toast-close" id="btnCloseFavTeamUndo" aria-label="Đóng">
+                                <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Close">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fav-teams-grid" id="favTeamsGrid">
+                        <!-- Team 1: Real Madrid -->
+                        <div class="fav-team-card" data-team-id="real-madrid" data-team-name="Real Madrid" data-team-logo="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png">
+                            <img src="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png" alt="Real Madrid" class="fav-team-logo">
+                            <span class="fav-team-name">Real Madrid</span>
+                            <button type="button" class="fav-team-remove" aria-label="Xóa Real Madrid khỏi đội yêu thích">
+                                <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
+                            </button>
+                        </div>
+
+                        <!-- Team 2: Arsenal -->
+                        <div class="fav-team-card" data-team-id="arsenal" data-team-name="Arsenal" data-team-logo="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png">
+                            <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal" class="fav-team-logo">
+                            <span class="fav-team-name">Arsenal</span>
+                            <button type="button" class="fav-team-remove" aria-label="Xóa Arsenal khỏi đội yêu thích">
+                                <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
+                            </button>
+                        </div>
+
+                        <!-- Team 3: Man City -->
+                        <div class="fav-team-card" data-team-id="mancity" data-team-name="Man City" data-team-logo="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png">
+                            <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City" class="fav-team-logo">
+                            <span class="fav-team-name">Man City</span>
+                            <button type="button" class="fav-team-remove" aria-label="Xóa Man City khỏi đội yêu thích">
+                                <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
+                            </button>
+                        </div>
+
+                        <!-- Team 4: Thêm đội (Dashed Border) -->
+                        <button type="button" class="fav-team-add" id="btnAddTeamProfile" aria-label="Mở tùy chỉnh đội theo dõi">
+                            <div class="fav-team-add-circle">
+                                <img src="./assets/img/figma/218ec8ee3a83e788ab7f6a8b203b8cce5b4ab6a9.png" alt="Add">
+                            </div>
+                            <span class="fav-team-add-text">Thêm đội</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Card 2: Bài viết đã lưu (Node 2219:2693) -->
+                <section class="profile-section-card" aria-labelledby="savedArticlesHeading" id="sectionSavedArticles">
+                    <div class="profile-card-header">
+                        <h2 class="profile-card-title" id="savedArticlesHeading">BÀI VIẾT ĐÃ LƯU</h2>
+                        <!-- Inline Undo Alert Toast (Node 2219:2693 Variant 2) -->
+                        <div class="profile-inline-toast" id="toastArticleUndo">
+                            <span class="profile-toast-msg">Đã bỏ bài viết khỏi danh sách lưu.</span>
+                            <button type="button" class="profile-toast-undo" id="btnArticleUndo">HOÀN TÁC</button>
+                            <button type="button" class="profile-toast-close" id="btnCloseArticleUndo" aria-label="Đóng">
+                                <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Close">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="saved-articles-list" id="savedArticlesList">
+                        <!-- Article 1 -->
+                        <div class="saved-article-card" data-article-id="art-1">
+                            <img src="./assets/img/figma/28b2a3554551d9f87631bd726620e4342f01a996.png" alt="Youth League" class="saved-article-thumb">
+                            <div class="saved-article-body">
+                                <a href="./news-detail.html" class="saved-article-title">Real Madrid chạm trán Club Brugge ở chung kết Youth League</a>
+                                <span class="saved-article-date">20/05/2026</span>
+                            </div>
+                            <button type="button" class="saved-article-bookmark" aria-label="Bỏ lưu bài viết" title="Bỏ lưu">
+                                <img src="./assets/img/figma/d7996fa7d945d6e2819f75fe5004b2623e1baf2f.png" alt="Bookmark active">
+                            </button>
+                        </div>
+
+                        <!-- Article 2 -->
+                        <div class="saved-article-card" data-article-id="art-2">
+                            <img src="./assets/img/figma/e899cba1475ea86ea93cda98983ede61ac7714b8.png" alt="PL2 Player" class="saved-article-thumb">
+                            <div class="saved-article-body">
+                                <a href="./news-detail-premier-league.html" class="saved-article-title">Ryan Kavuma-McQueen giành giải Cầu thủ xuất sắc nhất tháng 3 tại PL2</a>
+                                <span class="saved-article-date">20/04/2026</span>
+                            </div>
+                            <button type="button" class="saved-article-bookmark" aria-label="Bỏ lưu bài viết" title="Bỏ lưu">
+                                <img src="./assets/img/figma/d7996fa7d945d6e2819f75fe5004b2623e1baf2f.png" alt="Bookmark active">
+                            </button>
+                        </div>
+
+                        <!-- Article 3 -->
+                        <div class="saved-article-card" data-article-id="art-3">
+                            <img src="./assets/img/figma/d2d31679495330439d0b54244424b41fcb572578.png" alt="Man City News" class="saved-article-thumb">
+                            <div class="saved-article-body">
+                                <a href="./news-detail-mancity.html" class="saved-article-title">Pep cấp giấy phép cho Manchester City về thời gian nghỉ giải lao chất lượng</a>
+                                <span class="saved-article-date">20/03/2024</span>
+                            </div>
+                            <button type="button" class="saved-article-bookmark" aria-label="Bỏ lưu bài viết" title="Bỏ lưu">
+                                <img src="./assets/img/figma/d7996fa7d945d6e2819f75fe5004b2623e1baf2f.png" alt="Bookmark active">
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Card 3: Hoạt động gần đây (Node 1286:4504) -->
+                <section class="profile-section-card" aria-labelledby="recentActivityHeading">
+                    <h2 class="profile-card-title" id="recentActivityHeading">HOẠT ĐỘNG GẦN ĐÂY</h2>
+                    <div class="recent-activity-list">
+                        <!-- Item 1 -->
+                        <div class="activity-item">
+                            <div class="activity-icon-box">
+                                <img src="./assets/img/figma/fc1daca98f19907ba103633f89f6d144c9d94816.png" alt="Bookmark">
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text"><strong>Đã lưu bài viết:</strong> Real Madrid chạm trán Club Brugge ở chung kết Youth League</p>
+                                <span class="activity-date">20/05/2024</span>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="activity-item">
+                            <div class="activity-icon-box">
+                                <img src="./assets/img/figma/a3187b87daf24e8684daa7750ceb3a647098a443.png" alt="Comment">
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text"><strong>Bình luận về kết quả trận</strong> Real Madrid 2 - 1 Alaves</p>
+                                <span class="activity-date">15/05/2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN (Node 1286:4539) -->
+            <div class="profile-right-col">
+                <!-- Card 1: Thông tin cá nhân (Node 1286:4540) -->
+                <section class="profile-section-card" aria-labelledby="personalInfoHeading">
+                    <h2 class="profile-card-title" id="personalInfoHeading">THÔNG TIN CÁ NHÂN</h2>
+                    <div class="profile-info-list">
+                        <div class="profile-info-row">
+                            <span class="profile-info-label">Họ và tên</span>
+                            <span class="profile-info-value">Nguyễn Văn A</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="profile-info-label">Tên người dùng</span>
+                            <span class="profile-info-value">@nguyenvana</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="profile-info-label">Email</span>
+                            <span class="profile-info-value">ie106n12@email.com</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="profile-info-label">Ngày sinh</span>
+                            <span class="profile-info-value">01/01/2000</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="profile-info-label">Địa chỉ</span>
+                            <span class="profile-info-value">Hà Nội, Việt Nam</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Card 2: Tùy chọn (Node 1286:4570) -->
+                <section class="profile-section-card" aria-labelledby="optionsHeading">
+                    <h2 class="profile-card-title" id="optionsHeading">TÙY CHỌN</h2>
+                    <div class="profile-options-list">
+                        <a href="#" class="profile-option-link" id="linkSecurityModal">
+                            <div class="profile-option-left">
+                                <img src="./assets/img/figma/79100addf7d64931b7f5f482c7d45c5f1f85b685.png" alt="Secure">
+                                <span>Bảo mật</span>
+                            </div>
+                            <div class="profile-option-chevron">
+                                <img src="./assets/img/figma/efcc14072a1d9289704a00106074f8e0c8dde7dd.svg" alt="Arrow">
+                            </div>
+                        </a>
+                        <a href="#" class="profile-option-link" id="linkPrivacyModal">
+                            <div class="profile-option-left">
+                                <img src="./assets/img/figma/301d42cb43a6c8b4c798f78723e0a3bea29b34f3.png" alt="Privacy">
+                                <span>Quyền riêng tư</span>
+                            </div>
+                            <div class="profile-option-chevron">
+                                <img src="./assets/img/figma/efcc14072a1d9289704a00106074f8e0c8dde7dd.svg" alt="Arrow">
+                            </div>
+                        </a>
+                        <a href="#" class="profile-option-link" id="linkLogoutModal">
+                            <div class="profile-option-left">
+                                <img src="./assets/img/figma/4b828a5e46b7622238b62dbaeadc9d53db51b4f9.svg" alt="Logout">
+                                <span>Đăng xuất</span>
+                            </div>
+                            <div class="profile-option-chevron">
+                                <img src="./assets/img/figma/efcc14072a1d9289704a00106074f8e0c8dde7dd.svg" alt="Arrow">
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= POPOVER: TÙY CHỈNH ĐỘI THEO DÕI (ANCHORED POPOVER - Node 212:223) ================= -->
+    <div class="popover-follow-teams" id="modalFollowTeams" role="dialog" aria-modal="false" aria-labelledby="mftTitle">
+        <div class="mft-header">
+            <div class="mft-header-text">
+                <h2 id="mftTitle">Tùy chỉnh đội theo dõi</h2>
+                <p>Chọn đội bóng bạn quan tâm để cá nhân hóa nội dung trang chủ.</p>
+            </div>
+            <button type="button" class="mft-modal-close" id="btnCloseFollowTeamsModal" aria-label="Đóng">
+                <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+            </button>
+        </div>
+        <div class="mft-body">
+            <div class="mft-section">
+                <div class="mft-section-title" id="mftSelectedCount">ĐÃ CHỌN (3)</div>
+                <div class="mft-list" id="mftSelectedList">
+                    <!-- Real Madrid -->
+                    <div class="mft-item" data-team-id="real-madrid" data-team-name="Real Madrid" data-team-logo="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/7980c6f6418b4c40b743b231e9b654c4119d9914.png" alt="Real Madrid">
+                            </div>
+                            <span class="mft-team-name">Real Madrid</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg" alt="Selected">
+                        </div>
+                    </div>
+                    <!-- Arsenal -->
+                    <div class="mft-item" data-team-id="arsenal" data-team-name="Arsenal" data-team-logo="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png" alt="Arsenal">
+                            </div>
+                            <span class="mft-team-name">Arsenal</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg" alt="Selected">
+                        </div>
+                    </div>
+                    <!-- Manchester City -->
+                    <div class="mft-item" data-team-id="mancity" data-team-name="Man City" data-team-logo="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/bf821902b54d6d4721d8b4f14bc476bdda7cc3c1.png" alt="Man City">
+                            </div>
+                            <span class="mft-team-name">Man City</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg" alt="Selected">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mft-section">
+                <div class="mft-section-title">GỢI Ý THÊM</div>
+                <div class="mft-search-wrapper">
+                    <img src="./assets/img/figma/61e8c0c89a7940b6b7045e439ae8a0ce1f1f9488.svg" alt="Search">
+                    <input type="text" class="mft-search-input" id="mftSearchInput" placeholder="Nhập tên đội bóng...">
+                </div>
+                <div class="mft-list" id="mftSuggestedList">
+                    <!-- Liverpool -->
+                    <div class="mft-item" data-team-id="liverpool" data-team-name="Liverpool" data-team-logo="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/c15bfa71a716ec31be1820bf3143e3d024c11528.png" alt="Liverpool">
+                            </div>
+                            <span class="mft-team-name">Liverpool</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/d31be5304fbcf80a4ba09f5c3ed79819a4c1e407.svg" alt="Add">
+                        </div>
+                    </div>
+                    <!-- Barcelona -->
+                    <div class="mft-item" data-team-id="barcelona" data-team-name="Barcelona" data-team-logo="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png">
+                        <div class="mft-team-info">
+                            <div class="mft-team-logo">
+                                <img src="./assets/img/figma/723980eac1b6d9cae406621bbffa5fd25dc7b750.png" alt="Barcelona">
+                            </div>
+                            <span class="mft-team-name">Barcelona</span>
+                        </div>
+                        <div class="mft-action-icon">
+                            <img src="./assets/img/figma/d31be5304fbcf80a4ba09f5c3ed79819a4c1e407.svg" alt="Add">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mft-footer">
+            <button type="button" class="mft-btn-cancel btn-mft-cancel" id="btnCancelFollowTeams">Hủy</button>
+            <button type="button" class="mft-btn-save btn-mft-save" id="btnSaveFollowTeams">Lưu thay đổi</button>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 1: BẢO MẬT (Node 1431:2610) ================= -->
+    <div class="modal-backdrop" id="modalSecuritySettings" role="dialog" aria-modal="true" aria-labelledby="modalSecTitle">
+        <div class="modal-container modal-security-settings">
+            <div class="modal-sec-header">
+                <div>
+                    <h2 id="modalSecTitle">Bảo mật</h2>
+                    <p>Quản lý các tùy chọn bảo mật cho tài khoản của bạn</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseSecHeader" aria-label="Đóng">
+                    <img src="./assets/img/figma/5e0152847180b5d1043a40a1ba210f344d2adf4c.svg" alt="Close">
+                </button>
+            </div>
+            <div class="modal-sec-body">
+                <!-- Section 1: Đổi mật khẩu -->
+                <div class="sec-card-section">
+                    <h3 class="sec-section-title">ĐỔI MẬT KHẨU</h3>
+                    <form class="sec-card" id="formChangePassword">
+                        <div class="sec-input-group">
+                            <label class="sec-input-label" for="inputCurrentPwd">Mật khẩu hiện tại</label>
+                            <div class="sec-input-wrap">
+                                <input type="password" class="sec-input" id="inputCurrentPwd" placeholder="Nhập mật khẩu hiện tại" required>
+                                <button type="button" class="sec-eye-btn" aria-label="Hiện mật khẩu" onclick="togglePasswordVisibility('inputCurrentPwd')">
+                                    <img src="./assets/img/figma/c20910d150621cdbd0550ad894294452dd2bad1c.png" alt="Show/Hide">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sec-input-group">
+                            <label class="sec-input-label" for="inputNewPwd">Mật khẩu mới</label>
+                            <div class="sec-input-wrap">
+                                <input type="password" class="sec-input" id="inputNewPwd" placeholder="Nhập mật khẩu mới" required>
+                                <button type="button" class="sec-eye-btn" aria-label="Hiện mật khẩu" onclick="togglePasswordVisibility('inputNewPwd')">
+                                    <img src="./assets/img/figma/c20910d150621cdbd0550ad894294452dd2bad1c.png" alt="Show/Hide">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sec-input-group">
+                            <label class="sec-input-label" for="inputConfirmNewPwd">Xác nhận mật khẩu mới</label>
+                            <div class="sec-input-wrap">
+                                <input type="password" class="sec-input" id="inputConfirmNewPwd" placeholder="Nhập lại mật khẩu mới" required>
+                                <button type="button" class="sec-eye-btn" aria-label="Hiện mật khẩu" onclick="togglePasswordVisibility('inputConfirmNewPwd')">
+                                    <img src="./assets/img/figma/c20910d150621cdbd0550ad894294452dd2bad1c.png" alt="Show/Hide">
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="sec-btn-change-pwd">Đổi mật khẩu</button>
+                    </form>
+                </div>
+
+                <!-- Section 2: Xác thực hai yếu tố (2FA) -->
+                <div class="sec-card-section">
+                    <h3 class="sec-section-title">XÁC THỰC HAI YẾU TỐ (2FA)</h3>
+                    <div class="sec-card">
+                        <p class="sec-2fa-desc">Tăng cường bảo mật cho tài khoản bằng cách bật xác thực 2 yếu tố.</p>
+                        <div class="sec-2fa-status-row">
+                            <span class="sec-input-label">Trạng thái</span>
+                            <span class="sec-status-badge">Đã bật</span>
+                        </div>
+                        <button type="button" class="sec-btn-manage-2fa" onclick="showToast('Tính năng quản lý 2FA đang sẵn sàng');">
+                            <img src="./assets/img/figma/e788db83515dcdf202bf30323e647f57a555d1f1.svg" alt="Key">
+                            <span>Quản lý 2FA</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section 3: Phiên đăng nhập -->
+                <div class="sec-card-section">
+                    <h3 class="sec-section-title">PHIÊN ĐĂNG NHẬP</h3>
+                    <div class="sec-card">
+                        <p class="sec-session-desc">Quản lý các thiết bị đã đăng nhập vào tài khoản của bạn.</p>
+                        <div class="sec-session-card">
+                            <div class="sec-session-left">
+                                <img src="./assets/img/figma/b5d10010ddb8fae8cd851fc4b53552c1b36347ef.png" alt="Device" style="width:20px;height:20px;">
+                                <span class="sec-input-label">Chrome trên Windows</span>
+                                <span class="sec-device-badge">Thiết bị hiện tại</span>
+                            </div>
+                            <div class="sec-session-right">
+                                <span class="sec-session-loc">Hà Nội, Việt Nam</span>
+                                <span class="sec-session-active">Đang hoạt động</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Xóa tài khoản -->
+                <div class="sec-card-section">
+                    <h3 class="sec-section-title danger">XÓA TÀI KHOẢN</h3>
+                    <div class="sec-danger-card">
+                        <p class="sec-danger-desc">Xóa tài khoản là hành động không thể hoàn tác. Vui lòng cân nhắc kỹ.</p>
+                        <button type="button" class="sec-btn-delete-acc" id="btnOpenDeleteModalFromSec">
+                            <img src="./assets/img/figma/6093408dd4a37c0491aa20e96353b9c1374cb1e4.svg" alt="Trash">
+                            <span>Xóa tài khoản</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-sec-footer">
+                <button type="button" class="btn-sec-close" id="btnCloseSecFooter">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 2: QUYỀN RIÊNG TƯ (Node 1431:2451) ================= -->
+    <div class="modal-backdrop" id="modalPrivacySettings" role="dialog" aria-modal="true" aria-labelledby="modalPrivacyTitle">
+        <div class="modal-container modal-privacy-settings">
+            <div class="modal-sec-header">
+                <div>
+                    <h2 id="modalPrivacyTitle">Quyền riêng tư</h2>
+                    <p>Quản lý cách thông tin cá nhân và hoạt động của bạn được sử dụng trên ScoreZone.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnClosePrivacyHeader" aria-label="Đóng">
+                    <img src="./assets/img/figma/ad689c31a6d72e79faccb52e746fe940b10d8f85.svg" alt="Close">
+                </button>
+            </div>
+            <div class="modal-sec-body">
+                <!-- Section: Hiển thị hồ sơ -->
+                <div class="sec-card-section">
+                    <h3 class="sec-section-title">HIỂN THỊ HỒ SƠ</h3>
+                    <div class="sec-card">
+                        <div class="privacy-toggle-item">
+                            <div class="privacy-toggle-info">
+                                <h4>Hiển thị hồ sơ công khai</h4>
+                                <p>Cho phép người khác xem hồ sơ cơ bản của bạn.</p>
+                            </div>
+                            <label class="switch-toggle" aria-label="Hiển thị hồ sơ công khai">
+                                <input type="checkbox" id="togglePublicProfile" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="privacy-toggle-item">
+                            <div class="privacy-toggle-info">
+                                <h4>Hiển thị đội bóng yêu thích</h4>
+                                <p>Hiển thị các đội bạn đang theo dõi trên hồ sơ.</p>
+                            </div>
+                            <label class="switch-toggle" aria-label="Hiển thị đội bóng yêu thích">
+                                <input type="checkbox" id="toggleFavTeams" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="privacy-toggle-item">
+                            <div class="privacy-toggle-info">
+                                <h4>Hiển thị hoạt động gần đây</h4>
+                                <p>Cho phép hiển thị các hoạt động gần nhất trên hồ sơ.</p>
+                            </div>
+                            <label class="switch-toggle" aria-label="Hiển thị hoạt động gần đây">
+                                <input type="checkbox" id="toggleRecentActivity" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Cá nhân hóa nội dung -->
+                <div class="sec-card-section">
+                    <h3 class="sec-section-title">CÁ NHÂN HÓA NỘI DUNG</h3>
+                    <div class="sec-card">
+                        <div class="privacy-toggle-item">
+                            <div class="privacy-toggle-info">
+                                <h4>Dùng đội yêu thích để cá nhân hóa bảng tin</h4>
+                                <p>Ưu tiên nội dung liên quan đến đội bạn đang theo dõi.</p>
+                            </div>
+                            <label class="switch-toggle" aria-label="Dùng đội yêu thích để cá nhân hóa bảng tin">
+                                <input type="checkbox" id="toggleFeedPersonalization" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="privacy-toggle-item">
+                            <div class="privacy-toggle-info">
+                                <h4>Gợi ý tin tức dựa trên nội dung đã xem</h4>
+                                <p>Hiển thị các bài viết phù hợp với thói quen theo dõi của bạn.</p>
+                            </div>
+                            <label class="switch-toggle" aria-label="Gợi ý tin tức dựa trên nội dung đã xem">
+                                <input type="checkbox" id="toggleRecommendNews" checked>
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Dữ liệu tài khoản -->
+                <div class="sec-card-section">
+                    <h3 class="sec-section-title">DỮ LIỆU TÀI KHOẢN</h3>
+                    <div class="privacy-data-box">
+                        <div class="privacy-data-row" onclick="showToast('Đang tạo và tải bản sao dữ liệu cá nhân của bạn...');">
+                            <div class="privacy-data-left">
+                                <div class="privacy-data-icon-circle blue">
+                                    <img src="./assets/img/figma/89a47c63b3513106efb58ab4d09f78f458eefac2.svg" alt="Download">
+                                </div>
+                                <div class="privacy-toggle-info">
+                                    <h4>Tải xuống dữ liệu cá nhân</h4>
+                                    <p>Nhận bản sao dữ liệu cá nhân của bạn trên ScoreZone.</p>
+                                </div>
+                            </div>
+                            <img src="./assets/img/figma/cdcd14610e25a4d8c072562460927d584066f41e.svg" alt="Arrow" style="width:20px;height:20px;">
+                        </div>
+
+                        <div class="privacy-data-row" onclick="showToast('Đã xóa toàn bộ lịch sử hoạt động thành công!');">
+                            <div class="privacy-data-left">
+                                <div class="privacy-data-icon-circle red">
+                                    <img src="./assets/img/figma/0dfaaff71afe367ceca975f52688850ced07496b.svg" alt="Trash">
+                                </div>
+                                <div class="privacy-toggle-info">
+                                    <h4 style="color:#AE0010;">Xóa lịch sử hoạt động</h4>
+                                    <p>Xóa toàn bộ lịch sử hoạt động của bạn trên ScoreZone.</p>
+                                </div>
+                            </div>
+                            <img src="./assets/img/figma/cdcd14610e25a4d8c072562460927d584066f41e.svg" alt="Arrow" style="width:20px;height:20px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-privacy-footer">
+                <button type="button" class="btn-privacy-cancel" id="btnCancelPrivacy">Hủy</button>
+                <button type="button" class="btn-privacy-save" id="btnSavePrivacy">Lưu thay đổi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 3: XÁC NHẬN XÓA TÀI KHOẢN (Node 1311:5700) ================= -->
+    <div class="modal-backdrop" id="modalDeleteAccount" role="dialog" aria-modal="true" aria-labelledby="modalDelTitle">
+        <div class="modal-container modal-delete-account">
+            <button type="button" class="cookie-modal-close" id="btnCloseDelHeader" aria-label="Đóng" style="position:absolute; top:16px; right:16px;">
+                <img src="./assets/img/figma/ad689c31a6d72e79faccb52e746fe940b10d8f85.svg" alt="Close">
+            </button>
+
+            <div class="del-icon-wrap">
+                <img src="./assets/img/figma/de947ebd7080335156787f951daa0ea68eff11d9.png" alt="Delete">
+            </div>
+
+            <h2 class="del-title" id="modalDelTitle">Xóa tài khoản?</h2>
+            <p class="del-subtitle">Hành động này <strong>không thể hoàn tác</strong>.<br>Tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn.</p>
+
+            <div class="del-warning-box">
+                <h4>Bạn sẽ mất vĩnh viễn:</h4>
+                <div class="del-warning-list">
+                    <div class="del-warning-item">
+                        <img src="./assets/img/figma/2bd556c9b81f18b78e6e5d98e455326aba750d72.png" alt="Profile">
+                        <span>Toàn bộ thông tin tài khoản</span>
+                    </div>
+                    <div class="del-warning-item">
+                        <img src="./assets/img/figma/bf7b35e80997fb5916046507350dbdd69bc96cfa.png" alt="Activity">
+                        <span>Bài viết đã lưu, bình luận và lịch sử hoạt động</span>
+                    </div>
+                    <div class="del-warning-item">
+                        <img src="./assets/img/figma/e1a8d27dd5929e9571ab838028add563c21c3069.png" alt="Star">
+                        <span>Đội bóng yêu thích và tùy chọn cá nhân</span>
+                    </div>
+                </div>
+            </div>
+
+            <label class="del-checkbox-wrap">
+                <input type="checkbox" id="chkConfirmDeleteAcc">
+                <span>Tôi hiểu rằng xóa tài khoản là không thể hoàn tác</span>
+            </label>
+
+            <div class="del-actions-row">
+                <button type="button" class="btn-del-cancel" id="btnCancelDeleteAcc">Hủy</button>
+                <button type="button" class="btn-del-confirm" id="btnConfirmDeleteAcc" disabled>Xóa tài khoản</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 4: ĐĂNG XUẤT TÀI KHOẢN (Node 1431:2555) ================= -->
+    <div class="modal-backdrop" id="modalLogoutConfirm" role="dialog" aria-modal="true" aria-labelledby="modalLogoutTitle">
+        <div class="modal-container modal-logout-confirm">
+            <button type="button" class="cookie-modal-close" id="btnCloseLogoutHeader" aria-label="Đóng" style="position:absolute; top:16px; right:16px;">
+                <img src="./assets/img/figma/ad689c31a6d72e79faccb52e746fe940b10d8f85.svg" alt="Close">
+            </button>
+
+            <div class="logout-icon-wrap">
+                <img src="./assets/img/figma/4b828a5e46b7622238b62dbaeadc9d53db51b4f9.svg" alt="Logout">
+            </div>
+
+            <h2 class="logout-title" id="modalLogoutTitle">Đăng xuất tài khoản</h2>
+            <p class="logout-subtitle">Bạn có chắc chắn muốn đăng xuất khỏi tài khoản?</p>
+
+            <div class="logout-actions-row">
+                <button type="button" class="btn-logout-cancel" id="btnCancelLogout">Hủy</button>
+                <button type="button" class="btn-logout-confirm" id="btnConfirmLogout">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="./index.html" class="footer-logo">
+                    <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+                </a>
+                <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
+            </div>
+            <div class="footer-right">
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
+                <a href="./contact.html">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
+
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
+                    </div>
+                    <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
+                        <span>LUÔN BẬT</span>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div class="sz-toast" id="szToastNotification" role="status" aria-live="polite">
+        <span id="szToastMessage">Đã lưu tùy chọn</span>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Toast Helper
+        const szToast = document.getElementById('szToastNotification');
+        const szToastMsg = document.getElementById('szToastMessage');
+        let toastTimeout = null;
+        function showToast(msg) {
+            if (!szToast || !szToastMsg) return;
+            szToastMsg.textContent = msg;
+            szToast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                szToast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Toggle password input visibility
+        function togglePasswordVisibility(inputId) {
+            const input = document.getElementById(inputId);
+            if (input) {
+                input.type = input.type === 'password' ? 'text' : 'password';
+            }
+        }
+
+        // ================= 1. ĐỘI BÓNG YÊU THÍCH (Node 2208:3526) =================
+        const favTeamsGrid = document.getElementById('favTeamsGrid');
+        const toastFavTeamUndo = document.getElementById('toastFavTeamUndo');
+        const msgFavTeamUndo = document.getElementById('msgFavTeamUndo');
+        const btnFavTeamUndo = document.getElementById('btnFavTeamUndo');
+        const btnCloseFavTeamUndo = document.getElementById('btnCloseFavTeamUndo');
+        const statFavTeamsCount = document.getElementById('statFavTeamsCount');
+        
+        let lastRemovedTeam = null;
+        let favTeamToastTimeout = null;
+
+        function updateFavTeamsCount() {
+            if (!favTeamsGrid) return;
+            const count = favTeamsGrid.querySelectorAll('.fav-team-card').length;
+            if (statFavTeamsCount) statFavTeamsCount.textContent = count;
+        }
+
+        function showFavTeamUndoToast(teamName) {
+            if (!toastFavTeamUndo) return;
+            if (msgFavTeamUndo) msgFavTeamUndo.textContent = `Đã bỏ theo dõi ${teamName}.`;
+            toastFavTeamUndo.classList.add('show');
+            if (favTeamToastTimeout) clearTimeout(favTeamToastTimeout);
+            favTeamToastTimeout = setTimeout(() => {
+                toastFavTeamUndo.classList.remove('show');
+                lastRemovedTeam = null;
+            }, 5000);
+        }
+
+        function hideFavTeamUndoToast() {
+            if (toastFavTeamUndo) toastFavTeamUndo.classList.remove('show');
+            lastRemovedTeam = null;
+            if (favTeamToastTimeout) clearTimeout(favTeamToastTimeout);
+        }
+
+        function attachFavTeamRemoveEvents() {
+            if (!favTeamsGrid) return;
+            favTeamsGrid.querySelectorAll('.fav-team-card').forEach(card => {
+                const removeBtn = card.querySelector('.fav-team-remove');
+                if (removeBtn && !removeBtn.dataset.bound) {
+                    removeBtn.dataset.bound = "true";
+                    removeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const teamName = card.getAttribute('data-team-name') || card.querySelector('.fav-team-name')?.textContent || 'đội bóng';
+                        lastRemovedTeam = {
+                            id: card.getAttribute('data-team-id'),
+                            name: teamName,
+                            logo: card.getAttribute('data-team-logo') || card.querySelector('.fav-team-logo')?.src,
+                            html: card.outerHTML
+                        };
+                        card.remove();
+                        updateFavTeamsCount();
+                        showFavTeamUndoToast(teamName);
+                    });
+                }
+            });
+        }
+
+        attachFavTeamRemoveEvents();
+
+        if (btnFavTeamUndo) {
+            btnFavTeamUndo.addEventListener('click', () => {
+                if (lastRemovedTeam && favTeamsGrid) {
+                    const addBtn = document.getElementById('btnAddTeamProfile');
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = lastRemovedTeam.html.trim();
+                    const newCard = tempDiv.firstChild;
+                    if (addBtn) {
+                        favTeamsGrid.insertBefore(newCard, addBtn);
+                    } else {
+                        favTeamsGrid.appendChild(newCard);
+                    }
+                    attachFavTeamRemoveEvents();
+                    updateFavTeamsCount();
+                    showToast(`Đã khôi phục ${lastRemovedTeam.name}`);
+                    hideFavTeamUndoToast();
+                }
+            });
+        }
+
+        if (btnCloseFavTeamUndo) {
+            btnCloseFavTeamUndo.addEventListener('click', hideFavTeamUndoToast);
+        }
+
+        // ================= 2. BÀI VIẾT ĐÃ LƯU (Node 2219:2693) =================
+        const savedArticlesList = document.getElementById('savedArticlesList');
+        const toastArticleUndo = document.getElementById('toastArticleUndo');
+        const btnArticleUndo = document.getElementById('btnArticleUndo');
+        const btnCloseArticleUndo = document.getElementById('btnCloseArticleUndo');
+        const statSavedArticlesCount = document.getElementById('statSavedArticlesCount');
+
+        let lastRemovedArticle = null;
+        let articleToastTimeout = null;
+
+        function updateSavedArticlesCount() {
+            if (!savedArticlesList) return;
+            const count = savedArticlesList.querySelectorAll('.saved-article-card').length;
+            if (statSavedArticlesCount) statSavedArticlesCount.textContent = count;
+        }
+
+        function showArticleUndoToast() {
+            if (!toastArticleUndo) return;
+            toastArticleUndo.classList.add('show');
+            if (articleToastTimeout) clearTimeout(articleToastTimeout);
+            articleToastTimeout = setTimeout(() => {
+                toastArticleUndo.classList.remove('show');
+                lastRemovedArticle = null;
+            }, 5000);
+        }
+
+        function hideArticleUndoToast() {
+            if (toastArticleUndo) toastArticleUndo.classList.remove('show');
+            lastRemovedArticle = null;
+            if (articleToastTimeout) clearTimeout(articleToastTimeout);
+        }
+
+        function attachArticleBookmarkEvents() {
+            if (!savedArticlesList) return;
+            savedArticlesList.querySelectorAll('.saved-article-card').forEach(card => {
+                const bookmarkBtn = card.querySelector('.saved-article-bookmark');
+                if (bookmarkBtn && !bookmarkBtn.dataset.bound) {
+                    bookmarkBtn.dataset.bound = "true";
+                    bookmarkBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        lastRemovedArticle = {
+                            id: card.getAttribute('data-article-id'),
+                            html: card.outerHTML
+                        };
+                        card.remove();
+                        updateSavedArticlesCount();
+                        showArticleUndoToast();
+                    });
+                }
+            });
+        }
+
+        attachArticleBookmarkEvents();
+
+        if (btnArticleUndo) {
+            btnArticleUndo.addEventListener('click', () => {
+                if (lastRemovedArticle && savedArticlesList) {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = lastRemovedArticle.html.trim();
+                    const newCard = tempDiv.firstChild;
+                    savedArticlesList.appendChild(newCard);
+                    attachArticleBookmarkEvents();
+                    updateSavedArticlesCount();
+                    showToast('Đã khôi phục bài viết vào danh sách lưu');
+                    hideArticleUndoToast();
+                }
+            });
+        }
+
+        if (btnCloseArticleUndo) {
+            btnCloseArticleUndo.addEventListener('click', hideArticleUndoToast);
+        }
+
+        // ================= 3. ANCHORED OVERLAY: TÙY CHỈNH ĐỘI THEO DÕI (Node 212:223) =================
+        const btnAddTeamProfile = document.getElementById('btnAddTeamProfile');
+        const modalFollowTeams = document.getElementById('modalFollowTeams');
+        const btnCloseFollowTeamsModal = document.getElementById('btnCloseFollowTeamsModal');
+        const btnCancelFollowTeams = document.getElementById('btnCancelFollowTeams');
+        const btnSaveFollowTeams = document.getElementById('btnSaveFollowTeams');
+        const mftSelectedList = document.getElementById('mftSelectedList');
+        const mftSuggestedList = document.getElementById('mftSuggestedList');
+        const mftSelectedCount = document.getElementById('mftSelectedCount');
+        const mftSearchInput = document.getElementById('mftSearchInput');
+
+        function positionFollowTeamsPopover() {
+            if (!modalFollowTeams || !btnAddTeamProfile) return;
+            const btnRect = btnAddTeamProfile.getBoundingClientRect();
+            const popoverWidth = modalFollowTeams.offsetWidth || 360;
+            
+            let top = btnRect.bottom + window.scrollY + 8;
+            let left = btnRect.left + window.scrollX;
+
+            if (left + popoverWidth > window.innerWidth - 16) {
+                left = window.innerWidth - popoverWidth - 16;
+            }
+            if (left < 16) left = 16;
+
+            modalFollowTeams.style.top = `${top}px`;
+            modalFollowTeams.style.left = `${left}px`;
+        }
+
+        function openFollowTeamsPopover() {
+            if (!modalFollowTeams) return;
+            modalFollowTeams.classList.add('show');
+            if (btnAddTeamProfile) btnAddTeamProfile.classList.add('active');
+            positionFollowTeamsPopover();
+        }
+
+        function closeFollowTeamsPopover() {
+            if (!modalFollowTeams) return;
+            modalFollowTeams.classList.remove('show');
+            if (btnAddTeamProfile) btnAddTeamProfile.classList.remove('active');
+        }
+
+        if (btnAddTeamProfile) {
+            btnAddTeamProfile.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (modalFollowTeams.classList.contains('show')) {
+                    closeFollowTeamsPopover();
+                } else {
+                    openFollowTeamsPopover();
+                }
+            });
+        }
+
+        if (btnCloseFollowTeamsModal) btnCloseFollowTeamsModal.addEventListener('click', closeFollowTeamsPopover);
+        if (btnCancelFollowTeams) btnCancelFollowTeams.addEventListener('click', closeFollowTeamsPopover);
+
+        function updateSelectedCount() {
+            if (mftSelectedList && mftSelectedCount) {
+                const count = mftSelectedList.querySelectorAll('.mft-item').length;
+                mftSelectedCount.textContent = `ĐÃ CHỌN (${count})`;
+            }
+        }
+
+        if (mftSelectedList && mftSuggestedList) {
+            mftSelectedList.addEventListener('click', (e) => {
+                const item = e.target.closest('.mft-item');
+                if (item) {
+                    const icon = item.querySelector('.mft-action-icon img');
+                    if (icon) icon.src = './assets/img/figma/d31be5304fbcf80a4ba09f5c3ed79819a4c1e407.svg';
+                    mftSuggestedList.appendChild(item);
+                    updateSelectedCount();
+                }
+            });
+
+            mftSuggestedList.addEventListener('click', (e) => {
+                const item = e.target.closest('.mft-item');
+                if (item) {
+                    const icon = item.querySelector('.mft-action-icon img');
+                    if (icon) icon.src = './assets/img/figma/9d092a9c06e0dfbd7b53ec73e828559fb0ea3b64.svg';
+                    mftSelectedList.appendChild(item);
+                    updateSelectedCount();
+                }
+            });
+        }
+
+        if (mftSearchInput) {
+            mftSearchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                document.querySelectorAll('#mftSuggestedList .mft-item').forEach(item => {
+                    const name = item.getAttribute('data-team-name')?.toLowerCase() || '';
+                    if (name.includes(query)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        if (btnSaveFollowTeams) {
+            btnSaveFollowTeams.addEventListener('click', () => {
+                if (favTeamsGrid && mftSelectedList) {
+                    const selectedItems = Array.from(mftSelectedList.querySelectorAll('.mft-item'));
+                    const addBtn = document.getElementById('btnAddTeamProfile');
+                    
+                    favTeamsGrid.querySelectorAll('.fav-team-card').forEach(c => c.remove());
+                    
+                    selectedItems.forEach(item => {
+                        const teamId = item.getAttribute('data-team-id');
+                        const teamName = item.getAttribute('data-team-name');
+                        const teamLogo = item.getAttribute('data-team-logo');
+                        
+                        const card = document.createElement('div');
+                        card.className = 'fav-team-card';
+                        card.setAttribute('data-team-id', teamId);
+                        card.setAttribute('data-team-name', teamName);
+                        card.setAttribute('data-team-logo', teamLogo);
+                        card.innerHTML = `
+                            <img src="${teamLogo}" alt="${teamName}" class="fav-team-logo">
+                            <span class="fav-team-name">${teamName}</span>
+                            <button type="button" class="fav-team-remove" aria-label="Xóa ${teamName} khỏi đội yêu thích">
+                                <img src="./assets/img/figma/6a9f556ffe80c9dad05c6a1603b7c12d2aa943c6.png" alt="Remove">
+                            </button>
+                        `;
+                        favTeamsGrid.insertBefore(card, addBtn);
+                    });
+                    
+                    attachFavTeamRemoveEvents();
+                    updateFavTeamsCount();
+                    showToast('Đã cập nhật danh sách đội bóng yêu thích thành công!');
+                }
+                closeFollowTeamsPopover();
+            });
+        }
+
+        // ================= 4. MODAL BẢO MẬT (Node 1431:2610) =================
+        const modalSecuritySettings = document.getElementById('modalSecuritySettings');
+        const linkSecurityModal = document.getElementById('linkSecurityModal');
+        const btnCloseSecHeader = document.getElementById('btnCloseSecHeader');
+        const btnCloseSecFooter = document.getElementById('btnCloseSecFooter');
+        const formChangePassword = document.getElementById('formChangePassword');
+        const btnOpenDeleteModalFromSec = document.getElementById('btnOpenDeleteModalFromSec');
+
+        function openSecurityModal() {
+            if (modalSecuritySettings) modalSecuritySettings.classList.add('show');
+        }
+        function closeSecurityModal() {
+            if (modalSecuritySettings) modalSecuritySettings.classList.remove('show');
+        }
+
+        if (linkSecurityModal) {
+            linkSecurityModal.addEventListener('click', (e) => {
+                e.preventDefault();
+                openSecurityModal();
+            });
+        }
+        if (btnCloseSecHeader) btnCloseSecHeader.addEventListener('click', closeSecurityModal);
+        if (btnCloseSecFooter) btnCloseSecFooter.addEventListener('click', closeSecurityModal);
+        if (modalSecuritySettings) {
+            modalSecuritySettings.addEventListener('click', (e) => {
+                if (e.target === modalSecuritySettings) closeSecurityModal();
+            });
+        }
+        if (formChangePassword) {
+            formChangePassword.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast('Đã cập nhật mật khẩu mới thành công!');
+                formChangePassword.reset();
+            });
+        }
+
+        // ================= 5. MODAL QUYỀN RIÊNG TƯ (Node 1431:2451) =================
+        const modalPrivacySettings = document.getElementById('modalPrivacySettings');
+        const linkPrivacyModal = document.getElementById('linkPrivacyModal');
+        const btnClosePrivacyHeader = document.getElementById('btnClosePrivacyHeader');
+        const btnCancelPrivacy = document.getElementById('btnCancelPrivacy');
+        const btnSavePrivacy = document.getElementById('btnSavePrivacy');
+
+        function openPrivacyModal() {
+            if (modalPrivacySettings) modalPrivacySettings.classList.add('show');
+        }
+        function closePrivacyModal() {
+            if (modalPrivacySettings) modalPrivacySettings.classList.remove('show');
+        }
+
+        if (linkPrivacyModal) {
+            linkPrivacyModal.addEventListener('click', (e) => {
+                e.preventDefault();
+                openPrivacyModal();
+            });
+        }
+        if (btnClosePrivacyHeader) btnClosePrivacyHeader.addEventListener('click', closePrivacyModal);
+        if (btnCancelPrivacy) btnCancelPrivacy.addEventListener('click', closePrivacyModal);
+        if (modalPrivacySettings) {
+            modalPrivacySettings.addEventListener('click', (e) => {
+                if (e.target === modalPrivacySettings) closePrivacyModal();
+            });
+        }
+        if (btnSavePrivacy) {
+            btnSavePrivacy.addEventListener('click', () => {
+                closePrivacyModal();
+                showToast('Đã lưu tùy chọn quyền riêng tư thành công!');
+            });
+        }
+
+        // ================= 6. MODAL XÁC NHẬN XÓA TÀI KHOẢN (Node 1311:5700) =================
+        const modalDeleteAccount = document.getElementById('modalDeleteAccount');
+        const btnCloseDelHeader = document.getElementById('btnCloseDelHeader');
+        const btnCancelDeleteAcc = document.getElementById('btnCancelDeleteAcc');
+        const btnConfirmDeleteAcc = document.getElementById('btnConfirmDeleteAcc');
+        const chkConfirmDeleteAcc = document.getElementById('chkConfirmDeleteAcc');
+
+        function openDeleteModal() {
+            if (modalDeleteAccount) modalDeleteAccount.classList.add('show');
+        }
+        function closeDeleteModal() {
+            if (modalDeleteAccount) modalDeleteAccount.classList.remove('show');
+            if (chkConfirmDeleteAcc) chkConfirmDeleteAcc.checked = false;
+            if (btnConfirmDeleteAcc) btnConfirmDeleteAcc.disabled = true;
+        }
+
+        if (btnOpenDeleteModalFromSec) {
+            btnOpenDeleteModalFromSec.addEventListener('click', () => {
+                closeSecurityModal();
+                openDeleteModal();
+            });
+        }
+        if (btnCloseDelHeader) btnCloseDelHeader.addEventListener('click', closeDeleteModal);
+        if (btnCancelDeleteAcc) btnCancelDeleteAcc.addEventListener('click', closeDeleteModal);
+        if (modalDeleteAccount) {
+            modalDeleteAccount.addEventListener('click', (e) => {
+                if (e.target === modalDeleteAccount) closeDeleteModal();
+            });
+        }
+        if (chkConfirmDeleteAcc && btnConfirmDeleteAcc) {
+            chkConfirmDeleteAcc.addEventListener('change', () => {
+                btnConfirmDeleteAcc.disabled = !chkConfirmDeleteAcc.checked;
+            });
+        }
+        if (btnConfirmDeleteAcc) {
+            btnConfirmDeleteAcc.addEventListener('click', () => {
+                // Clear login state
+                localStorage.setItem('isLoggedIn', 'false');
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userName');
+                if (window.ScoreZoneAuth) {
+                    window.ScoreZoneAuth.logout();
+                }
+
+                closeDeleteModal();
+                showToast('Đã xóa tài khoản. Đang chuyển hướng...');
+                setTimeout(() => {
+                    window.location.href = './index.html';
+                }, 1000);
+            });
+        }
+
+        // ================= 7. MODAL ĐĂNG XUẤT TÀI KHOẢN (Node 1431:2555) =================
+        const modalLogoutConfirm = document.getElementById('modalLogoutConfirm');
+        const linkLogoutModal = document.getElementById('linkLogoutModal');
+        const btnCloseLogoutHeader = document.getElementById('btnCloseLogoutHeader');
+        const btnCancelLogout = document.getElementById('btnCancelLogout');
+        const btnConfirmLogout = document.getElementById('btnConfirmLogout');
+
+        function openLogoutModal() {
+            if (modalLogoutConfirm) modalLogoutConfirm.classList.add('show');
+        }
+        function closeLogoutModal() {
+            if (modalLogoutConfirm) modalLogoutConfirm.classList.remove('show');
+        }
+
+        if (linkLogoutModal) {
+            linkLogoutModal.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLogoutModal();
+            });
+        }
+        if (btnCloseLogoutHeader) btnCloseLogoutHeader.addEventListener('click', closeLogoutModal);
+        if (btnCancelLogout) btnCancelLogout.addEventListener('click', closeLogoutModal);
+        if (modalLogoutConfirm) {
+            modalLogoutConfirm.addEventListener('click', (e) => {
+                if (e.target === modalLogoutConfirm) closeLogoutModal();
+            });
+        }
+        if (btnConfirmLogout) {
+            btnConfirmLogout.addEventListener('click', () => {
+                // Clear login state
+                localStorage.setItem('isLoggedIn', 'false');
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userName');
+                if (window.ScoreZoneAuth) {
+                    window.ScoreZoneAuth.logout();
+                }
+
+                closeLogoutModal();
+                showToast('Đã đăng xuất thành công. Đang chuyển hướng...');
+                setTimeout(() => {
+                    window.location.href = './index.html';
+                }, 1000);
+            });
+        }
+
+        // ================= 8. SETTINGS & COOKIE MODALS =================
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // Back to top logic
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Global Escape Key Listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCookieModal();
+                closeFollowTeamsPopover();
+                closeSecurityModal();
+                closePrivacyModal();
+                closeDeleteModal();
+                closeLogoutModal();
+            }
+        });
+
+        // Cookie Settings Modal Logic
+        const modalCookieSettings = document.getElementById('modalCookieSettings');
+        const openCookieSettingsBtn = document.getElementById('openCookieSettings');
+        const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
+        const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
+        const btnCookieSave = document.getElementById('btnCookieSave');
+        const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
+
+        function openCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.add('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
+        }
+
+        function closeCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.remove('show');
+        }
+
+        if (openCookieSettingsBtn) {
+            openCookieSettingsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCookieModal();
+            });
+        }
+
+        if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
+        if (modalCookieSettings) {
+            modalCookieSettings.addEventListener('click', (e) => {
+                if (e.target === modalCookieSettings) closeCookieModal();
+            });
+        }
+
+        if (btnCookieNecessaryOnly) {
+            btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
+                closeCookieModal();
+                showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
+            });
+        }
+
+        if (btnCookieAcceptAll) {
+            btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
+                closeCookieModal();
+                showToast("Đã chấp nhận tất cả cookie");
+            });
+        }
+
+        if (btnCookieSave) {
+            btnCookieSave.addEventListener('click', () => {
+                closeCookieModal();
+                showToast("Đã lưu tùy chọn cookie thành công");
+            });
+        }
+    </script>
+    <!-- Auth State Management -->
+    <script src="./assets/js/auth.js"></script>
+</body>
+</html>

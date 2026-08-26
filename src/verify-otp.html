@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập mã xác nhận - ScoreZone</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="auth-page-bg">
+
+    <div class="auth-card" role="main">
+        <!-- Auth Header -->
+        <div class="auth-header">
+            <a href="./index.html" class="auth-logo" title="Quay về trang chủ ScoreZone">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+            </a>
+            <h1 class="auth-title">Quên mật khẩu</h1>
+            <p class="auth-subtitle">Chúng tôi đã gửi mã xác nhận gồm 6 chữ số đến email <strong id="displayOtpEmail">ie106n12@email.com</strong>. Vui lòng nhập mã để tiếp tục.</p>
+        </div>
+
+        <!-- Auth Form -->
+        <form class="auth-form" id="otpForm">
+            <!-- OTP Field -->
+            <div class="auth-field-group">
+                <label class="auth-label" for="inputOtpCode">MÃ XÁC NHẬN <span class="required">*</span></label>
+                <div class="auth-input-wrap">
+                    <div class="auth-input-left-icon">
+                        <img src="./assets/img/figma/a8366a27084d855e97ea9080e099f11689cbab49.png" alt="Lock">
+                    </div>
+                    <input type="text" id="inputOtpCode" class="auth-input" placeholder="Nhập mã xác nhận" maxlength="6" required value="123456" style="letter-spacing: 2px; font-weight: 600;">
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-auth-primary" id="btnOtpSubmit" style="margin-top: 12px;">Tiếp tục</button>
+
+            <!-- Back to email -->
+            <a href="./forgot-password.html" class="auth-back-link">QUAY LẠI NHẬP EMAIL</a>
+        </form>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div class="sz-toast" id="szToastNotification" role="status" aria-live="polite">
+        <span id="szToastMessage">Mã xác nhận hợp lệ</span>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const szToast = document.getElementById('szToastNotification');
+        const szToastMsg = document.getElementById('szToastMessage');
+        let toastTimeout = null;
+        function showToast(msg) {
+            if (!szToast || !szToastMsg) return;
+            szToastMsg.textContent = msg;
+            szToast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                szToast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Parse query params for email
+        const urlParams = new URLSearchParams(window.location.search);
+        const userEmail = urlParams.get('email');
+        if (userEmail) {
+            const emailElem = document.getElementById('displayOtpEmail');
+            if (emailElem) emailElem.textContent = userEmail;
+        }
+
+        const otpForm = document.getElementById('otpForm');
+        if (otpForm) {
+            otpForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast('Xác thực mã OTP thành công!');
+                setTimeout(() => {
+                    window.location.href = './reset-password.html';
+                }, 800);
+            });
+        }
+    </script>
+    <!-- Auth State Management -->
+    <script src="./assets/js/auth.js"></script>
+</body>
+</html>

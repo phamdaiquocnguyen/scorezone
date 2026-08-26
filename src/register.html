@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo tài khoản mới - ScoreZone</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="auth-page-bg">
+
+    <div class="auth-card" role="main">
+        <!-- Auth Header -->
+        <div class="auth-header">
+            <a href="./index.html" class="auth-logo" title="Quay về trang chủ ScoreZone">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+            </a>
+            <h1 class="auth-title">Tạo tài khoản mới</h1>
+            <p class="auth-subtitle">Tham gia cộng đồng và trải nghiệm tin tức thể thao cao cấp.</p>
+        </div>
+
+        <!-- Auth Form -->
+        <form class="auth-form" id="registerForm">
+            <!-- Full Name Field -->
+            <div class="auth-field-group">
+                <label class="auth-label" for="regFullName">HỌ VÀ TÊN <span class="required">*</span></label>
+                <div class="auth-input-wrap">
+                    <div class="auth-input-left-icon">
+                        <img src="./assets/img/figma/3a6e773509baac017f5d9a0a4740c3fd038ab966.png" alt="User">
+                    </div>
+                    <input type="text" id="regFullName" class="auth-input" placeholder="Nhập họ và tên của bạn" required value="Nguyễn Văn A">
+                </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="auth-field-group">
+                <label class="auth-label" for="regEmail">EMAIL <span class="required">*</span></label>
+                <div class="auth-input-wrap">
+                    <div class="auth-input-left-icon">
+                        <img src="./assets/img/figma/4169fa49cfdb1f534d80b7607b0d474085e2fcaf.png" alt="Email">
+                    </div>
+                    <input type="email" id="regEmail" class="auth-input" placeholder="Địa chỉ email" required value="ie106n12@email.com">
+                </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="auth-field-group">
+                <label class="auth-label" for="regPassword">MẬT KHẨU <span class="required">*</span></label>
+                <div class="auth-input-wrap">
+                    <div class="auth-input-left-icon">
+                        <img src="./assets/img/figma/a8366a27084d855e97ea9080e099f11689cbab49.png" alt="Lock">
+                    </div>
+                    <input type="password" id="regPassword" class="auth-input" placeholder="Nhập mật khẩu" required value="12345678">
+                    <button type="button" class="auth-eye-btn" aria-label="Hiện mật khẩu" onclick="togglePasswordVisibility('regPassword')">
+                        <img src="./assets/img/figma/c20910d150621cdbd0550ad894294452dd2bad1c.png" alt="Show/Hide">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="auth-field-group">
+                <label class="auth-label" for="regConfirmPassword">XÁC NHẬN MẬT KHẨU <span class="required">*</span></label>
+                <div class="auth-input-wrap">
+                    <div class="auth-input-left-icon">
+                        <img src="./assets/img/figma/13669e00690834a1d8732d8acd9de4125c1bdb36.png" alt="Confirm Lock">
+                    </div>
+                    <input type="password" id="regConfirmPassword" class="auth-input" placeholder="Nhập lại mật khẩu" required value="12345678">
+                    <button type="button" class="auth-eye-btn" aria-label="Hiện mật khẩu" onclick="togglePasswordVisibility('regConfirmPassword')">
+                        <img src="./assets/img/figma/c20910d150621cdbd0550ad894294452dd2bad1c.png" alt="Show/Hide">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Agreement Checkbox -->
+            <div class="auth-options-row">
+                <label class="auth-checkbox-label">
+                    <input type="checkbox" id="regAgreeTerms" required checked>
+                    <span>Tôi đồng ý với <a href="#" id="linkPrivacySummary">Chính sách bảo mật</a> và <a href="#" id="linkTermsSummary">Điều khoản dịch vụ</a></span>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-auth-primary" id="btnRegisterSubmit">Đăng ký</button>
+
+            <!-- Divider -->
+            <div class="auth-divider">
+                <span>HOẶC ĐĂNG KÝ VỚI</span>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="auth-social-row">
+                <button type="button" class="btn-auth-social" id="btnGoogleRegister" onclick="handleSocialRegister('Google')">
+                    <img src="./assets/img/figma/369fd3d8e1b68bbce786b5283ab100dbbbeda4d9.svg" alt="Google">
+                    <span>Google</span>
+                </button>
+                <button type="button" class="btn-auth-social" id="btnFacebookRegister" onclick="handleSocialRegister('Facebook')">
+                    <img src="./assets/img/figma/d606961c308e378f82d408a5917a439c5c05b3a3.svg" alt="Facebook">
+                    <span>Facebook</span>
+                </button>
+            </div>
+
+            <!-- Footer Nav -->
+            <div class="auth-footer-nav">
+                Đã có tài khoản? <a href="./login.html">Đăng nhập ngay</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- ================= MODAL: TÓM TẮT CHÍNH SÁCH BẢO MẬT (Node 2251:3412) ================= -->
+    <div class="modal-backdrop" id="modalPrivacySummary" role="dialog" aria-modal="true" aria-labelledby="privacySummaryTitle">
+        <div class="modal-container modal-privacy-summary">
+            <div class="summary-modal-header">
+                <div class="summary-modal-header-content">
+                    <h2 id="privacySummaryTitle">Tóm tắt chính sách bảo mật</h2>
+                    <p>Những điểm chính bạn cần biết trước khi tiếp tục</p>
+                </div>
+                <button type="button" class="summary-modal-close" id="btnClosePrivacySummary" aria-label="Đóng">
+                    <img src="./assets/img/figma/e184904efd49b12b72dda0682f3f75a5effe68b9.svg" alt="Close">
+                </button>
+            </div>
+            <div class="summary-modal-body">
+                <!-- Item 1 -->
+                <div class="summary-item-card">
+                    <div class="summary-item-icon">
+                        <img src="./assets/img/figma/8cce092fad350f6c4bc9e036a92d7db567dbc2bf.svg" alt="User">
+                    </div>
+                    <div class="summary-item-info">
+                        <h3 class="summary-item-title">1. Thông tin thu thập</h3>
+                        <p class="summary-item-desc">Thông tin bạn cung cấp, dữ liệu thiết bị và lịch sử sử dụng website.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="summary-item-card">
+                    <div class="summary-item-icon">
+                        <img src="./assets/img/figma/1930345cb7b3bcff9fa2ae68bc39db93ac7ece56.svg" alt="Gear">
+                    </div>
+                    <div class="summary-item-info">
+                        <h3 class="summary-item-title">2. Mục đích sử dụng</h3>
+                        <p class="summary-item-desc">Vận hành hệ thống, cá nhân hóa trải nghiệm và gửi thông báo cần thiết.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="summary-item-card">
+                    <div class="summary-item-icon">
+                        <img src="./assets/img/figma/e72fc554c56b8befac163acf54118122e141e3a9.svg" alt="Shield">
+                    </div>
+                    <div class="summary-item-info">
+                        <h3 class="summary-item-title">3. Bảo vệ dữ liệu</h3>
+                        <p class="summary-item-desc">Áp dụng biện pháp kỹ thuật và kiểm soát truy cập để giảm thiểu rủi ro.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="summary-item-card">
+                    <div class="summary-item-icon">
+                        <img src="./assets/img/figma/fce77a3959d76af47183874f379f9c923dc28ba7.svg" alt="Users">
+                    </div>
+                    <div class="summary-item-info">
+                        <h3 class="summary-item-title">4. Quyền người dùng</h3>
+                        <p class="summary-item-desc">Bạn có quyền xem, chỉnh sửa hoặc yêu cầu xóa dữ liệu cá nhân.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="summary-item-card">
+                    <div class="summary-item-icon">
+                        <img src="./assets/img/figma/70fc8f5bb307eda91c65a164b2c4ea6ee4b70269.svg" alt="Cookie">
+                    </div>
+                    <div class="summary-item-info">
+                        <h3 class="summary-item-title">5. Cookie</h3>
+                        <p class="summary-item-desc">Cookie giúp ghi nhớ tùy chọn và tối ưu hóa trải nghiệm sử dụng.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-modal-footer">
+                <a href="./privacy-policy.html" target="_blank" class="btn-summary-full">Xem bản đầy đủ</a>
+                <button type="button" class="btn-summary-accept" id="btnAcceptPrivacySummary">Tôi đã hiểu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: TÓM TẮT ĐIỀU KHOẢN DỊCH VỤ (Node 2256:4694) ================= -->
+    <div class="modal-backdrop" id="modalTermsSummary" role="dialog" aria-modal="true" aria-labelledby="termsSummaryTitle">
+        <div class="modal-container modal-terms-summary">
+            <div class="summary-modal-header">
+                <div class="summary-modal-header-content">
+                    <h2 id="termsSummaryTitle">Tóm tắt điều khoản dịch vụ</h2>
+                    <p>Tóm tắt ngắn gọn các điều khoản quan trọng trước khi đăng ký.</p>
+                </div>
+                <button type="button" class="summary-modal-close" id="btnCloseTermsSummary" aria-label="Đóng">
+                    <img src="./assets/img/figma/e184904efd49b12b72dda0682f3f75a5effe68b9.svg" alt="Close">
+                </button>
+            </div>
+            <div class="summary-modal-body">
+                <div class="summary-cards-grid">
+                    <!-- Card 1 -->
+                    <div class="summary-item-card">
+                        <div class="summary-item-icon">
+                            <img src="./assets/img/figma/d01e2e1c475b45f0548e05da642e97d82e34f83c.svg" alt="Check">
+                        </div>
+                        <div class="summary-item-info">
+                            <h3 class="summary-item-title">1. Chấp nhận điều khoản</h3>
+                            <p class="summary-item-desc">Khi sử dụng ScoreZone, bạn đồng ý với các điều khoản được công bố.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="summary-item-card">
+                        <div class="summary-item-icon">
+                            <img src="./assets/img/figma/6a0741450bb04ac62e5bfe5598247f2724ca217f.svg" alt="Target">
+                        </div>
+                        <div class="summary-item-info">
+                            <h3 class="summary-item-title">2. Mục đích sử dụng</h3>
+                            <p class="summary-item-desc">Website cung cấp tin bóng đá, lịch thi đấu, kết quả, bảng xếp hạng và tin tức.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="summary-item-card">
+                        <div class="summary-item-icon">
+                            <img src="./assets/img/figma/7739a6a2c6bdc42162c6e4f783f8915b0c39c1a7.svg" alt="User">
+                        </div>
+                        <div class="summary-item-info">
+                            <h3 class="summary-item-title">3. Tài khoản người dùng</h3>
+                            <p class="summary-item-desc">Người dùng cần bảo mật tài khoản và cung cấp thông tin chính xác.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="summary-item-card">
+                        <div class="summary-item-icon">
+                            <img src="./assets/img/figma/6c9b736c25b230c4e3ac540062e52b82faba6d26.svg" alt="Shield">
+                        </div>
+                        <div class="summary-item-info">
+                            <h3 class="summary-item-title">4. Quy định sử dụng</h3>
+                            <p class="summary-item-desc">Không được sử dụng dịch vụ để phá hoại, gây hại hệ thống hoặc ảnh hưởng người khác.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="summary-item-card">
+                        <div class="summary-item-icon">
+                            <img src="./assets/img/figma/7ca4a99a20c5a06db3fca6a4a4ef150e58759a41.svg" alt="Doc">
+                        </div>
+                        <div class="summary-item-info">
+                            <h3 class="summary-item-title">5. Nội dung và dữ liệu</h3>
+                            <p class="summary-item-desc">Nội dung mang tính tham khảo. ScoreZone nỗ lực cập nhật dữ liệu chính xác nhất.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="summary-item-card">
+                        <div class="summary-item-icon">
+                            <img src="./assets/img/figma/cf5e913bcdb1b8bf55a325e2fb34eeef493ead8e.svg" alt="Alert">
+                        </div>
+                        <div class="summary-item-info">
+                            <h3 class="summary-item-title">6. Giới hạn trách nhiệm</h3>
+                            <p class="summary-item-desc">ScoreZone không chịu trách nhiệm với thiệt hại gián tiếp phát sinh từ việc sử dụng thông tin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-modal-footer">
+                <a href="./terms-of-service.html" target="_blank" class="btn-summary-full">Xem đầy đủ</a>
+                <button type="button" class="btn-summary-accept" id="btnAcceptTermsSummary">Tôi đã hiểu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div class="sz-toast" id="szToastNotification" role="status" aria-live="polite">
+        <span id="szToastMessage">Đăng ký thành công</span>
+    </div>
+
+    <!-- Auth JS -->
+    <script src="./assets/js/auth.js"></script>
+    <script>
+        const szToast = document.getElementById('szToastNotification');
+        const szToastMsg = document.getElementById('szToastMessage');
+        let toastTimeout = null;
+        function showToast(msg) {
+            if (!szToast || !szToastMsg) return;
+            szToastMsg.textContent = msg;
+            szToast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                szToast.classList.remove('show');
+            }, 3000);
+        }
+
+        function togglePasswordVisibility(inputId) {
+            const input = document.getElementById(inputId);
+            if (input) {
+                input.type = input.type === 'password' ? 'text' : 'password';
+            }
+        }
+
+        const registerForm = document.getElementById('registerForm');
+        if (registerForm) {
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('regFullName').value;
+                const email = document.getElementById('regEmail').value;
+                const pwd = document.getElementById('regPassword').value;
+                const confirmPwd = document.getElementById('regConfirmPassword').value;
+
+                if (pwd !== confirmPwd) {
+                    showToast('Mật khẩu xác nhận không khớp!');
+                    return;
+                }
+
+                if (window.ScoreZoneAuth) {
+                    window.ScoreZoneAuth.register(name, email, pwd);
+                } else {
+                    localStorage.setItem('isLoggedIn', 'true');
+                }
+
+                showToast('Đăng ký tài khoản thành công! Đang chuyển hướng...');
+                setTimeout(() => {
+                    window.location.href = './index.html';
+                }, 1000);
+            });
+        }
+
+        function handleSocialRegister(provider) {
+            if (window.ScoreZoneAuth) {
+                window.ScoreZoneAuth.register('Người dùng mới', 'social@email.com', 'social');
+            } else {
+                localStorage.setItem('isLoggedIn', 'true');
+            }
+            showToast(`Đăng ký qua ${provider} thành công!`);
+            setTimeout(() => {
+                window.location.href = './index.html';
+            }, 1000);
+        }
+
+        // ================= POPUP MODALS LOGIC =================
+        const modalPrivacySummary = document.getElementById('modalPrivacySummary');
+        const linkPrivacySummary = document.getElementById('linkPrivacySummary');
+        const btnClosePrivacySummary = document.getElementById('btnClosePrivacySummary');
+        const btnAcceptPrivacySummary = document.getElementById('btnAcceptPrivacySummary');
+
+        const modalTermsSummary = document.getElementById('modalTermsSummary');
+        const linkTermsSummary = document.getElementById('linkTermsSummary');
+        const btnCloseTermsSummary = document.getElementById('btnCloseTermsSummary');
+        const btnAcceptTermsSummary = document.getElementById('btnAcceptTermsSummary');
+
+        function openPrivacySummary() {
+            if (modalPrivacySummary) modalPrivacySummary.classList.add('show');
+        }
+        function closePrivacySummary() {
+            if (modalPrivacySummary) modalPrivacySummary.classList.remove('show');
+        }
+
+        function openTermsSummary() {
+            if (modalTermsSummary) modalTermsSummary.classList.add('show');
+        }
+        function closeTermsSummary() {
+            if (modalTermsSummary) modalTermsSummary.classList.remove('show');
+        }
+
+        if (linkPrivacySummary) {
+            linkPrivacySummary.addEventListener('click', (e) => {
+                e.preventDefault();
+                openPrivacySummary();
+            });
+        }
+        if (btnClosePrivacySummary) btnClosePrivacySummary.addEventListener('click', closePrivacySummary);
+        if (btnAcceptPrivacySummary) btnAcceptPrivacySummary.addEventListener('click', closePrivacySummary);
+        if (modalPrivacySummary) {
+            modalPrivacySummary.addEventListener('click', (e) => {
+                if (e.target === modalPrivacySummary) closePrivacySummary();
+            });
+        }
+
+        if (linkTermsSummary) {
+            linkTermsSummary.addEventListener('click', (e) => {
+                e.preventDefault();
+                openTermsSummary();
+            });
+        }
+        if (btnCloseTermsSummary) btnCloseTermsSummary.addEventListener('click', closeTermsSummary);
+        if (btnAcceptTermsSummary) btnAcceptTermsSummary.addEventListener('click', closeTermsSummary);
+        if (modalTermsSummary) {
+            modalTermsSummary.addEventListener('click', (e) => {
+                if (e.target === modalTermsSummary) closeTermsSummary();
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePrivacySummary();
+                closeTermsSummary();
+            }
+        });
+    </script>
+</body>
+</html>

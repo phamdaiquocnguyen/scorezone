@@ -123,7 +123,7 @@
                 </div>
             </div>
 
-            <a href="#" class="user-avatar" aria-label="Tài khoản">
+            <a href="./profile.html" class="user-avatar" aria-label="Tài khoản">
                 <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
             </a>
         </div>
@@ -902,9 +902,16 @@
         });
 
         // Check URL hash on load (e.g., news.html#video)
-        if (window.location.hash === '#video') {
-            switchView('video');
+        function checkHash() {
+            if (window.location.hash === '#video') {
+                switchView('video');
+            } else if (window.location.hash === '#all' || !window.location.hash) {
+                switchView('all');
+            }
         }
+
+        checkHash();
+        window.addEventListener('hashchange', checkHash);
 
         // ========================================================
         // 7. FILTER POPUP OVERLAY (Figma Node 2305:3855)
@@ -1241,5 +1248,7 @@
             });
         });
     </script>
+    <!-- Auth State Management -->
+    <script src="./assets/js/auth.js"></script>
 </body>
 </html>
