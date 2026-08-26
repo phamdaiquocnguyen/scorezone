@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điểm tin nổi bật Champions League: Liverpool 0-2 Paris - ScoreZone</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.3">
+</head>
+<body class="uefa-page-body">
+
+    <!-- ================= HEADER ================= -->
+    <header id="header">
+        <!-- Trái: Logo -->
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Giữa: Navigation -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li class="active"><a href="./news.html">Tin tức</a></li>
+                <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
+                <li><a href="./standings.html">Bảng xếp hạng</a></li>
+            </ul>
+        </nav>
+
+        <!-- Phải: Tìm kiếm & User -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <button class="search-btn" aria-label="Tìm kiếm">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search">
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="user-avatar" aria-label="Tài khoản">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN VIDEO HIGHLIGHTS CONTENT ================= -->
+    <main class="video-detail-container">
+
+        <!-- 1. Breadcrumb (Node 642:2530) -->
+        <nav class="video-detail-breadcrumb" aria-label="Breadcrumb">
+            <a href="./index.html">TRANG CHỦ</a>
+            <span class="vdb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <a href="./news.html">TIN TỨC</a>
+            <span class="vdb-sep">
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="vdb-current">LIVERPOOL 0 - 2 PARIS</span>
+        </nav>
+
+        <!-- 2. Main Content Grid (8 cols left, 4 cols right - Node 184:526) -->
+        <div class="video-detail-grid">
+
+            <!-- Left Column: Video Player, Title & Comments -->
+            <div class="video-main-column">
+
+                <!-- Video Player Container (Node 184:528) -->
+                <div class="video-player-container" id="videoPlayerBox">
+                    <video id="mainVideoPlayer" 
+                           class="video-player-element" 
+                           poster="./assets/img/figma/15ffaf00103d5b8401314f4e24e0c774bbf7ebea.png" 
+                           controls 
+                           playsinline 
+                           preload="metadata">
+                        <source src="./assets/video/ChampionsLeaguehighlights.mp4" type="video/mp4">
+                        <source src="./assets/video/ChampionsLeaguehighlights.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+                    </video>
+
+                    <!-- Video Duration Badge (Node 184:536) -->
+                    <div class="video-duration-pill" id="videoDurationBadge">00:25</div>
+
+                    <!-- Custom Play Button Overlay -->
+                    <div class="video-play-center-btn" id="videoPlayOverlay" aria-label="Phát video">
+                        <div class="video-play-circle-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Header Title & Meta (Node 184:538) -->
+                <div class="video-meta-block">
+                    <h1 class="video-page-heading">Điểm tin nổi bật Champions League: Liverpool 0-2 Paris</h1>
+                    <div class="video-meta-tags-line">
+                        <span class="video-league-badge">UEFA CHAMPIONS LEAGUE</span>
+                        <span class="video-meta-dot"></span>
+                        <span class="video-meta-duration">8:42</span>
+                        <span class="video-meta-dot"></span>
+                        <span class="video-meta-time">2 GIỜ TRƯỚC</span>
+                        <span class="video-meta-dot"></span>
+                        <span class="video-meta-featured">VIDEO NỔI BẬT</span>
+                    </div>
+                </div>
+
+                <!-- Comments Section (Node 2280:3309) -->
+                <section class="video-comments-block news-comments-section" aria-label="Bình luận bài viết">
+                    <div class="ncs-header">
+                        <h3 class="ncs-title">BÌNH LUẬN</h3>
+                        <span class="ncs-count" id="commentCountBadge">2</span>
+                    </div>
+
+                    <div class="ncs-list" id="commentsContainer">
+                        <!-- Comment 1 (Node 2280:3315) -->
+                        <div class="ncs-item">
+                            <div class="ncs-avatar">
+                                <img src="./assets/img/figma/96659a254a85f0434f4058f53004f412e8e138fb.png" alt="Mixifood">
+                            </div>
+                            <div class="ncs-body">
+                                <div class="ncs-user-row">
+                                    <span class="ncs-username">Mixifood</span>
+                                    <span class="ncs-time">2 giờ trước</span>
+                                </div>
+                                <p class="ncs-text">Paris tận dụng cơ hội tốt hơn hẳn. Liverpool cầm bóng không ít nhưng các pha xử lý cuối cùng thiếu sắc bén.</p>
+                                <button class="ncs-reply-btn" type="button" onclick="replyToUser('Mixifood')">Trả lời</button>
+
+                                <!-- Nested Reply Thread (Node 2280:3330) -->
+                                <div class="ncs-thread">
+                                    <div class="ncs-avatar" style="width: 32px; height: 32px;">
+                                        <img src="./assets/img/figma/88eede69d7b754ca5ece78d2db8392bcb9e0de16.png" alt="Khoga">
+                                    </div>
+                                    <div class="ncs-body">
+                                        <div class="ncs-user-row">
+                                            <span class="ncs-username">Khoga</span>
+                                            <span class="ncs-time">1 giờ trước</span>
+                                        </div>
+                                        <p class="ncs-text">Đúng rồi, Liverpool tạo được sức ép nhưng Paris phòng ngự khá kín. Hai bàn thua đều đến từ lúc hàng thủ mất tập trung.</p>
+                                        <button class="ncs-reply-btn" type="button" onclick="replyToUser('Khoga')">TRẢ LỜI</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Comment Form (Node 2280:3344) -->
+                    <div class="ncs-add-box">
+                        <textarea class="ncs-textarea" id="commentTextarea" placeholder="Nêu cảm nghĩ của bạn..."></textarea>
+                        <button class="ncs-submit-btn" id="btnSubmitComment" type="button">ĐĂNG TẢI BÌNH LUẬN</button>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Aside Sidebar (Node 184:579) -->
+            <aside class="video-sidebar" aria-label="Highlights liên quan">
+                <div class="vs-section-heading">
+                    <div class="vs-play-circle-svg" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="7 5 19 12 7 19 7 5"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="vs-heading-text">HIGHLIGHTS LIÊN QUAN</h3>
+                </div>
+
+                <div class="vs-cards-list">
+                    <!-- Related Video 1: Spurs vs Leeds (Node 184:625) -->
+                    <a href="./video-detail-premier.html" class="vs-video-card">
+                        <div class="vs-card-thumbnail-wrap">
+                            <img src="./assets/img/figma/c771242ff296011bea00749fb26cf2536c537e66.png" alt="Spurs 1-1 Leeds United" class="vs-card-img">
+                            <div class="vs-card-gradient"></div>
+                            <div class="vs-card-play-overlay">
+                                <div class="vs-card-play-circle">
+                                    <svg viewBox="0 0 24 24">
+                                        <polygon points="7 5 19 12 7 19 7 5"></polygon>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="vs-card-duration-badge">00:25</span>
+                        </div>
+                        <h4 class="vs-card-title">Spurs 1-1 Leeds United | Premier League Highlights</h4>
+                        <span class="vs-card-league-tag">PREMIER LEAGUE</span>
+                    </a>
+
+                    <!-- Related Video 2: Bayern vs Real Madrid (Node 184:639) -->
+                    <a href="./video-detail-uefa.html" class="vs-video-card">
+                        <div class="vs-card-thumbnail-wrap">
+                            <img src="./assets/img/figma/ace2ab687ea4792b0219a9f40611abc4a8c185b1.png" alt="Bayern Munich vs Real Madrid" class="vs-card-img">
+                            <div class="vs-card-gradient"></div>
+                            <div class="vs-card-play-overlay">
+                                <div class="vs-card-play-circle">
+                                    <svg viewBox="0 0 24 24">
+                                        <polygon points="7 5 19 12 7 19 7 5"></polygon>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="vs-card-duration-badge">01:25</span>
+                        </div>
+                        <h4 class="vs-card-title">Champions League: Bayern München 4-3 Real Madrid</h4>
+                        <span class="vs-card-league-tag">UEFA CHAMPIONS LEAGUE</span>
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <a href="./index.html" class="footer-logo">
+                    <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+                </a>
+                <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Điều khoản dịch vụ</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
+                <a href="#">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
+
+    <!-- ================= MODAL CÀI ĐẶT COOKIE ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                </button>
+            </div>
+
+            <div class="cookie-modal-body">
+                <!-- 1. Bắt buộc -->
+                <div class="cookie-row">
+                    <div class="cookie-row-left">
+                        <h4>Cookie bắt buộc</h4>
+                        <p>Cần thiết để website hoạt động ổn định và bảo mật.</p>
+                    </div>
+                    <div class="cookie-row-right">
+                        <span class="cookie-always-active">Luôn bật</span>
+                    </div>
+                </div>
+
+                <!-- 2. Phân tích -->
+                <div class="cookie-row">
+                    <div class="cookie-row-left">
+                        <h4>Cookie phân tích</h4>
+                        <p>Giúp chúng tôi hiểu cách bạn sử dụng website để cải thiện trải nghiệm.</p>
+                    </div>
+                    <div class="cookie-row-right">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="cookieAnalytics" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 3. Tiếp thị -->
+                <div class="cookie-row">
+                    <div class="cookie-row-left">
+                        <h4>Cookie tiếp thị</h4>
+                        <p>Dùng để hiển thị nội dung và quảng cáo phù hợp với sở thích của bạn.</p>
+                    </div>
+                    <div class="cookie-row-right">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="cookieMarketing">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-save" id="btnSaveCookieSettings">Lưu tùy chọn</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div class="sz-toast" id="szToastNotification" role="status" aria-live="polite">
+        <span id="szToastMessage">Đã đăng bình luận thành công</span>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Toast Helper
+        const szToast = document.getElementById('szToastNotification');
+        const szToastMsg = document.getElementById('szToastMessage');
+        let toastTimeout = null;
+        function showToast(msg) {
+            if (!szToast || !szToastMsg) return;
+            szToastMsg.textContent = msg;
+            szToast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                szToast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Video Player Custom Play/Pause Overlay Logic
+        const videoPlayer = document.getElementById('mainVideoPlayer');
+        const videoPlayOverlay = document.getElementById('videoPlayOverlay');
+        const videoDurationBadge = document.getElementById('videoDurationBadge');
+
+        if (videoPlayer && videoPlayOverlay) {
+            videoPlayOverlay.addEventListener('click', () => {
+                videoPlayer.play();
+            });
+
+            videoPlayer.addEventListener('play', () => {
+                videoPlayOverlay.classList.add('playing');
+                if (videoDurationBadge) videoDurationBadge.classList.add('hidden');
+            });
+
+            videoPlayer.addEventListener('pause', () => {
+                videoPlayOverlay.classList.remove('playing');
+                if (videoDurationBadge) videoDurationBadge.classList.remove('hidden');
+            });
+
+            videoPlayer.addEventListener('ended', () => {
+                videoPlayOverlay.classList.remove('playing');
+                if (videoDurationBadge) videoDurationBadge.classList.remove('hidden');
+            });
+        }
+
+        // Reply to user helper
+        function replyToUser(username) {
+            const textarea = document.getElementById('commentTextarea');
+            if (textarea) {
+                textarea.value = `@${username} `;
+                textarea.focus();
+                textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Add Comment functionality
+        const btnSubmitComment = document.getElementById('btnSubmitComment');
+        const commentTextarea = document.getElementById('commentTextarea');
+        const commentsContainer = document.getElementById('commentsContainer');
+        const commentCountBadge = document.getElementById('commentCountBadge');
+        let currentCommentCount = 2;
+
+        if (btnSubmitComment && commentTextarea && commentsContainer) {
+            btnSubmitComment.addEventListener('click', () => {
+                const text = commentTextarea.value.trim();
+                if (!text) {
+                    showToast('Vui lòng nhập nội dung bình luận');
+                    commentTextarea.focus();
+                    return;
+                }
+
+                const newComment = document.createElement('div');
+                newComment.className = 'ncs-item';
+                newComment.style.opacity = '0';
+                newComment.style.transform = 'translateY(-10px)';
+                newComment.style.transition = 'all 0.3s ease';
+
+                newComment.innerHTML = `
+                    <div class="ncs-avatar">
+                        <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="Bạn">
+                    </div>
+                    <div class="ncs-body">
+                        <div class="ncs-user-row">
+                            <span class="ncs-username">Bạn</span>
+                            <span class="ncs-time">Vừa xong</span>
+                        </div>
+                        <p class="ncs-text">${text.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
+                        <button class="ncs-reply-btn" type="button" onclick="replyToUser('Bạn')">Trả lời</button>
+                    </div>
+                `;
+
+                commentsContainer.appendChild(newComment);
+                commentTextarea.value = '';
+                currentCommentCount++;
+                if (commentCountBadge) commentCountBadge.textContent = currentCommentCount;
+
+                setTimeout(() => {
+                    newComment.style.opacity = '1';
+                    newComment.style.transform = 'translateY(0)';
+                }, 10);
+
+                showToast('Đã đăng bình luận thành công!');
+            });
+        }
+
+        // Settings Dropdown
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // Back to top
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Cookie Modal
+        const openCookieBtn = document.getElementById('openCookieSettings');
+        const modalCookie = document.getElementById('modalCookieSettings');
+        const btnCloseCookie = document.getElementById('btnCloseCookieModal');
+        const btnSaveCookie = document.getElementById('btnSaveCookieSettings');
+
+        if (openCookieBtn && modalCookie) {
+            openCookieBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalCookie.classList.add('show');
+            });
+        }
+        if (btnCloseCookie && modalCookie) {
+            btnCloseCookie.addEventListener('click', () => {
+                modalCookie.classList.remove('show');
+            });
+        }
+        if (btnSaveCookie && modalCookie) {
+            btnSaveCookie.addEventListener('click', () => {
+                modalCookie.classList.remove('show');
+                showToast('Đã lưu tùy chọn Cookie');
+            });
+        }
+        if (modalCookie) {
+            modalCookie.addEventListener('click', (e) => {
+                if (e.target === modalCookie) modalCookie.classList.remove('show');
+            });
+        }
+    </script>
+</body>
+</html>
