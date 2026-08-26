@@ -454,19 +454,18 @@
                 <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
             </div>
             <div class="footer-right">
-                <a href="./docs/privacy-policy.html">Chính sách bảo mật</a>
-                <a href="./docs/terms.html">Điều khoản dịch vụ</a>
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
                 <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
-                <a href="./docs/contact.html">Liên hệ</a>
+                <a href="./contact.html">Liên hệ</a>
             </div>
         </div>
-
-        <button id="scrollToTopBtn" class="scroll-top-btn" aria-label="Cuộn lên đầu trang" title="Cuộn lên đầu trang">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="18 15 12 9 6 15"></polyline>
-            </svg>
-        </button>
     </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
 
     <!-- ================= VIDEO HIGHLIGHTS MODAL ================= -->
     <div class="sz-modal video-modal" id="modalVideoHighlight" aria-hidden="true" role="dialog" aria-modal="true">
@@ -531,179 +530,80 @@
     </div>
 
     <!-- ================= COOKIE SETTINGS MODAL ================= -->
-    <div class="sz-modal" id="modalCookieSettings" aria-hidden="true" role="dialog" aria-modal="true">
-        <div class="cookie-modal-dialog">
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
-                <div class="cookie-modal-title-row">
-                    <div class="cookie-icon-wrapper">
-                        <img src="./assets/img/figma/65df9690f50db12aa66304a347974334b72b1c54.svg" alt="Cookie">
-                    </div>
-                    <div>
-                        <h3 class="cookie-modal-title">Cài đặt quyền riêng tư & Cookie</h3>
-                        <p class="cookie-modal-subtitle">ScoreZone tôn trọng quyền kiểm soát dữ liệu cá nhân của bạn</p>
-                    </div>
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
                 </div>
-                <button class="modal-close-btn" id="btnCloseCookieModal" aria-label="Đóng">
-                    <img src="./assets/fonts/themify-icons-font/themify-icons/SVG/close.svg" alt="Close">
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
                 </button>
             </div>
-
             <div class="cookie-modal-body">
-                <p class="cookie-intro-text">
-                    Chúng tôi sử dụng cookie để nâng cao trải nghiệm duyệt web, cá nhân hóa nội dung tỉ số, lịch thi đấu và phân tích lưu lượng truy cập. Bạn có thể tùy chỉnh các quyền bên dưới.
-                </p>
-
-                <div class="cookie-section">
-                    <div class="cookie-section-header">
-                        <div class="cookie-section-info">
-                            <h4>Cookie thiết yếu</h4>
-                            <p>Cần thiết để website hoạt động ổn định (đăng nhập, ghi nhớ ngôn ngữ, bảo mật). Không thể tắt.</p>
-                        </div>
-                        <div class="cookie-status-badge">
-                            <span>BẮT BUỘC</span>
-                        </div>
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
+                    </div>
+                    <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
+                        <span>LUÔN BẬT</span>
                     </div>
                 </div>
 
-                <div class="cookie-section">
-                    <div class="cookie-section-header">
-                        <div class="cookie-section-info">
-                            <h4>Cookie phân tích & hiệu năng</h4>
-                            <p>Giúp chúng tôi hiểu cách người dùng tương tác với dữ liệu trận đấu và cải thiện giao diện.</p>
-                        </div>
-                        <label class="sz-switch">
-                            <input type="checkbox" id="cookieAnalytics" checked>
-                            <span class="sz-slider"></span>
-                        </label>
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
                     </div>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
                 </div>
 
-                <div class="cookie-section">
-                    <div class="cookie-section-header">
-                        <div class="cookie-section-info">
-                            <h4>Cookie cá nhân hóa & gợi ý AI</h4>
-                            <p>Ghi nhớ câu lạc bộ yêu thích để ưu tiên hiển thị lịch thi đấu, bảng xếp hạng và tóm tắt AI.</p>
-                        </div>
-                        <label class="sz-switch">
-                            <input type="checkbox" id="cookiePersonalization" checked>
-                            <span class="sz-slider"></span>
-                        </label>
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
                     </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
                 </div>
             </div>
-
             <div class="cookie-modal-footer">
-                <button class="btn-cookie-secondary" id="btnCookieNecessaryOnly" type="button">CHỈ THIẾT YẾU</button>
-                <div class="cookie-footer-right">
-                    <button class="btn-cookie-save" id="btnCookieSave" type="button">LƯU LỰA CHỌN</button>
-                    <button class="btn-cookie-primary" id="btnCookieAcceptAll" type="button">CHẤP NHẬN TẤT CẢ</button>
-                </div>
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
             </div>
         </div>
     </div>
 
-    <!-- ================= MODAL CHIA SẺ BÀI VIẾT (Node 1620:2733) ================= -->
-    <div class="sz-modal" id="modalShareArticle" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
-        <div class="sz-modal-overlay" id="overlayShareArticle"></div>
-        <div class="share-modal-dialog">
-            <div class="share-modal-header">
-                <div class="share-modal-title-group">
-                    <h2 class="share-modal-title" id="shareModalTitle">Chia sẻ bài viết</h2>
-                    <p class="share-modal-subtitle">Chia sẻ tin tức này với bạn bè của bạn</p>
-                </div>
-                <button type="button" class="modal-close-btn" id="btnCloseShareModal" aria-label="Đóng">
-                    <img src="./assets/img/figma/ad689c31a6d72e79faccb52e746fe940b10d8f85.svg" alt="Close">
-                </button>
-            </div>
-
-            <div class="share-options-grid">
-                <!-- Facebook -->
-                <button type="button" class="share-option-btn" data-share="Facebook" title="Chia sẻ lên Facebook">
-                    <div class="share-icon-wrapper share-facebook">
-                        <img src="./assets/img/figma/b392734895ad77d06db8548575267143dd1a2865.png" alt="Facebook">
-                    </div>
-                    <span>Facebook</span>
-                </button>
-
-                <!-- Messenger -->
-                <button type="button" class="share-option-btn" data-share="Messenger" title="Chia sẻ qua Messenger">
-                    <div class="share-icon-wrapper share-messenger">
-                        <img src="./assets/img/figma/b26d88092679299a886f8c7ea2d02bbc7db39f35.png" alt="Messenger">
-                    </div>
-                    <span>Messenger</span>
-                </button>
-
-                <!-- X (Twitter) -->
-                <button type="button" class="share-option-btn" data-share="X (Twitter)" title="Chia sẻ lên X">
-                    <div class="share-icon-wrapper share-x">
-                        <img src="./assets/img/figma/040376eaed619e9fea270f4aec62995c61bc5015.png" alt="X (Twitter)">
-                    </div>
-                    <span>X (Twitter)</span>
-                </button>
-
-                <!-- Threads -->
-                <button type="button" class="share-option-btn" data-share="Threads" title="Chia sẻ lên Threads">
-                    <div class="share-icon-wrapper share-threads">
-                        <img src="./assets/img/figma/9abaa2baf7d81995714c6d9a11ac01b6cea99cdd.png" alt="Threads">
-                    </div>
-                    <span>Threads</span>
-                </button>
-
-                <!-- TikTok -->
-                <button type="button" class="share-option-btn" data-share="TikTok" title="Chia sẻ lên TikTok">
-                    <div class="share-icon-wrapper share-tiktok">
-                        <img src="./assets/img/figma/31aac9cfbecd33e6fd39f34b2ac87999a847bcb0.png" alt="TikTok">
-                    </div>
-                    <span>TikTok</span>
-                </button>
-
-                <!-- Khác -->
-                <button type="button" class="share-option-btn" data-share="Khác" title="Tùy chọn khác">
-                    <div class="share-icon-wrapper share-other">
-                        <img src="./assets/img/figma/68231c0853e9e9c747f49b554a2f263aea605c8f.svg" alt="Khác">
-                    </div>
-                    <span>Khác</span>
-                </button>
-            </div>
-
-            <div class="share-divider"></div>
-
-            <div class="share-copy-section">
-                <label class="share-copy-label" for="shareCopyInput">Sao chép đường dẫn</label>
-                <div class="share-copy-box">
-                    <input type="text" class="share-copy-input" id="shareCopyInput" readonly value="https://scorezone.com/tin-tuc/pep-cap-giay-phep-man-city">
-                    <button type="button" class="share-btn-copy" id="btnCopyShareLink">
-                        <img src="./assets/img/figma/7e7fda5d859f91a541f45aec89e359799e21df48.png" alt="Copy">
-                        <span id="copyBtnText">Sao chép</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================= MODAL CẢNH BÁO CHUYỂN HƯỚNG (Node 1321:5979) ================= -->
-    <div class="sz-modal" id="modalRedirectConfirm" role="dialog" aria-modal="true" aria-labelledby="redirectModalTitle">
-        <div class="sz-modal-overlay" id="overlayRedirectConfirm"></div>
-        <div class="redirect-modal-dialog">
+    <!-- ================= MODAL: CHUYỂN HƯỚNG / REDIRECT WARNING (Node 1321:5979) ================= -->
+    <div class="modal-backdrop" id="modalRedirectConfirm" role="dialog" aria-modal="true" aria-labelledby="redirectModalTitle">
+        <div class="modal-redirect-warning">
             <div class="redirect-modal-header">
-                <div class="redirect-icon-circle">
+                <div class="redirect-icon-badge">
                     <img src="./assets/img/figma/2557836a45da964c3e3d986a01cac098fe6f64ac.png" alt="Warning">
                 </div>
-                <button type="button" class="modal-close-btn" id="btnCloseRedirectModal" aria-label="Đóng">
+                <button type="button" class="redirect-modal-close" id="btnCloseRedirectModal" aria-label="Đóng">
                     <img src="./assets/img/figma/ad689c31a6d72e79faccb52e746fe940b10d8f85.svg" alt="Close">
                 </button>
             </div>
-
-            <div class="redirect-modal-content">
-                <h2 class="redirect-modal-title" id="redirectModalTitle">
-                    <span>Bạn đang rời khỏi </span><span class="highlight-blue">ScoreZone</span>
-                </h2>
-
+            <div class="redirect-modal-body">
+                <h2 class="redirect-modal-title" id="redirectModalTitle">Bạn đang rời khỏi <span class="scorezone-brand">ScoreZone</span></h2>
                 <div class="redirect-alert-box">
                     <p>Liên kết này sẽ đưa bạn đến một trang web bên ngoài. ScoreZone không chịu trách nhiệm và không kiểm soát nội dung cũng như chính sách bảo mật của các nền tảng bên thứ ba. Bạn có chắc chắn muốn tiếp tục?</p>
                 </div>
-
-                <div class="redirect-action-buttons">
+                <div class="redirect-actions-row">
                     <button type="button" class="btn-redirect-back" id="btnRedirectBack">QUAY LẠI</button>
                     <button type="button" class="btn-redirect-continue" id="btnRedirectContinue">TIẾP TỤC</button>
                 </div>
@@ -747,18 +647,22 @@
             });
         }
 
-        // 2. Cookie Modal
+        // Cookie Settings Modal
         const modalCookieSettings = document.getElementById('modalCookieSettings');
         const openCookieSettingsBtn = document.getElementById('openCookieSettings');
         const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
         const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
         const btnCookieSave = document.getElementById('btnCookieSave');
         const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
 
         function openCookieModal() {
             if (modalCookieSettings) modalCookieSettings.classList.add('show');
-            if (settingPanel) settingPanel.classList.remove('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
         }
+
         function closeCookieModal() {
             if (modalCookieSettings) modalCookieSettings.classList.remove('show');
         }
@@ -769,6 +673,7 @@
                 openCookieModal();
             });
         }
+
         if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
         if (modalCookieSettings) {
             modalCookieSettings.addEventListener('click', (e) => {
@@ -778,22 +683,30 @@
 
         if (btnCookieNecessaryOnly) {
             btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
                 closeCookieModal();
-                showToast("Đã lưu: Chỉ cookie thiết yếu");
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
             });
         }
+
         if (btnCookieAcceptAll) {
             btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
                 closeCookieModal();
-                showToast("Đã chấp nhận tất cả cookie");
+                if (typeof showToast === 'function') showToast("Đã chấp nhận tất cả cookie");
             });
         }
+
         if (btnCookieSave) {
             btnCookieSave.addEventListener('click', () => {
                 closeCookieModal();
-                showToast("Đã lưu tùy chọn cookie thành công");
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn cookie thành công");
             });
         }
+
+
 
         // 3. Audio AI Summary button
         const btnListenSummary = document.getElementById('btnListenSummary');
@@ -999,16 +912,16 @@
         }
 
         // 8. Scroll to Top
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        if (scrollToTopBtn) {
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 300) {
-                    scrollToTopBtn.classList.add('show');
+                    backToTopBtn.classList.add('visible');
                 } else {
-                    scrollToTopBtn.classList.remove('show');
+                    backToTopBtn.classList.remove('visible');
                 }
             });
-            scrollToTopBtn.addEventListener('click', () => {
+            backToTopBtn.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }

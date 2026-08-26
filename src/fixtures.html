@@ -26,7 +26,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="./index.html">Trang chủ</a></li>
-                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li><a href="./leagues.html">Giải đấu</a></li>
                 <li><a href="./news.html">Tin tức</a></li>
                 <li class="active"><a href="./fixtures.html">Lịch & Kết quả</a></li>
                 <li><a href="./standings.html">Bảng xếp hạng</a></li>
@@ -279,13 +279,13 @@
                             </div>
                         </div>
 
-                        <a href="./match-details.html" class="fl-btn-detail">Xem chi tiết trận đấu</a>
+                        <a href="./match-details.html" class="fl-btn-detail" id="flBtnDetail">Xem chi tiết trận đấu</a>
                     </div>
 
                     <!-- Right: Secondary Live Matches List -->
                     <div class="secondary-live-list">
                         <!-- Match 1: Arsenal vs Liverpool -->
-                        <div class="secondary-match-card">
+                        <div class="secondary-match-card" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Arsenal vs Liverpool">
                             <div class="smc-top">
                                 <div class="smc-badge-live">
                                     <span class="inner-dot"></span>
@@ -315,7 +315,7 @@
                         </div>
 
                         <!-- Match 2: Barcelona vs Atlético Madrid -->
-                        <div class="secondary-match-card">
+                        <div class="secondary-match-card" onclick="window.location.href='./match-details.html'" style="cursor: pointer;" title="Xem chi tiết Barcelona vs Atlético Madrid">
                             <div class="smc-top">
                                 <div class="smc-badge-live">
                                     <span class="inner-dot"></span>
@@ -408,7 +408,7 @@
 
                 <div class="live-center-grid">
                     <!-- Left: Match of the Day Card -->
-                    <div class="match-of-day-card">
+                    <div class="match-of-day-card" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Tottenham vs Chelsea">
                         <div class="motd-badge">MATCH OF THE DAY</div>
                         <div class="motd-league">UEFA CHAMPIONS LEAGUE</div>
                         <div class="motd-teams-row">
@@ -442,7 +442,7 @@
                     <!-- Right: Upcoming Matches List (5 rows) -->
                     <div class="tomorrow-upcoming-card">
                         <!-- Match 1 -->
-                        <div class="tomorrow-upcoming-row">
+                        <div class="tomorrow-upcoming-row" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Man City vs Arsenal">
                             <span class="tur-time">21:00</span>
                             <div class="tur-match">
                                 <div class="tur-team-home">
@@ -458,7 +458,7 @@
                             <span class="tur-league">PREMIER LEAGUE</span>
                         </div>
                         <!-- Match 2 -->
-                        <div class="tomorrow-upcoming-row">
+                        <div class="tomorrow-upcoming-row" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Man City vs Arsenal">
                             <span class="tur-time">21:00</span>
                             <div class="tur-match">
                                 <div class="tur-team-home">
@@ -474,7 +474,7 @@
                             <span class="tur-league">PREMIER LEAGUE</span>
                         </div>
                         <!-- Match 3 -->
-                        <div class="tomorrow-upcoming-row">
+                        <div class="tomorrow-upcoming-row" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Man City vs Arsenal">
                             <span class="tur-time">21:00</span>
                             <div class="tur-match">
                                 <div class="tur-team-home">
@@ -490,7 +490,7 @@
                             <span class="tur-league">PREMIER LEAGUE</span>
                         </div>
                         <!-- Match 4 -->
-                        <div class="tomorrow-upcoming-row">
+                        <div class="tomorrow-upcoming-row" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Man City vs Arsenal">
                             <span class="tur-time">21:00</span>
                             <div class="tur-match">
                                 <div class="tur-team-home">
@@ -506,7 +506,7 @@
                             <span class="tur-league">PREMIER LEAGUE</span>
                         </div>
                         <!-- Match 5 -->
-                        <div class="tomorrow-upcoming-row">
+                        <div class="tomorrow-upcoming-row" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Man City vs Arsenal">
                             <span class="tur-time">21:00</span>
                             <div class="tur-match">
                                 <div class="tur-team-home">
@@ -536,7 +536,7 @@
 
                     <div class="tomorrow-results-list">
                         <!-- Result 1 -->
-                        <div class="tomorrow-result-card">
+                        <div class="tomorrow-result-card" onclick="window.location.href='./match-details.html'" style="cursor: pointer;" title="Xem chi tiết Real Madrid vs Man City">
                             <div class="trc-date-col">
                                 <span class="trc-date">14/05</span>
                                 <span class="trc-status">Hôm qua</span>
@@ -558,7 +558,7 @@
                         </div>
 
                         <!-- Result 2 -->
-                        <div class="tomorrow-result-card">
+                        <div class="tomorrow-result-card" onclick="window.location.href='./match-details-chelsea.html'" style="cursor: pointer;" title="Xem chi tiết Arsenal vs Man Utd">
                             <div class="trc-date-col">
                                 <span class="trc-date">14/05</span>
                                 <span class="trc-status">Hôm qua</span>
@@ -589,7 +589,7 @@
                                 <img src="./assets/img/figma/8412ccb0b29d919edfcb58c6397b46ef36dfc4ea.svg" alt="Star">
                                 <span>TRẬN ĐÁNG CHÚ Ý</span>
                             </div>
-                            <div class="ft-banner-wrap">
+                            <div class="ft-banner-wrap" onclick="window.location.href='./news-detail-premier-league.html'" style="cursor: pointer;" title="Xem tin tức Arsenal vs Liverpool">
                                 <img src="./assets/img/figma/815af50c280c0c8d3c5d65bc2205de8673bc0b97.png" alt="Arsenal vs Liverpool" class="ft-banner-img">
                                 <div class="ft-banner-gradient"></div>
                                 <div class="ft-banner-content">
@@ -624,10 +624,10 @@
                 <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
             </div>
             <div class="footer-right">
-                <a href="#">Chính sách bảo mật</a>
-                <a href="#">Điều khoản dịch vụ</a>
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
                 <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
-                <a href="#">Liên hệ</a>
+                <a href="./contact.html">Liên hệ</a>
             </div>
         </div>
     </footer>
@@ -638,6 +638,7 @@
     </button>
 
     <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
@@ -710,24 +711,25 @@
                     awayName: "Man City",
                     possession: "54%",
                     shots: "12 (7) - 8 (3)",
-                    corners: "5 - 4"
+                    corners: "5 - 4",
+                    detailLink: "./match-details.html"
                 },
                 upcomingBadge: "UEFA CHAMPIONS LEAGUE",
                 upcomingMatches: [
-                    { time: "21:00", home: "Tottenham", homeLogo: "./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png", away: "Chelsea", awayLogo: "./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" },
-                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png" },
-                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png" },
-                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png" },
-                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png" },
-                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png" }
+                    { time: "21:00", home: "Tottenham", homeLogo: "./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png", away: "Chelsea", awayLogo: "./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png", link: "./match-details-chelsea.html" },
+                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png", link: "./match-details.html" },
+                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png", link: "./match-details.html" },
+                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png", link: "./match-details.html" },
+                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png", link: "./match-details.html" },
+                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png", link: "./match-details.html" }
                 ],
                 recentTitle: "KẾT QUẢ HÔM NAY",
                 recentBadge: "PREMIER LEAGUE",
                 recentResults: [
-                    { time: "18:30", home: "Juventus", homeLogo: "./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png", score: "3 - 0", away: "Inter Milan", awayLogo: "./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png" },
-                    { time: "20:00", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png" },
-                    { time: "20:00", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png" },
-                    { time: "20:00", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png" }
+                    { time: "18:30", home: "Juventus", homeLogo: "./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png", score: "3 - 0", away: "Inter Milan", awayLogo: "./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png", link: "./match-details.html" },
+                    { time: "20:00", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png", link: "./match-details-chelsea.html" },
+                    { time: "20:00", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png", link: "./match-details-chelsea.html" },
+                    { time: "20:00", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png", link: "./match-details-chelsea.html" }
                 ]
             },
             premier: {
@@ -737,23 +739,24 @@
                     homeLogo: "./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png",
                     homeName: "Chelsea",
                     score: "2 - 1",
-                    stadium: "Santiago Bernabéu",
+                    stadium: "Stamford Bridge",
                     awayLogo: "./assets/img/figma/175492c5540b3c1f4b38c0ff945e9c6006dc4414.png",
                     awayName: "Arsenal",
                     possession: "54% - 36%",
                     shots: "12 (7) - 8 (3)",
-                    corners: "5 - 4"
+                    corners: "5 - 4",
+                    detailLink: "./match-details-chelsea.html"
                 },
-                upcomingBadge: "",
+                upcomingBadge: "PREMIER LEAGUE",
                 upcomingMatches: [
-                    { time: "21:00", home: "Tottenham", homeLogo: "./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png", away: "Chelsea", awayLogo: "./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" },
-                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png" }
+                    { time: "21:00", home: "Tottenham", homeLogo: "./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png", away: "Chelsea", awayLogo: "./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png", link: "./match-details-chelsea.html" },
+                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png", link: "./match-details.html" }
                 ],
                 recentTitle: "KẾT QUẢ GẦN ĐÂY",
-                recentBadge: "",
+                recentBadge: "PREMIER LEAGUE",
                 recentResults: [
-                    { time: "13/05", home: "Juventus", homeLogo: "./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png", score: "3 - 0", away: "Inter Milan", awayLogo: "./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png" },
-                    { time: "13/05", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png" }
+                    { time: "13/05", home: "Juventus", homeLogo: "./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png", score: "3 - 0", away: "Inter Milan", awayLogo: "./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png", link: "./match-details.html" },
+                    { time: "13/05", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png", link: "./match-details-chelsea.html" }
                 ]
             },
             uefa: {
@@ -768,18 +771,19 @@
                     awayName: "Man City",
                     possession: "54%",
                     shots: "12 (7) - 8 (3)",
-                    corners: "5 - 4"
+                    corners: "5 - 4",
+                    detailLink: "./match-details.html"
                 },
-                upcomingBadge: "",
+                upcomingBadge: "UEFA CHAMPIONS LEAGUE",
                 upcomingMatches: [
-                    { time: "21:00", home: "Tottenham", homeLogo: "./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png", away: "Chelsea", awayLogo: "./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png" },
-                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png" }
+                    { time: "21:00", home: "Tottenham", homeLogo: "./assets/img/figma/37a851bc88498b0760fb1dc8310574ebb94919b7.png", away: "Chelsea", awayLogo: "./assets/img/figma/8765d12d92a1be3ec573b64c71cb66d2d50c4d80.png", link: "./match-details-chelsea.html" },
+                    { time: "23:30", home: "Bayern München", homeLogo: "./assets/img/figma/4fc8db455654963ec327abbfd2a7f356a0ec0a15.png", away: "PSG", awayLogo: "./assets/img/figma/8115d0c654a2e7b401633362947bdaa28775c902.png", link: "./match-details.html" }
                 ],
                 recentTitle: "KẾT QUẢ GẦN ĐÂY",
-                recentBadge: "",
+                recentBadge: "UEFA CHAMPIONS LEAGUE",
                 recentResults: [
-                    { time: "13/05", home: "Juventus", homeLogo: "./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png", score: "3 - 0", away: "Inter Milan", awayLogo: "./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png" },
-                    { time: "13/05", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png" }
+                    { time: "13/05", home: "Juventus", homeLogo: "./assets/img/figma/76d87bf0516a77df0e81fa614d3a361eac7c7e62.png", score: "3 - 0", away: "Inter Milan", awayLogo: "./assets/img/figma/a207f8cea8d901c16239341efedd505873f1b478.png", link: "./match-details.html" },
+                    { time: "13/05", home: "Aston Villa", homeLogo: "./assets/img/figma/466c90c3c0edeee61200c4c954e27648b6a14d1d.png", score: "1 - 2", away: "Fulham", awayLogo: "./assets/img/figma/4582f97ecd98bee846a2775079ed01a4eedfeda6.png", link: "./match-details-chelsea.html" }
                 ]
             }
         };
@@ -847,6 +851,11 @@
             document.getElementById('flStatShots').textContent = data.featured.shots;
             document.getElementById('flStatCorners').textContent = data.featured.corners;
 
+            const flBtnDetail = document.getElementById('flBtnDetail');
+            if (flBtnDetail && data.featured.detailLink) {
+                flBtnDetail.href = data.featured.detailLink;
+            }
+
             // 3. Update Upcoming Section
             const upcomingBadge = document.getElementById('upcomingLeagueBadge');
             if (data.upcomingBadge) {
@@ -858,7 +867,7 @@
 
             const upcomingList = document.getElementById('upcomingMatchesList');
             upcomingList.innerHTML = data.upcomingMatches.map(m => `
-                <div class="ms-row">
+                <div class="ms-row" onclick="window.location.href='${m.link || './match-details.html'}'" style="cursor: pointer;" title="Xem chi tiết ${m.home} vs ${m.away}">
                     <div class="ms-time">${m.time}</div>
                     <div class="ms-team-left">
                         <span class="ms-team-name">${m.home}</span>
@@ -885,7 +894,7 @@
 
             const recentList = document.getElementById('recentResultsList');
             recentList.innerHTML = data.recentResults.map(r => `
-                <div class="ms-row">
+                <div class="ms-row" onclick="window.location.href='${r.link || './match-details.html'}'" style="cursor: pointer;" title="Xem chi tiết ${r.home} vs ${r.away}">
                     <div class="ms-time">${r.time}</div>
                     <div class="ms-team-left">
                         <span class="ms-team-name">${r.home}</span>
@@ -974,7 +983,8 @@
 
         function openCookieModal() {
             if (modalCookieSettings) modalCookieSettings.classList.add('show');
-            if (settingPanel) settingPanel.classList.remove('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
         }
 
         function closeCookieModal() {
@@ -1000,6 +1010,7 @@
                 if (cookieAnalytics) cookieAnalytics.checked = false;
                 if (cookiePersonalization) cookiePersonalization.checked = false;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
             });
         }
 
@@ -1008,14 +1019,18 @@
                 if (cookieAnalytics) cookieAnalytics.checked = true;
                 if (cookiePersonalization) cookiePersonalization.checked = true;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã chấp nhận tất cả cookie");
             });
         }
 
         if (btnCookieSave) {
             btnCookieSave.addEventListener('click', () => {
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn cookie thành công");
             });
         }
+
+
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {

@@ -724,10 +724,10 @@
                 <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
             </div>
             <div class="footer-right">
-                <a href="#">Chính sách bảo mật</a>
-                <a href="#">Điều khoản dịch vụ</a>
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
                 <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
-                <a href="#">Liên hệ</a>
+                <a href="./contact.html">Liên hệ</a>
             </div>
         </div>
     </footer>
@@ -738,6 +738,7 @@
     </button>
 
     <!-- ================= MODAL: CÀI ĐẶT COOKIE ================= -->
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
@@ -746,7 +747,7 @@
                     <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
                 </div>
                 <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
-                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close" onerror="this.innerText='×'">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
                 </button>
             </div>
             <div class="cookie-modal-body">
@@ -757,6 +758,7 @@
                         <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
                     </div>
                     <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
                         <span>LUÔN BẬT</span>
                     </div>
                 </div>
@@ -871,7 +873,8 @@
 
         function openCookieModal() {
             if (modalCookieSettings) modalCookieSettings.classList.add('show');
-            if (settingPanel) settingPanel.classList.remove('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
         }
 
         function closeCookieModal() {
@@ -897,6 +900,7 @@
                 if (cookieAnalytics) cookieAnalytics.checked = false;
                 if (cookiePersonalization) cookiePersonalization.checked = false;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
             });
         }
 
@@ -905,14 +909,18 @@
                 if (cookieAnalytics) cookieAnalytics.checked = true;
                 if (cookiePersonalization) cookiePersonalization.checked = true;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã chấp nhận tất cả cookie");
             });
         }
 
         if (btnCookieSave) {
             btnCookieSave.addEventListener('click', () => {
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn cookie thành công");
             });
         }
+
+
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {

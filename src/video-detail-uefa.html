@@ -26,7 +26,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="./index.html">Trang chủ</a></li>
-                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li><a href="./leagues.html">Giải đấu</a></li>
                 <li class="active"><a href="./news.html">Tin tức</a></li>
                 <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
                 <li><a href="./standings.html">Bảng xếp hạng</a></li>
@@ -307,10 +307,10 @@
                 <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
             </div>
             <div class="footer-right">
-                <a href="#">Chính sách bảo mật</a>
-                <a href="#">Điều khoản dịch vụ</a>
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
                 <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
-                <a href="#">Liên hệ</a>
+                <a href="./contact.html">Liên hệ</a>
             </div>
         </div>
     </footer>
@@ -321,6 +321,7 @@
     </button>
 
     <!-- ================= MODAL CÀI ĐẶT COOKIE ================= -->
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
@@ -332,50 +333,47 @@
                     <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
                 </button>
             </div>
-
             <div class="cookie-modal-body">
-                <!-- 1. Bắt buộc -->
-                <div class="cookie-row">
-                    <div class="cookie-row-left">
-                        <h4>Cookie bắt buộc</h4>
-                        <p>Cần thiết để website hoạt động ổn định và bảo mật.</p>
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
                     </div>
-                    <div class="cookie-row-right">
-                        <span class="cookie-always-active">Luôn bật</span>
-                    </div>
-                </div>
-
-                <!-- 2. Phân tích -->
-                <div class="cookie-row">
-                    <div class="cookie-row-left">
-                        <h4>Cookie phân tích</h4>
-                        <p>Giúp chúng tôi hiểu cách bạn sử dụng website để cải thiện trải nghiệm.</p>
-                    </div>
-                    <div class="cookie-row-right">
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="cookieAnalytics" checked>
-                            <span class="toggle-slider"></span>
-                        </label>
+                    <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
+                        <span>LUÔN BẬT</span>
                     </div>
                 </div>
 
-                <!-- 3. Tiếp thị -->
-                <div class="cookie-row">
-                    <div class="cookie-row-left">
-                        <h4>Cookie tiếp thị</h4>
-                        <p>Dùng để hiển thị nội dung và quảng cáo phù hợp với sở thích của bạn.</p>
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
                     </div>
-                    <div class="cookie-row-right">
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="cookieMarketing">
-                            <span class="toggle-slider"></span>
-                        </label>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
                     </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
                 </div>
             </div>
-
             <div class="cookie-modal-footer">
-                <button type="button" class="btn-cookie-save" id="btnSaveCookieSettings">Lưu tùy chọn</button>
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
             </div>
         </div>
     </div>
@@ -517,32 +515,62 @@
             });
         }
 
-        // Cookie Modal
-        const openCookieBtn = document.getElementById('openCookieSettings');
-        const modalCookie = document.getElementById('modalCookieSettings');
-        const btnCloseCookie = document.getElementById('btnCloseCookieModal');
-        const btnSaveCookie = document.getElementById('btnSaveCookieSettings');
+        // Cookie Settings Modal
+        const modalCookieSettings = document.getElementById('modalCookieSettings');
+        const openCookieSettingsBtn = document.getElementById('openCookieSettings');
+        const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
+        const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
+        const btnCookieSave = document.getElementById('btnCookieSave');
+        const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
 
-        if (openCookieBtn && modalCookie) {
-            openCookieBtn.addEventListener('click', (e) => {
+        function openCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.add('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
+        }
+
+        function closeCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.remove('show');
+        }
+
+        if (openCookieSettingsBtn) {
+            openCookieSettingsBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                modalCookie.classList.add('show');
+                openCookieModal();
             });
         }
-        if (btnCloseCookie && modalCookie) {
-            btnCloseCookie.addEventListener('click', () => {
-                modalCookie.classList.remove('show');
+
+        if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
+        if (modalCookieSettings) {
+            modalCookieSettings.addEventListener('click', (e) => {
+                if (e.target === modalCookieSettings) closeCookieModal();
             });
         }
-        if (btnSaveCookie && modalCookie) {
-            btnSaveCookie.addEventListener('click', () => {
-                modalCookie.classList.remove('show');
-                showToast('Đã lưu tùy chọn Cookie');
+
+        if (btnCookieNecessaryOnly) {
+            btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
+                closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
             });
         }
-        if (modalCookie) {
-            modalCookie.addEventListener('click', (e) => {
-                if (e.target === modalCookie) modalCookie.classList.remove('show');
+
+        if (btnCookieAcceptAll) {
+            btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
+                closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã chấp nhận tất cả cookie");
+            });
+        }
+
+        if (btnCookieSave) {
+            btnCookieSave.addEventListener('click', () => {
+                closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn cookie thành công");
             });
         }
     </script>

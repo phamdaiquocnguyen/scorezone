@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcus Bettinelli - ScoreZone</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css?v=1.1">
+    <title>Chính sách bảo mật - ScoreZone</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body class="uefa-page-body">
+<body>
 
-    <!-- ================= HEADER (DESKTOP) ================= -->
+    <!-- ================= HEADER ================= -->
     <header id="header">
         <!-- Trái: Logo -->
         <div class="header-left">
@@ -26,7 +21,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="./index.html">Trang chủ</a></li>
-                <li class="active"><a href="./premier.html">Giải đấu</a></li>
+                <li><a href="./leagues.html">Giải đấu</a></li>
                 <li><a href="./news.html">Tin tức</a></li>
                 <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
                 <li><a href="./standings.html">Bảng xếp hạng</a></li>
@@ -53,7 +48,7 @@
                     <div class="sp-header">
                         <div class="sp-title-row">
                             <div class="sp-gear-icon">
-                                <img src="./assets/img/figma/09267441aa85448e8ccf83b687ec86f66e42c4d6.svg" alt="Gear">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear" onerror="this.style.display='none'">
                             </div>
                             <h3>Tùy chỉnh trải nghiệm</h3>
                         </div>
@@ -130,162 +125,119 @@
     </header>
 
     <!-- ================= MAIN CONTENT ================= -->
-    <main class="uefa-page-container">
-
-        <!-- 1. Breadcrumb -->
-        <nav class="uefa-breadcrumb" aria-label="Breadcrumb">
-            <a href="./index.html">TRANG CHỦ</a>
-            <span class="uefa-breadcrumb-sep">
-                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            <a href="./leagues.html">GIẢI ĐẤU</a>
-            <span class="uefa-breadcrumb-sep">
-                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            <a href="./premier.html">PREMIER LEAGUE</a>
-            <span class="uefa-breadcrumb-sep">
-                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            <a href="./mancity.html">MANCHESTER CITY</a>
-            <span class="uefa-breadcrumb-sep">
-                <svg width="4" height="6" viewBox="0 0 4 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L3 3L1 5" stroke="#434655" stroke-opacity="0.6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </span>
-            <span class="uefa-breadcrumb-current">MARCUS BETTINELLI</span>
-        </nav>
-
-        <!-- 2. Hero Section (Node 824:674) -->
-        <section class="player-hero-section" data-node-id="824:674">
-            <div class="player-hero-bg-wrap">
-                <img src="./assets/img/figma/0a3d696dc455b05564307d25edbec3dab3476a63.png" alt="Player Hero Background" class="player-hero-bg">
+    <main>
+        <!-- 1. Hero Section (Figma Node 1408:3428) -->
+        <section class="static-page-hero" aria-label="Banner Chính sách bảo mật">
+            <div class="static-hero-bg">
+                <img src="./assets/img/figma/fd7fd3d5563c3a59d1206e702f10da3b6ccfc507.png" alt="Stadium background">
             </div>
-            <div class="player-hero-content">
-                <div class="player-hero-left">
-                    <div class="player-hero-top-bar"></div>
-                    <div class="player-hero-name-group">
-                        <div class="player-hero-first-row">
-                            <span class="player-hero-firstname">Marcus</span>
-                            <span class="player-hero-number">13</span>
-                        </div>
-                        <h1 class="player-hero-lastname">Bettinelli</h1>
-                    </div>
-
-                    <div class="player-hero-stats-row">
-                        <div class="phs-stat-item">
-                            <span class="phs-stat-label">Tuổi</span>
-                            <span class="phs-stat-val">33</span>
-                        </div>
-                        <div class="phs-stat-item">
-                            <span class="phs-stat-label">Vị trí</span>
-                            <span class="phs-stat-val">THỦ MÔN</span>
-                        </div>
-                        <div class="phs-stat-item">
-                            <span class="phs-stat-label">Quốc tịch</span>
-                            <div class="phs-stat-val phs-nat-val">
-                                <span>ANH</span>
-                                <div class="phs-flag-circle">
-                                    <img src="./assets/img/flags/england.svg" alt="England">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="player-hero-cutout">
-                    <img src="./assets/img/figma/0f112122727cbcc56a4c39201cadbb87efc20ea0.png" alt="Marcus Bettinelli Cutout">
-                </div>
+            <div class="static-hero-content">
+                <h1 class="static-hero-title">Chính sách bảo mật <span class="highlight-blue">ScoreZone</span></h1>
+                <p class="static-hero-desc">Cách ScoreZone thu thập, sử dụng và bảo vệ dữ liệu người dùng trong quá trình truy cập website.</p>
             </div>
         </section>
 
-        <!-- 3. Main Content (2 Columns) -->
-        <div class="uefa-content-grid">
-
-            <!-- Left Column (8 cols): Tiểu sử & Thủ môn cùng đội -->
-            <div class="uefa-left-col">
-
-                <!-- Box 1: TIỂU SỬ -->
-                <div class="player-bio-card">
-                    <h2 class="player-sec-title">TIỂU SỬ</h2>
-                    <p class="player-bio-text">Thủ môn giàu kinh nghiệm Marcus Bettinelli đã ký hợp đồng một năm vào tháng 6 năm 2025 để kịp gia nhập đội hình của Pep Guardiola tham dự FIFA Club World Cup. Thủ thành người Anh bắt đầu sự nghiệp tại Fulham FC sau khi trưởng thành từ học viện của CLB. Những quãng thời gian được cho mượn tại Dartford FC và Accrington Stanley FC ở giai đoạn đầu sự nghiệp đã giúp anh có cơ hội trở thành thủ môn số một của Fulham ở mùa giải 2014/15. Anh đã ra sân tổng cộng 120 trận cho đội bóng này trước khi tiếp tục được cho mượn tới Middlesbrough FC ở mùa 2020/21, nơi anh thi đấu 41 trận tại Championship. Sau đó, anh chuyển tới Chelsea FC vào mùa hè năm 2021 và có bốn mùa giải là một phần quan trọng trong đội hình tại Stamford Bridge. Hiện tại, anh gia nhập Manchester để cạnh tranh vị trí với Ederson và Stefan Ortega Moreno tại Manchester City FC, khi đội bóng tiếp tục hướng tới những danh hiệu mới.</p>
+        <!-- 2. Overlapping Content Section (Figma Node 1408:3579) -->
+        <div class="policy-overlap-card">
+            <!-- Last Updated Banner (Node 1408:3581) -->
+            <div class="policy-updated-banner">
+                <div class="policy-updated-icon">
+                    <img src="./assets/img/figma/82f4fa1e2feb4176ac60390dec6ccd75fb72492e.svg" alt="Calendar">
                 </div>
-
-                <!-- Box 2: THỦ MÔN CÙNG ĐỘI -->
-                <div class="uefa-section-header">
-                    <h2 class="uefa-sec-title">THỦ MÔN CÙNG ĐỘI</h2>
-                </div>
-
-                <div class="player-teammates-grid">
-                    <!-- Teammate 1: Gianluigi Donnarumma -->
-                    <div class="player-card-navy">
-                        <div class="pcn-top-info">
-                            <span class="pcn-number">1</span>
-                            <div class="pcn-flag">
-                                <img src="./assets/img/figma/65df9690f50db12aa66304a347974334b72b1c54.svg" alt="Italy">
-                            </div>
-                        </div>
-                        <div class="pcn-img-wrap">
-                            <img src="./assets/img/players/goalkeeper/donnaruma-elec-bl.webp" alt="Gianluigi Donnarumma">
-                        </div>
-                        <div class="pcn-bottom-info">
-                            <div class="pcn-firstname">GIANLUIGI</div>
-                            <h3 class="pcn-lastname">DONNARUMMA</h3>
-                            <div class="pcn-bar"></div>
-                        </div>
-                    </div>
-
-                    <!-- Teammate 2: Gerónimo Rulli -->
-                    <div class="player-card-navy">
-                        <div class="pcn-top-info">
-                            <span class="pcn-number">28</span>
-                            <div class="pcn-flag">
-                                <img src="./assets/img/flags/argentina.svg" alt="Argentina">
-                            </div>
-                        </div>
-                        <div class="pcn-img-wrap">
-                            <img src="./assets/img/players/goalkeeper/geronimo-rulli.webp" alt="Gerónimo Rulli">
-                        </div>
-                        <div class="pcn-bottom-info">
-                            <div class="pcn-firstname">GERÓNIMO</div>
-                            <h3 class="pcn-lastname">RULLI</h3>
-                            <div class="pcn-bar"></div>
-                        </div>
-                    </div>
-                </div>
-
+                <p class="policy-updated-text">Cập nhật lần cuối: Tháng 4 năm 2026</p>
             </div>
 
-            <!-- Right Column (4 cols): Thông tin cá nhân -->
-            <div class="uefa-right-col">
-                <div class="player-personal-info-card">
-                    <h3 class="ppic-title">THÔNG TIN CÁ NHÂN</h3>
-                    <div class="ppic-row">
-                        <span class="ppic-label">NGÀY SINH</span>
-                        <span class="ppic-val">24/05/1992</span>
+            <!-- Info Cards Grid (Node 1408:3586) -->
+            <div class="policy-cards-grid">
+                <!-- Card 1: Thông tin thu thập -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/74b634fdc88ad3725359bf9dd6d58567f344e05e.png" alt="Profile">
+                        </div>
+                        <h2 class="policy-card-title">01. Thông tin thu thập</h2>
                     </div>
-                    <div class="ppic-row">
-                        <span class="ppic-label">CHIỀU CAO</span>
-                        <span class="ppic-val">1.94m</span>
+                    <p class="policy-card-desc">ScoreZone có thể thu thập thông tin bạn cung cấp trực tiếp, dữ liệu thiết bị và dữ liệu sử dụng website trong quá trình truy cập.</p>
+                </div>
+
+                <!-- Card 2: Mục đích sử dụng -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/e0fb5e2d04e8d6b441c4659c98ee44a2cb4fc3dc.png" alt="Goal">
+                        </div>
+                        <h2 class="policy-card-title">02. Mục đích sử dụng</h2>
                     </div>
-                    <div class="ppic-row">
-                        <span class="ppic-label">CÂN NẶNG</span>
-                        <span class="ppic-val">82kg</span>
+                    <p class="policy-card-desc">Dữ liệu được dùng để vận hành hệ thống, cá nhân hóa trải nghiệm, gửi thông báo cần thiết và cải thiện chất lượng dịch vụ.</p>
+                </div>
+
+                <!-- Card 3: Bảo vệ dữ liệu -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/313c47073b9f7984852800a00f7d59c6acaea55f.png" alt="Shield">
+                        </div>
+                        <h2 class="policy-card-title">03. Bảo vệ dữ liệu</h2>
                     </div>
-                    <div class="ppic-row">
-                        <span class="ppic-label">CHÂN THUẬN</span>
-                        <span class="ppic-val">Phải</span>
+                    <p class="policy-card-desc">Chúng tôi áp dụng các biện pháp kỹ thuật và kiểm soát truy cập phù hợp nhằm giảm rủi ro mất mát hoặc truy cập trái phép.</p>
+                </div>
+
+                <!-- Card 4: Quyền người dùng -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/97b0fa342bcef1da82598990144174f3587a71cb.png" alt="Fingerprint">
+                        </div>
+                        <h2 class="policy-card-title">04. Quyền người dùng</h2>
                     </div>
+                    <p class="policy-card-desc">Người dùng có quyền xem, chỉnh sửa hoặc yêu cầu xóa dữ liệu cá nhân của mình theo chính sách vận hành của ScoreZone.</p>
+                </div>
+
+                <!-- Card 5: Cookie -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/3de76bb9d826202e6be6744ffc8ba0bc3bcd22e3.png" alt="Cookie">
+                        </div>
+                        <h2 class="policy-card-title">05. Cookie</h2>
+                    </div>
+                    <p class="policy-card-desc">Cookie được sử dụng để ghi nhớ tùy chọn, phân tích hành vi sử dụng và hỗ trợ tối ưu trải nghiệm trên website.</p>
+                </div>
+
+                <!-- Card 6: Chia sẻ dữ liệu -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/7075aed1342823796411b59383cb7d3fb1946168.png" alt="Share">
+                        </div>
+                        <h2 class="policy-card-title">06. Chia sẻ dữ liệu</h2>
+                    </div>
+                    <p class="policy-card-desc">ScoreZone không bán dữ liệu cá nhân. Thông tin chỉ được chia sẻ khi cần thiết để vận hành dịch vụ hoặc theo yêu cầu pháp luật.</p>
+                </div>
+
+                <!-- Card 7: Cập nhật chính sách -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/e6135680a958a07265897585350f268ce218faa9.png" alt="Update">
+                        </div>
+                        <h2 class="policy-card-title">07. Cập nhật chính sách</h2>
+                    </div>
+                    <p class="policy-card-desc">Chính sách có thể được điều chỉnh khi dịch vụ thay đổi. Phiên bản mới sẽ được công bố trực tiếp trên website.</p>
+                </div>
+
+                <!-- Card 8: Yêu cầu về dữ liệu -->
+                <div class="policy-card">
+                    <div class="policy-card-header">
+                        <div class="policy-card-icon-box">
+                            <img src="./assets/img/figma/4169fa49cfdb1f534d80b7607b0d474085e2fcaf.png" alt="Email">
+                        </div>
+                        <h2 class="policy-card-title">08. Yêu cầu về dữ liệu</h2>
+                    </div>
+                    <p class="policy-card-desc">Mọi yêu cầu liên quan đến quyền riêng tư, chỉnh sửa hoặc xóa dữ liệu có thể gửi về: <a href="mailto:privacy@scorezone.vn">privacy@scorezone.vn</a></p>
                 </div>
             </div>
-
         </div>
-
     </main>
 
     <!-- ================= FOOTER ================= -->
@@ -311,7 +263,6 @@
         <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
     </button>
 
-    <!-- ================= MODAL: CÀI ĐẶT COOKIE ================= -->
     <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
@@ -369,24 +320,28 @@
         </div>
     </div>
 
-    <!-- ================= JAVASCRIPT ================= -->
+    <!-- Global Toast Notification -->
+    <div class="sz-toast" id="szToastNotification" role="status" aria-live="polite">
+        <span id="szToastMessage">Đã lưu tùy chọn</span>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // Back to top
-        const backToTopBtn = document.getElementById('backToTop');
-        if (backToTopBtn) {
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
+        // Toast Helper
+        const szToast = document.getElementById('szToastNotification');
+        const szToastMsg = document.getElementById('szToastMessage');
+        let toastTimeout = null;
+        function showToast(msg) {
+            if (!szToast || !szToastMsg) return;
+            szToastMsg.textContent = msg;
+            szToast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                szToast.classList.remove('show');
+            }, 3000);
         }
 
-        // Settings Panel Popover
+        // Settings Popover toggle
         const settingsBtn = document.getElementById('settingsBtn');
         const settingPanel = document.getElementById('settingPanel');
         if (settingsBtn && settingPanel) {
@@ -394,6 +349,7 @@
                 e.stopPropagation();
                 settingPanel.classList.toggle('show');
             });
+
             document.addEventListener('click', (e) => {
                 if (!settingPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
                     settingPanel.classList.remove('show');
@@ -401,7 +357,29 @@
             });
         }
 
-        // Cookie Settings Modal
+        // Back to top logic
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Escape Key Listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCookieModal();
+            }
+        });
+
+        // Cookie Settings Modal Logic
         const modalCookieSettings = document.getElementById('modalCookieSettings');
         const openCookieSettingsBtn = document.getElementById('openCookieSettings');
         const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
@@ -440,7 +418,7 @@
                 if (cookieAnalytics) cookieAnalytics.checked = false;
                 if (cookiePersonalization) cookiePersonalization.checked = false;
                 closeCookieModal();
-                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
+                showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
             });
         }
 
@@ -449,27 +427,16 @@
                 if (cookieAnalytics) cookieAnalytics.checked = true;
                 if (cookiePersonalization) cookiePersonalization.checked = true;
                 closeCookieModal();
-                if (typeof showToast === 'function') showToast("Đã chấp nhận tất cả cookie");
+                showToast("Đã chấp nhận tất cả cookie");
             });
         }
 
         if (btnCookieSave) {
             btnCookieSave.addEventListener('click', () => {
                 closeCookieModal();
-                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn cookie thành công");
+                showToast("Đã lưu tùy chọn cookie thành công");
             });
         }
-
-
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (settingPanel) settingPanel.classList.remove('show');
-                if (modalCookieSettings && modalCookieSettings.classList.contains('show')) {
-                    closeCookieModal();
-                }
-            }
-        });
     </script>
 </body>
 </html>

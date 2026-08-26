@@ -226,7 +226,7 @@
                             <span class="stat-val">12 (7) - 8 (3)</span>
                         </div>
                         <div class="fm-stat-action">
-                            <a href="./match-details.html" class="btn-match-detail">Chi tiết trận đấu</a>
+                            <a href="./match-details-chelsea.html" class="btn-match-detail">Chi tiết trận đấu</a>
                         </div>
                     </div>
                 </div>
@@ -882,10 +882,10 @@
                 <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
             </div>
             <div class="footer-right">
-                <a href="#">Chính sách bảo mật</a>
-                <a href="#">Điều khoản dịch vụ</a>
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
                 <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
-                <a href="#">Liên hệ</a>
+                <a href="./contact.html">Liên hệ</a>
             </div>
         </div>
     </footer>
@@ -991,6 +991,7 @@
     </div>
 
     <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
@@ -1043,44 +1044,6 @@
                 <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
                 <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
                 <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================= MODAL 3: VIDEO HIGHLIGHTS TRẬN ĐẤU (Node 2353:5458 & 2360:5517) ================= -->
-    <div class="modal-backdrop" id="modalVideoHighlights" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
-        <div class="modal-container modal-video-highlights">
-            <div class="video-modal-header">
-                <div class="video-header-title-wrap">
-                    <img src="./assets/img/figma/d1d54bca1e4000c608c2a42b7bf8871175cc5734.svg" alt="Play Video" class="video-header-icon">
-                    <h3 id="videoModalTitle">VIDEO TRẬN ĐẤU</h3>
-                </div>
-                <button type="button" class="video-modal-close" id="btnCloseVideoModal" aria-label="Đóng">
-                    <img src="./assets/img/figma/5f12dc1e3d0a540f12bea3ac8c1858c545a04382.svg" alt="Close">
-                </button>
-            </div>
-            <div class="video-modal-body">
-                <div class="video-player-wrapper" id="videoPlayerPlaceholder">
-                    <video id="videoModalPlayer" class="video-modal-video" controls playsinline preload="metadata" poster="./assets/img/figma/goal-rodrygo-12.png">
-                        <source id="videoModalSource" src="./assets/video/goal-rodrygo-12.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
-                    </video>
-                    <div class="video-play-overlay" id="videoPlayOverlay">
-                        <button type="button" class="video-play-circle" aria-label="Phát video">
-                            <img src="./assets/img/figma/405754c2737068fa512ef35661a61ed3929ef0c2.svg" alt="Play">
-                        </button>
-                    </div>
-                </div>
-                <div class="video-info-footer">
-                    <div class="video-info-text">
-                        <h2 id="videoModalHeadline">Bàn thắng của Rodrygo Silva • 12'</h2>
-                        <p id="videoModalDescription">Chelsea nâng tỷ số lên 1-0 sau pha phản công nhanh.</p>
-                    </div>
-                    <a href="./match-details.html" class="btn-match-details" id="videoModalMatchLink">
-                        <span>Chi tiết trận đấu</span>
-                        <img src="./assets/img/figma/067e7c1dada75cfaac7f2dba6ca5577dd6455fdb.svg" alt="Arrow Right">
-                    </a>
-                </div>
             </div>
         </div>
     </div>
@@ -1382,7 +1345,7 @@
             });
         }
 
-        // 2. Cookie Settings Modal
+        // Cookie Settings Modal
         const modalCookieSettings = document.getElementById('modalCookieSettings');
         const openCookieSettingsBtn = document.getElementById('openCookieSettings');
         const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
@@ -1394,6 +1357,8 @@
 
         function openCookieModal() {
             if (modalCookieSettings) modalCookieSettings.classList.add('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
         }
 
         function closeCookieModal() {
@@ -1419,6 +1384,7 @@
                 if (cookieAnalytics) cookieAnalytics.checked = false;
                 if (cookiePersonalization) cookiePersonalization.checked = false;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
             });
         }
 
@@ -1427,14 +1393,18 @@
                 if (cookieAnalytics) cookieAnalytics.checked = true;
                 if (cookiePersonalization) cookiePersonalization.checked = true;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã chấp nhận tất cả cookie");
             });
         }
 
         if (btnCookieSave) {
             btnCookieSave.addEventListener('click', () => {
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn cookie thành công");
             });
         }
+
+
 
         // 3. Video Highlights Modal (Node 2353:5458 & Node 2360:5517)
         const modalVideoHighlights = document.getElementById('modalVideoHighlights');

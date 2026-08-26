@@ -26,9 +26,9 @@
         <nav id="nav">
             <ul>
                 <li><a href="./index.html">Trang chủ</a></li>
-                <li><a href="./uefa.html">Giải đấu</a></li>
+                <li><a href="./leagues.html">Giải đấu</a></li>
                 <li><a href="./news.html">Tin tức</a></li>
-                <li><a href="#">Lịch & Kết quả</a></li>
+                <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
                 <li class="active"><a href="./standings.html">Bảng xếp hạng</a></li>
             </ul>
         </nav>
@@ -849,10 +849,10 @@
                 <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
             </div>
             <div class="footer-right">
-                <a href="#">Chính sách bảo mật</a>
-                <a href="#">Điều khoản dịch vụ</a>
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
                 <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
-                <a href="#">Liên hệ</a>
+                <a href="./contact.html">Liên hệ</a>
             </div>
         </div>
     </footer>
@@ -863,6 +863,7 @@
     </button>
 
     <!-- ================= MODAL 2: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
     <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
         <div class="modal-container modal-cookie-settings">
             <div class="cookie-modal-header">
@@ -953,7 +954,7 @@
             });
         }
 
-        // 3. Cookie Modal
+        // Cookie Settings Modal
         const modalCookieSettings = document.getElementById('modalCookieSettings');
         const openCookieSettingsBtn = document.getElementById('openCookieSettings');
         const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
@@ -965,7 +966,8 @@
 
         function openCookieModal() {
             if (modalCookieSettings) modalCookieSettings.classList.add('show');
-            if (settingPanel) settingPanel.classList.remove('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
         }
 
         function closeCookieModal() {
@@ -978,6 +980,7 @@
                 openCookieModal();
             });
         }
+
         if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
         if (modalCookieSettings) {
             modalCookieSettings.addEventListener('click', (e) => {
@@ -990,6 +993,7 @@
                 if (cookieAnalytics) cookieAnalytics.checked = false;
                 if (cookiePersonalization) cookiePersonalization.checked = false;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
             });
         }
 
@@ -998,14 +1002,18 @@
                 if (cookieAnalytics) cookieAnalytics.checked = true;
                 if (cookiePersonalization) cookiePersonalization.checked = true;
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã chấp nhận tất cả cookie");
             });
         }
 
         if (btnCookieSave) {
             btnCookieSave.addEventListener('click', () => {
                 closeCookieModal();
+                if (typeof showToast === 'function') showToast("Đã lưu tùy chọn cookie thành công");
             });
         }
+
+
 
         // 4. League Tab Switching (Premier League vs UEFA Champions League)
         const chipPremier = document.getElementById('chipPremier');

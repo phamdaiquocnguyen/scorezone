@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - ScoreZone</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header id="header">
+        <!-- Trái: Logo -->
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Giữa: Navigation -->
+        <nav id="nav">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li><a href="./leagues.html">Giải đấu</a></li>
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="./fixtures.html">Lịch & Kết quả</a></li>
+                <li><a href="./standings.html">Bảng xếp hạng</a></li>
+            </ul>
+        </nav>
+
+        <!-- Phải: Tìm kiếm & User -->
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm">
+                <button class="search-btn" aria-label="Tìm kiếm">
+                    <img src="./assets/css/icons/search-icon.svg" alt="Search">
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="icon-btn" id="settingsBtn" aria-label="Cài đặt">
+                    <img src="./assets/css/icons/settings-icon.svg" alt="Settings">
+                </button>
+
+                <!-- Setting Panel Popover -->
+                <div class="setting-panel-popover" id="settingPanel">
+                    <div class="sp-pointer"></div>
+                    <div class="sp-header">
+                        <div class="sp-title-row">
+                            <div class="sp-gear-icon">
+                                <img src="./assets/img/figma/gear-icon.svg" alt="Gear" onerror="this.style.display='none'">
+                            </div>
+                            <h3>Tùy chỉnh trải nghiệm</h3>
+                        </div>
+                        <p class="sp-desc">Một số tùy chọn đang được phát triển và chưa thể thay đổi.</p>
+                    </div>
+                    <div class="sp-body">
+                        <!-- 1. Ngôn ngữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">NGÔN NGỮ</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/vn-flag.svg" alt="VN" class="sp-flag" onerror="this.style.display='none'">
+                                    <span>Tiếng Việt</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/en-flag.svg" alt="EN" class="sp-flag" onerror="this.style.display='none'">
+                                    <span>English</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Giao diện -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">GIAO DIỆN</div>
+                            <div class="sp-options-grid grid-2">
+                                <button class="sp-btn active" type="button">
+                                    <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon" onerror="this.style.display='none'">
+                                    <span>Sáng</span>
+                                </button>
+                                <button class="sp-btn disabled" type="button" disabled>
+                                    <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon" onerror="this.style.display='none'">
+                                    <span>Tối</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Kích cỡ chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KÍCH CỠ CHỮ</div>
+                            <div class="sp-options-grid grid-3">
+                                <button class="sp-btn disabled text-sm" type="button" disabled>
+                                    <span>Nhỏ</span>
+                                </button>
+                                <button class="sp-btn active text-md" type="button">
+                                    <span>Vừa</span>
+                                </button>
+                                <button class="sp-btn disabled text-lg" type="button" disabled>
+                                    <span>Lớn</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Kiểu chữ -->
+                        <div class="sp-section">
+                            <div class="sp-section-title">KIỂU CHỮ</div>
+                            <div class="sp-options-stack">
+                                <button class="sp-btn sp-btn-full active" type="button">
+                                    <span>Inter</span>
+                                    <span class="sp-default-tag">(Mặc định)</span>
+                                </button>
+                                <button class="sp-btn sp-btn-full disabled" type="button" disabled>
+                                    <span style="font-family: sans-serif;">OpenDyslexic</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="user-avatar" aria-label="Tài khoản">
+                <img src="./assets/img/figma/07ea9182455c9c75fb3f9840e2efed54a85fc6af.png" alt="User">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+        <!-- 1. Hero Section (Figma Node 1139:2367) -->
+        <section class="static-page-hero" aria-label="Banner Liên hệ">
+            <div class="static-hero-bg">
+                <img src="./assets/img/figma/fd7fd3d5563c3a59d1206e702f10da3b6ccfc507.png" alt="Stadium background">
+            </div>
+            <div class="static-hero-content">
+                <h1 class="static-hero-title">Liên hệ <span class="highlight-blue">ScoreZone</span></h1>
+                <p class="static-hero-desc">Gửi góp ý, báo lỗi dữ liệu, đề xuất giải đấu hoặc liên hệ hợp tác với đội ngũ ScoreZone.</p>
+            </div>
+        </section>
+
+        <!-- 2. Overlapping Layout Section (Figma Node 1142:2749) -->
+        <div class="contact-overlap-card">
+            <!-- Left Panel: Contact Info (Node 1142:2750) -->
+            <div class="contact-info-panel">
+                <div class="contact-info-top">
+                    <h2 class="contact-panel-title">Thông tin liên hệ</h2>
+                    
+                    <div class="contact-info-list">
+                        <!-- Item 1: Trụ sở chính -->
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon-box">
+                                <img src="./assets/img/figma/135c2dc80db81040fe0927ae83e86b391624357a.png" alt="Location">
+                            </div>
+                            <div class="contact-info-text">
+                                <h3 class="contact-info-label">Trụ sở chính</h3>
+                                <p class="contact-info-value">TP.HCM, Việt Nam</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Điện thoại -->
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon-box">
+                                <img src="./assets/img/figma/9265ab704f6ff27495c4b1a1cf3e58336dd0094a.png" alt="Phone">
+                            </div>
+                            <div class="contact-info-text">
+                                <h3 class="contact-info-label">Điện thoại</h3>
+                                <p class="contact-info-value">+84 24 1234 5678</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Email doanh nghiệp -->
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon-box">
+                                <img src="./assets/img/figma/4169fa49cfdb1f534d80b7607b0d474085e2fcaf.png" alt="Email">
+                            </div>
+                            <div class="contact-info-text">
+                                <h3 class="contact-info-label">Email doanh nghiệp</h3>
+                                <p class="contact-info-value">contact@scorezone.vn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom: Social Links (Node 1142:2786) -->
+                <div class="contact-social-section">
+                    <h3 class="contact-social-title">Theo dõi chúng tôi</h3>
+                    <div class="contact-social-row">
+                        <!-- Facebook -->
+                        <button type="button" class="contact-social-btn" data-platform="Facebook" title="Facebook">
+                            <img src="./assets/img/figma/eaf2a873743e009266ad175e89b06f8c7877241f.png" alt="Facebook">
+                        </button>
+                        <!-- X -->
+                        <button type="button" class="contact-social-btn" data-platform="X" title="X (Twitter)">
+                            <img src="./assets/img/figma/407764db69e2f902b0613376e05dfdc0a1e5f0ae.png" alt="X">
+                        </button>
+                        <!-- YouTube -->
+                        <button type="button" class="contact-social-btn" data-platform="YouTube" title="YouTube">
+                            <img src="./assets/img/figma/cf57af18e2fef74c5c80e0998b41a068ae253a1d.png" alt="YouTube">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Form Side (Node 1142:2800) -->
+            <div class="contact-form-panel">
+                <h2 class="contact-form-title">Gửi tin nhắn</h2>
+                
+                <form class="contact-form" id="contactForm">
+                    <!-- Field 1: Họ và tên -->
+                    <div class="contact-input-wrap">
+                        <div class="contact-input-icon">
+                            <img src="./assets/img/figma/3a6e773509baac017f5d9a0a4740c3fd038ab966.png" alt="User">
+                        </div>
+                        <input type="text" class="contact-input" id="inputFullName" placeholder="Họ và tên" required>
+                    </div>
+
+                    <!-- Field 2: Địa chỉ Email -->
+                    <div class="contact-input-wrap">
+                        <div class="contact-input-icon">
+                            <img src="./assets/img/figma/5c7d6a83d1e013d4028578c3d09e619518550675.png" alt="Mail">
+                        </div>
+                        <input type="email" class="contact-input" id="inputEmail" placeholder="Địa chỉ Email" required>
+                    </div>
+
+                    <!-- Field 3: Chủ đề -->
+                    <div class="contact-input-wrap">
+                        <div class="contact-input-icon">
+                            <img src="./assets/img/figma/7d22c442f0879254d30d4eec4ddf9dbba01a4a84.png" alt="Topic">
+                        </div>
+                        <input type="text" class="contact-input" id="inputSubject" placeholder="Chủ đề" required>
+                    </div>
+
+                    <!-- Field 4: Nội dung tin nhắn -->
+                    <div class="contact-input-wrap textarea-wrap">
+                        <div class="contact-input-icon">
+                            <img src="./assets/img/figma/2811069a00dc87dfad7ed52ccf6e1360d2d33a42.png" alt="Pencil">
+                        </div>
+                        <textarea class="contact-textarea" id="inputMessage" placeholder="Nội dung tin nhắn" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="contact-submit-btn" id="btnSubmitContact">
+                        <span class="contact-submit-icon">
+                            <img src="./assets/img/figma/6f4ed1158af97623d4ffb1eb60250da39575baa5.svg" alt="Send">
+                        </span>
+                        <span>Gửi đi</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="./index.html" class="footer-logo">
+                    <img src="./assets/css/logo/scorezone-logo.png" alt="ScoreZone Logo">
+                </a>
+                <p class="footer-desc">© 2026 ScoreZone. Cổng thông tin bóng đá đa giải đấu, cập nhật tin tức, lịch thi đấu, kết quả và bảng xếp hạng nhanh chóng.</p>
+            </div>
+            <div class="footer-right">
+                <a href="./privacy-policy.html">Chính sách bảo mật</a>
+                <a href="./terms-of-service.html">Điều khoản dịch vụ</a>
+                <a href="#" id="openCookieSettings">Cài đặt Cookie</a>
+                <a href="./contact.html">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= NÚT BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top-btn" aria-label="Cuộn lên đầu trang">
+        <img src="./assets/img/figma/17fcf1f83b338a47c375bf4d887d85c36d24d3e8.png" alt="Up">
+    </button>
+
+    <!-- ================= MODAL: CÀI ĐẶT COOKIE (Node 912:746) ================= -->
+    <div class="modal-backdrop" id="modalCookieSettings" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+        <div class="modal-container modal-cookie-settings">
+            <div class="cookie-modal-header">
+                <div class="cookie-header-text">
+                    <h2 id="cookieModalTitle">Cài đặt Cookie</h2>
+                    <p>Bạn có thể chọn loại cookie mà ScoreZone được phép sử dụng. Cookie bắt buộc luôn được bật để website hoạt động ổn định.</p>
+                </div>
+                <button type="button" class="cookie-modal-close" id="btnCloseCookieModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/bdaff2427597bc5527dc4e162abc4e11ea4dd0cf.svg" alt="Close">
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <!-- CATEGORY 1: Strictly Necessary -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie bắt buộc</span>
+                        <p class="cookie-category-desc">Cần thiết cho các chức năng cơ bản như bảo mật, ghi nhớ lựa chọn và điều hướng trang.</p>
+                    </div>
+                    <div class="cookie-badge-always">
+                        <img src="./assets/img/figma/875abf72831aa30546f42176f7936f9b7e1cfcdb.svg" alt="Lock">
+                        <span>LUÔN BẬT</span>
+                    </div>
+                </div>
+
+                <!-- CATEGORY 2: Performance & Analytics -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie phân tích trải nghiệm</span>
+                        <p class="cookie-category-desc">Giúp ScoreZone hiểu cách người dùng xem lịch thi đấu, bảng xếp hạng và tin tức để cải thiện giao diện.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie phân tích trải nghiệm">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+
+                <!-- CATEGORY 3: Personalization -->
+                <div class="cookie-category-card">
+                    <div class="cookie-category-info">
+                        <span class="cookie-category-title">Cookie cá nhân hóa</span>
+                        <p class="cookie-category-desc">Ghi nhớ đội bóng, giải đấu yêu thích và tùy chỉnh bảng tin phù hợp hơn với bạn.</p>
+                    </div>
+                    <label class="switch-toggle" aria-label="Bật cookie cá nhân hóa">
+                        <input type="checkbox" id="cookiePersonalization">
+                        <span class="switch-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button type="button" class="btn-cookie-necessary" id="btnCookieNecessaryOnly">Chỉ dùng cookie bắt buộc</button>
+                <button type="button" class="btn-cookie-save" id="btnCookieSave">Lưu lựa chọn</button>
+                <button type="button" class="btn-cookie-accept-all" id="btnCookieAcceptAll">Chấp nhận tất cả</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CHUYỂN HƯỚNG / REDIRECT WARNING (Node 1321:5979) ================= -->
+    <div class="modal-backdrop" id="modalRedirectConfirm" role="dialog" aria-modal="true" aria-labelledby="redirectModalTitle">
+        <div class="modal-redirect-warning">
+            <div class="redirect-modal-header">
+                <div class="redirect-icon-badge">
+                    <img src="./assets/img/figma/2557836a45da964c3e3d986a01cac098fe6f64ac.png" alt="Warning">
+                </div>
+                <button type="button" class="redirect-modal-close" id="btnCloseRedirectModal" aria-label="Đóng">
+                    <img src="./assets/img/figma/ad689c31a6d72e79faccb52e746fe940b10d8f85.svg" alt="Close">
+                </button>
+            </div>
+            <div class="redirect-modal-body">
+                <h2 class="redirect-modal-title" id="redirectModalTitle">Bạn đang rời khỏi <span class="scorezone-brand">ScoreZone</span></h2>
+                <div class="redirect-alert-box">
+                    <p>Liên kết này sẽ đưa bạn đến một trang web bên ngoài. ScoreZone không chịu trách nhiệm và không kiểm soát nội dung cũng như chính sách bảo mật của các nền tảng bên thứ ba. Bạn có chắc chắn muốn tiếp tục?</p>
+                </div>
+                <div class="redirect-actions-row">
+                    <button type="button" class="btn-redirect-back" id="btnRedirectBack">QUAY LẠI</button>
+                    <button type="button" class="btn-redirect-continue" id="btnRedirectContinue">TIẾP TỤC</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: GỬI ĐI THÀNH CÔNG / SUCCESS MODAL (Node 1321:6134) ================= -->
+    <div class="modal-backdrop" id="modalContactSuccess" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+        <div class="modal-contact-success">
+            <div class="success-modal-header">
+                <div class="success-icon-badge">
+                    <img src="./assets/img/figma/8f4497d7ac7a46317b835730e45bd219d017cb58.svg" alt="Success">
+                </div>
+            </div>
+            <div class="success-modal-body">
+                <h2 class="success-modal-title" id="successModalTitle">Gửi tin nhắn thành công!</h2>
+                <div class="success-alert-box">
+                    <p>Cảm ơn bạn đã quan tâm đến ScoreZone. Tin nhắn của bạn đã được hệ thống ghi nhận.</p>
+                </div>
+                <div class="success-actions-row">
+                    <button type="button" class="btn-success-close" id="btnCloseSuccessModal">ĐÓNG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div class="sz-toast" id="szToastNotification" role="status" aria-live="polite">
+        <span id="szToastMessage">Đã gửi tin nhắn</span>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Toast Helper
+        const szToast = document.getElementById('szToastNotification');
+        const szToastMsg = document.getElementById('szToastMessage');
+        let toastTimeout = null;
+        function showToast(msg) {
+            if (!szToast || !szToastMsg) return;
+            szToastMsg.textContent = msg;
+            szToast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                szToast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Settings Popover toggle
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingPanel = document.getElementById('settingPanel');
+        if (settingsBtn && settingPanel) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingPanel.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!settingPanel.contains(e.target) && !settingsBtn.contains(e.target)) {
+                    settingPanel.classList.remove('show');
+                }
+            });
+        }
+
+        // Back to top logic
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Contact Form Submission -> Success Modal (Node 1321:6134)
+        const contactForm = document.getElementById('contactForm');
+        const modalContactSuccess = document.getElementById('modalContactSuccess');
+        const btnCloseSuccessModal = document.getElementById('btnCloseSuccessModal');
+
+        function openSuccessModal() {
+            if (modalContactSuccess) modalContactSuccess.classList.add('show');
+        }
+
+        function closeSuccessModal() {
+            if (modalContactSuccess) modalContactSuccess.classList.remove('show');
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                contactForm.reset();
+                openSuccessModal();
+            });
+        }
+
+        if (btnCloseSuccessModal) btnCloseSuccessModal.addEventListener('click', closeSuccessModal);
+        if (modalContactSuccess) {
+            modalContactSuccess.addEventListener('click', (e) => {
+                if (e.target === modalContactSuccess) closeSuccessModal();
+            });
+        }
+
+        // Social links -> Redirect Warning Modal (Node 1321:5979)
+        const modalRedirect = document.getElementById('modalRedirectConfirm');
+        const btnCloseRedirect = document.getElementById('btnCloseRedirectModal');
+        const btnRedirectBack = document.getElementById('btnRedirectBack');
+        const btnRedirectContinue = document.getElementById('btnRedirectContinue');
+        let pendingPlatform = null;
+
+        function openRedirectModal(platform) {
+            pendingPlatform = platform;
+            if (modalRedirect) modalRedirect.classList.add('show');
+        }
+
+        function closeRedirectModal() {
+            pendingPlatform = null;
+            if (modalRedirect) modalRedirect.classList.remove('show');
+        }
+
+        document.querySelectorAll('.contact-social-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const platform = btn.getAttribute('data-platform') || 'Mạng xã hội';
+                openRedirectModal(platform);
+            });
+        });
+
+        if (btnCloseRedirect) btnCloseRedirect.addEventListener('click', closeRedirectModal);
+        if (btnRedirectBack) btnRedirectBack.addEventListener('click', closeRedirectModal);
+        if (modalRedirect) {
+            modalRedirect.addEventListener('click', (e) => {
+                if (e.target === modalRedirect) closeRedirectModal();
+            });
+        }
+
+        if (btnRedirectContinue) {
+            btnRedirectContinue.addEventListener('click', () => {
+                const target = pendingPlatform || 'liên kết ngoài';
+                closeRedirectModal();
+                showToast(`Đang chuyển hướng tới ${target}...`);
+            });
+        }
+
+        // Escape Key Listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCookieModal();
+                closeSuccessModal();
+                closeRedirectModal();
+            }
+        });
+
+        // Cookie Settings Modal Logic
+        const modalCookieSettings = document.getElementById('modalCookieSettings');
+        const openCookieSettingsBtn = document.getElementById('openCookieSettings');
+        const btnCloseCookieModal = document.getElementById('btnCloseCookieModal');
+        const btnCookieNecessaryOnly = document.getElementById('btnCookieNecessaryOnly');
+        const btnCookieSave = document.getElementById('btnCookieSave');
+        const btnCookieAcceptAll = document.getElementById('btnCookieAcceptAll');
+        const cookieAnalytics = document.getElementById('cookieAnalytics');
+        const cookiePersonalization = document.getElementById('cookiePersonalization');
+
+        function openCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.add('show');
+            const sp = document.getElementById('settingPanel');
+            if (sp) sp.classList.remove('show');
+        }
+
+        function closeCookieModal() {
+            if (modalCookieSettings) modalCookieSettings.classList.remove('show');
+        }
+
+        if (openCookieSettingsBtn) {
+            openCookieSettingsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCookieModal();
+            });
+        }
+
+        if (btnCloseCookieModal) btnCloseCookieModal.addEventListener('click', closeCookieModal);
+        if (modalCookieSettings) {
+            modalCookieSettings.addEventListener('click', (e) => {
+                if (e.target === modalCookieSettings) closeCookieModal();
+            });
+        }
+
+        if (btnCookieNecessaryOnly) {
+            btnCookieNecessaryOnly.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = false;
+                if (cookiePersonalization) cookiePersonalization.checked = false;
+                closeCookieModal();
+                showToast("Đã lưu tùy chọn: Chỉ dùng cookie bắt buộc");
+            });
+        }
+
+        if (btnCookieAcceptAll) {
+            btnCookieAcceptAll.addEventListener('click', () => {
+                if (cookieAnalytics) cookieAnalytics.checked = true;
+                if (cookiePersonalization) cookiePersonalization.checked = true;
+                closeCookieModal();
+                showToast("Đã chấp nhận tất cả cookie");
+            });
+        }
+
+        if (btnCookieSave) {
+            btnCookieSave.addEventListener('click', () => {
+                closeCookieModal();
+                showToast("Đã lưu tùy chọn cookie thành công");
+            });
+        }
+    </script>
+</body>
+</html>
