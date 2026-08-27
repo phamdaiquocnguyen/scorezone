@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ⚡ ANTI-FOUC SCRIPT: Ngăn chặn chớp sáng khi chuyển trang ở Dark Mode -->
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('scorezone_theme');
+                if (theme === 'dark' || (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark-theme');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>ScoreZone - Nền tảng thông tin bóng đá đa giải đấu</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dark-theme.css">
 </head>
 <body>
 
@@ -74,11 +87,11 @@
                         <div class="sp-section">
                             <div class="sp-section-title">GIAO DIỆN</div>
                             <div class="sp-options-grid grid-2">
-                                <button class="sp-btn active" type="button">
+                                <button class="sp-btn active" id="themeLightBtn" data-theme-val="light" type="button">
                                     <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon">
                                     <span>Sáng</span>
                                 </button>
-                                <button class="sp-btn disabled" type="button" disabled>
+                                <button class="sp-btn" id="themeDarkBtn" data-theme-val="dark" type="button">
                                     <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon">
                                     <span>Tối</span>
                                 </button>
@@ -169,8 +182,10 @@
             <!-- Tab 1: Hôm nay -->
             <div class="mc-grid-today active" id="mcTodayGrid">
                 <!-- Cột trái: Trận trực tiếp nổi bật -->
+                <!-- Cột trái: Trận trực tiếp nổi bật -->
                 <div class="featured-match">
                     <div class="fm-top">
+                        <span class="fm-league">UEFA CHAMPIONS LEAGUE</span>
                         <div class="fm-live-badge">
                             <span class="live-dot"></span>
                             <span>TRỰC TIẾP 72'</span>
@@ -236,6 +251,7 @@
                     <!-- Trận 1: Man City vs Arsenal -->
                     <div class="sub-match-card" data-league="premier">
                         <div class="sm-card-header">
+                            <span class="sm-league">PREMIER LEAGUE</span>
                             <span class="sm-time">20:00</span>
                         </div>
                         <div class="sm-teams">
@@ -259,6 +275,7 @@
                     <!-- Trận 2: Barcelona vs Valencia (Đã kết thúc) -->
                     <div class="sub-match-card" data-league="laliga">
                         <div class="sm-card-header">
+                            <span class="sm-league">LA LIGA</span>
                             <span class="sm-time">FINAL</span>
                         </div>
                         <div class="sm-teams">
@@ -290,6 +307,7 @@
                     <!-- Trận 3: Juventus vs Inter Milan -->
                     <div class="sub-match-card" data-league="seriea">
                         <div class="sm-card-header">
+                            <span class="sm-league">SERIE A</span>
                             <span class="sm-time">22:00</span>
                         </div>
                         <div class="sm-teams">
@@ -313,6 +331,7 @@
                     <!-- Trận 4: Liverpool vs PSG (Đã kết thúc) -->
                     <div class="sub-match-card" data-league="uefa">
                         <div class="sm-card-header">
+                            <span class="sm-league">UEFA</span>
                             <span class="sm-time">FINAL</span>
                         </div>
                         <div class="sm-teams">
@@ -1531,5 +1550,7 @@
     </script>
     <!-- Auth State Management -->
     <script src="./assets/js/auth.js"></script>
+    <!-- Theme State Management -->
+    <script src="./assets/js/theme.js"></script>
 </body>
 </html>

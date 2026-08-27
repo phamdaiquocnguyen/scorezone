@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ⚡ ANTI-FOUC SCRIPT: Ngăn chặn chớp sáng khi chuyển trang ở Dark Mode -->
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('scorezone_theme');
+                if (theme === 'dark' || (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark-theme');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>Điều khoản dịch vụ - ScoreZone</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dark-theme.css">
 </head>
 <body>
 
@@ -74,11 +87,11 @@
                         <div class="sp-section">
                             <div class="sp-section-title">GIAO DIỆN</div>
                             <div class="sp-options-grid grid-2">
-                                <button class="sp-btn active" type="button">
+                                <button class="sp-btn active" id="themeLightBtn" data-theme-val="light" type="button">
                                     <img src="./assets/img/figma/sun-icon.svg" alt="Sun" class="sp-icon" onerror="this.style.display='none'">
                                     <span>Sáng</span>
                                 </button>
-                                <button class="sp-btn disabled" type="button" disabled>
+                                <button class="sp-btn" id="themeDarkBtn" data-theme-val="dark" type="button">
                                     <img src="./assets/img/figma/moon-icon.svg" alt="Moon" class="sp-icon" onerror="this.style.display='none'">
                                     <span>Tối</span>
                                 </button>
@@ -129,7 +142,7 @@
         <!-- 1. Hero Section (Figma Node 1414:3702) -->
         <section class="static-page-hero" aria-label="Banner Điều khoản dịch vụ">
             <div class="static-hero-bg">
-                <img src="./assets/img/figma/fd7fd3d5563c3a59d1206e702f10da3b6ccfc507.png" alt="Stadium background">
+                <img src="./assets/img/figma/Hero-Section.png" alt="Stadium background">
             </div>
             <div class="static-hero-content">
                 <h1 class="static-hero-title">Điều khoản dịch vụ <span class="highlight-blue">ScoreZone</span></h1>
@@ -440,5 +453,7 @@
     </script>
     <!-- Auth State Management -->
     <script src="./assets/js/auth.js"></script>
+    <!-- Theme State Management -->
+    <script src="./assets/js/theme.js"></script>
 </body>
 </html>

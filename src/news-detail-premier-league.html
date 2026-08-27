@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ⚡ ANTI-FOUC SCRIPT: Ngăn chặn chớp sáng khi chuyển trang ở Dark Mode -->
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('scorezone_theme');
+                if (theme === 'dark' || (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark-theme');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>Ryan Kavuma-McQueen giành giải Cầu thủ xuất sắc nhất tháng 3 tại PL2 - ScoreZone</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css?v=1.3">
+    <link rel="stylesheet" href="./assets/css/dark-theme.css">
 </head>
 <body class="uefa-page-body">
 
@@ -601,6 +614,85 @@
         </div>
     </div>
 
+    <!-- ================= MODAL 1: CHIA SẺ BÀI VIẾT (Node 1620:2733) ================= -->
+    <div class="sz-modal share-modal" id="modalShareArticle" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+        <div class="sz-modal-overlay" id="overlayShareArticle"></div>
+        <div class="share-modal-dialog">
+            <div class="share-modal-header">
+                <div>
+                    <h3 class="share-modal-title" id="shareModalTitle">Chia sẻ bài viết</h3>
+                    <p class="share-modal-subtitle">Chia sẻ tin tức này với bạn bè của bạn</p>
+                </div>
+                <button class="modal-close-btn" id="btnCloseShareModal" aria-label="Đóng chia sẻ">
+                    <img src="./assets/img/figma/ad689c31a6d72e79faccb52e746fe940b10d8f85.svg" alt="Close">
+                </button>
+            </div>
+
+            <div class="share-options-grid">
+                <!-- Facebook -->
+                <button type="button" class="share-option-btn" onclick="openRedirectModal('Facebook')">
+                    <div class="share-icon-wrapper share-facebook">
+                        <img src="./assets/img/figma/b392734895ad77d06db8548575267143dd1a2865.png" alt="Facebook">
+                    </div>
+                    <span>Facebook</span>
+                </button>
+
+                <!-- Messenger -->
+                <button type="button" class="share-option-btn" onclick="openRedirectModal('Messenger')">
+                    <div class="share-icon-wrapper share-messenger">
+                        <img src="./assets/img/figma/b26d88092679299a886f8c7ea2d02bbc7db39f35.png" alt="Messenger">
+                    </div>
+                    <span>Messenger</span>
+                </button>
+
+                <!-- X (Twitter) -->
+                <button type="button" class="share-option-btn" onclick="openRedirectModal('X')">
+                    <div class="share-icon-wrapper share-x">
+                        <img src="./assets/img/figma/040376eaed619e9fea270f4aec62995c61bc5015.png" alt="X">
+                    </div>
+                    <span>X (Twitter)</span>
+                </button>
+
+                <!-- Threads -->
+                <button type="button" class="share-option-btn" onclick="openRedirectModal('Threads')">
+                    <div class="share-icon-wrapper share-threads">
+                        <img src="./assets/img/figma/9abaa2baf7d81995714c6d9a11ac01b6cea99cdd.png" alt="Threads">
+                    </div>
+                    <span>Threads</span>
+                </button>
+
+                <!-- TikTok -->
+                <button type="button" class="share-option-btn" onclick="openRedirectModal('TikTok')">
+                    <div class="share-icon-wrapper share-tiktok">
+                        <img src="./assets/img/figma/31aac9cfbecd33e6fd39f34b2ac87999a847bcb0.png" alt="TikTok">
+                    </div>
+                    <span>TikTok</span>
+                </button>
+
+                <!-- Khác -->
+                <button type="button" class="share-option-btn" onclick="openRedirectModal('Khác')">
+                    <div class="share-icon-wrapper share-other">
+                        <img src="./assets/img/figma/68231c0853e9e9c747f49b554a2f263aea605c8f.svg" alt="Khác">
+                    </div>
+                    <span>Khác</span>
+                </button>
+            </div>
+
+            <div class="share-divider"></div>
+
+            <div class="share-copy-section">
+                <label class="share-copy-label" for="shareCopyInput">Sao chép đường dẫn</label>
+                <div class="share-copy-box">
+                    <input type="text" id="shareCopyInput" class="share-copy-input" value="https://scorezone.com/tin-tuc/laliga-experience-mallorca" readonly>
+                    <button type="button" class="share-btn-copy" id="btnCopyShareLink">
+                        <img src="./assets/img/figma/7e7fda5d859f91a541f45aec89e359799e21df48.png" alt="Copy">
+                        <span id="copyBtnText">Sao chép</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ================= MODAL: CHUYỂN HƯỚNG / REDIRECT WARNING (Node 1321:5979) ================= -->
     <div class="modal-backdrop" id="modalRedirectConfirm" role="dialog" aria-modal="true" aria-labelledby="redirectModalTitle">
         <div class="modal-redirect-warning">
@@ -953,5 +1045,7 @@
     </script>
     <!-- Auth State Management -->
     <script src="./assets/js/auth.js"></script>
+    <!-- Theme State Management -->
+    <script src="./assets/js/theme.js"></script>
 </body>
 </html>

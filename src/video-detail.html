@@ -1,7 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <!-- ⚡ ANTI-FOUC SCRIPT: Ngăn chặn chớp sáng khi chuyển trang ở Dark Mode -->
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('scorezone_theme');
+                if (theme === 'dark' || (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark-theme');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <meta http-equiv="refresh" content="0; url=./video-detail-uefa.html">
     <title>Chuyển hướng - ScoreZone</title>
     <script>
@@ -12,5 +24,7 @@
     <p>Đang chuyển hướng tới <a href="./video-detail-uefa.html">Chi tiết Video Highlights</a>...</p>
     <!-- Auth State Management -->
     <script src="./assets/js/auth.js"></script>
+    <!-- Theme State Management -->
+    <script src="./assets/js/theme.js"></script>
 </body>
 </html>

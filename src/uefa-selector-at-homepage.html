@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ⚡ ANTI-FOUC SCRIPT: Ngăn chặn chớp sáng khi chuyển trang ở Dark Mode -->
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('scorezone_theme');
+                if (theme === 'dark' || (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark-theme');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>ScoreZone - UEFA Champions League</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dark-theme.css">
 </head>
 <body>
 
@@ -171,6 +184,7 @@
                 <!-- Cột trái: Trận trực tiếp nổi bật -->
                 <div class="featured-match">
                     <div class="fm-top">
+                        <span class="fm-league">UEFA CHAMPIONS LEAGUE</span>
                         <div class="fm-live-badge">
                             <span class="live-dot"></span>
                             <span>TRỰC TIẾP 72'</span>
@@ -1536,5 +1550,6 @@
     </script>
     <!-- Auth State Management -->
     <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/theme.js"></script>
 </body>
 </html>
