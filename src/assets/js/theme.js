@@ -41,8 +41,10 @@
 
         if (document.documentElement) {
             if (isDark) {
+                document.documentElement.classList.add('dark-theme');
                 document.documentElement.setAttribute('data-theme', 'dark');
             } else {
+                document.documentElement.classList.remove('dark-theme');
                 document.documentElement.removeAttribute('data-theme');
             }
         }

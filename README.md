@@ -1,4 +1,4 @@
-# ⚽ ScoreZone
+# ⚽ ScoreZoneee
 
 > A multi-competition football information platform — from research-driven UI/UX design to front-end implementation.
 
@@ -195,8 +195,8 @@ Detailed research and academic documentation can live inside `docs/` rather than
 
 ## 🔗 Links
 
-- 🎨 **Figma Design:** [Open Figma](YOUR_FIGMA_LINK)
-- 🖱️ **Interactive Prototype:** [Open Prototype](YOUR_PROTOTYPE_LINK)
+- 🎨 **Figma Design:** [Open Figma](https://www.figma.com/design/kBgMkOeeR3Jgjip1Z3V6QJ/IE106-Nhom12?node-id=0-1&t=yrXtAbZcLh0pV7CO-1)
+- 🖱️ **Interactive Prototype:** [Open Prototype](https://www.figma.com/proto/kBgMkOeeR3Jgjip1Z3V6QJ/IE106-Nhom12?node-id=2262-3324&p=f&t=F1KqQUkYaTC85cvd-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2262%3A3324)
 - 📄 **Project Report:** [View Report](YOUR_REPORT_LINK)
 - 🎥 **Demo:** [Watch Demo](YOUR_DEMO_LINK)
 
@@ -216,9 +216,8 @@ Detailed research and academic documentation can live inside `docs/` rather than
 1. Complete the HTML/CSS implementation.
 2. Add JavaScript interactions and UI states.
 3. Rebuild reusable components with React.
-4. Connect real football data through an API.
-5. Add personalization such as followed teams, saved articles, and notifications.
-6. Improve responsive and accessibility support.
+4. Add personalization such as followed teams, saved articles, and notifications.
+5. Improve responsive and accessibility support.
 7. Deploy the application.
 
 ---
