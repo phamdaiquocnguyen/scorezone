@@ -8,3 +8,5 @@ jobs:
 
     steps:
       - run: echo "Xin chao tu GitHub Actions!"
+      - uses: actions/checkout@v4
+      - run: ls -la 
